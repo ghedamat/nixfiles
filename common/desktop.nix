@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    # Only needed for 18.09 and older:
-    # ../backports/startx.nix
-  ];
 
   # FIXME: Is this necessary?
   system.copySystemConfiguration = true;
@@ -41,13 +37,17 @@
     tmux
     tree
     unzip
-    wget
 
     # Wireless
     bluez
     iw # wireless tooling
     crda # wireless regulatory agent
     wireless-regdb
+
+    # comm
+    tdesktop
+    slack
+    zoom-us
   ];
 
   environment.shellInit = ''
@@ -55,12 +55,32 @@
     export VISUAL=nvim
   '';
 
-  fonts.fonts = with pkgs; [
-    dejavu_fonts
-    terminus
-    nerdfonts  # Includes font-awesome, material-icons, powerline-fonts
+  fonts = {
+    enableFontDir = true;
+    fontconfig.enable= true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
     emojione
-  ];
+    terminus
+      nerdfonts  # Includes font-awesome, material-icons, powerline-fonts
+      fira
+      fira-code
+      fira-mono
+      cantarell_fonts
+      corefonts # Microsoft free fonts
+      gentium
+      inconsolata
+      noto-fonts
+      opensans-ttf
+      freefont_ttf
+      liberation_ttf
+      xorg.fontmiscmisc
+      ubuntu_font_family
+      dejavu_fonts
+      powerline-fonts
+      font-awesome_5
+    ];
+  };
 
   i18n = {
     consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";

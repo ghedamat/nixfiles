@@ -9,7 +9,6 @@
     displayManager.startx.enable = true;
     desktopManager.default = "i3";  # We startx in our home.nix
     windowManager.i3.enable = true;
-    #displayManager.slim.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -21,7 +20,19 @@
     pcmanfm
     rofi
     xss-lock
+    polybar
   ];
+
+  # build polybar with i3 support
+  # does not seem to build w/out pulseaudio support as well
+  nixpkgs.config = {
+    packageOverrides = pkgs: rec {
+      polybar = pkgs.polybar.override {
+        i3Support = true;
+        pulseSupport = true;
+      };
+    };
+  };
 
   services.clipmenu.enable = true;
   # Based on https://github.com/cdown/clipmenu/blob/develop/init/clipmenud.service
