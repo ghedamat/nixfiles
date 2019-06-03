@@ -2,6 +2,10 @@
 
 Some of my .nix files
 
+mostly based on @shazow's work
+
+https://github.com/shazow/nixfiles
+
 ## Installing
 
 ### Disk Setup
@@ -134,7 +138,9 @@ nixos-install --root /mnt
 
 ## References
 
-Big thanks to my friend group of NixOS pioneers who paved through the unknowns, and answered many questions along the way.
+Big thanks to @shazow!
+
+below his friends that helped!
 
 - [@arilotter](https://github.com/arilotter) and https://github.com/arilotter/dotfiles
 - [@attente](https://github.com/attente) and https://github.com/attente/dotfiles
