@@ -78,6 +78,11 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     xfontsel
   ];
 
+  # zsh stuff
+  programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
+  programs.autojump.enable = true;
 
   networking.hostName = "x280nix";
   networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
