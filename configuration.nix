@@ -1,1 +1,0 @@
-ghedamat-x280.nix
