@@ -9,8 +9,8 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" ];
   boot.blacklistedKernelModules = [ "mei_me" ];
+  #options iwlwifi power_save=1 d0i3_disable=0 uapsd_disable=0
   boot.extraModprobeConfig = ''
-     options iwlwifi power_save=1 d0i3_disable=0 uapsd_disable=0
      options iwldvm force_cam=0
      options cfg80211 ieee80211_regdom=US
      options snd_hda_intel power_save=1 power_save_controller=Y
