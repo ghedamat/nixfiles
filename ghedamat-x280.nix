@@ -61,11 +61,9 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     (import ./common/vim.nix)
     git
     curl
-    ruby
     emacs
     docker
     docker-compose
-    nodejs-11_x
     zsh
     keychain
     homesick
@@ -76,6 +74,13 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     silver-searcher
     rxvt_unicode
     xfontsel
+
+    tig
+
+    ruby
+
+    yarn
+    nodejs-11_x
   ];
 
   # zsh stuff
