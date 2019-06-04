@@ -106,8 +106,8 @@
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.brgenml1lpr pkgs.brgenml1cupswrapper];
 
-  services.dnsmasq.enable = true;
-  services.dnsmasq.servers = [ "1.1.1.1" "8.8.8.8" "8.8.4.4" ];
+  #services.dnsmasq.enable = true;
+  #services.dnsmasq.servers = [ "1.1.1.1" "8.8.8.8" "8.8.4.4" ];
 
   # Gaming (Steam)
   services.flatpak.enable = true;
