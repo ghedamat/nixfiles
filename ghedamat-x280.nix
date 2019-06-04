@@ -29,6 +29,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     ./common/boot.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
+    ./common/dev.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -62,8 +63,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     git
     curl
     emacs
-    docker
-    docker-compose
     zsh
     keychain
     homesick
@@ -76,11 +75,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     xfontsel
 
     tig
-
-    ruby
-
-    yarn
-    nodejs-11_x
   ];
 
   # zsh stuff
@@ -88,10 +82,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   programs.zsh.enableCompletion = true;
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
   programs.autojump.enable = true;
-
-  # docker stuff
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
 
 
   networking.hostName = "x280nix";

@@ -37,6 +37,7 @@
     tmux
     tree
     unzip
+    imagemagick
 
     # Wireless
     bluez
