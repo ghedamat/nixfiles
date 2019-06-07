@@ -7,8 +7,8 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware/vm.nix
-    ];
+    ./hardware/vm.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -20,7 +20,7 @@
   boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
 
   networking.hostName = "thanix"; # Define your hostname.
-networking.firewall.enable = false;
+  networking.firewall.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -36,7 +36,7 @@ networking.firewall.enable = false;
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
-  
+
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
@@ -52,7 +52,7 @@ networking.firewall.enable = false;
     silver-searcher
     yarn
     nodejs-11_x
-tig
+    tig
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -92,9 +92,9 @@ tig
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ghedamat = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-     shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   # zsh stuff
