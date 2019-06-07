@@ -38,6 +38,8 @@
     tree
     unzip
     imagemagick
+    lxrandr
+    pcmanfm
 
     # Wireless
     bluez
