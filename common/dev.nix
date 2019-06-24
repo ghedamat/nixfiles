@@ -5,6 +5,7 @@
     gnumake
     awscli
     jq
+    terraform
 
     docker
     docker-compose
@@ -13,6 +14,8 @@
 
     yarn
     nodejs-11_x
+
+    heroku
   ];
 
   # docker stuff
