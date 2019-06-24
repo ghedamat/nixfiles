@@ -52,7 +52,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     # Apps
     alacritty
     gnupg
-    google-chrome-beta
 
     # Other
     alsa-firmware

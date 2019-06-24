@@ -53,6 +53,12 @@
     tdesktop
     slack
     zoom-us
+    discord
+
+    # misc
+    calibre
+    google-chrome-beta
+    firefox-beta-bin
   ];
 
   environment.shellInit = ''
