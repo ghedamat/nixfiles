@@ -3,3 +3,4 @@ configuration.nix
 disk.nix
 *.gz
 *.key
+*.ovpn

@@ -40,6 +40,8 @@
     imagemagick
     lxrandr
     pcmanfm
+    gotop
+    openvpn
 
     # Wireless
     bluez
