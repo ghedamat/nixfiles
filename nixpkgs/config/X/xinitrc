@@ -1,0 +1,19 @@
+xmodmap .Xmodmap
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 8 2
+xinput set-int-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation" 8 1
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation Button" 8 2
+xinput set-int-prop "TPPS/2 Elan TrackPoint" "Evdev Wheel Emulation Axes" 8 6 7 4 5
+
+#xinput --disable 13
+synclient "TapButton2"=3
+synclient "TapButton3"=2
+
+xrdb -merge ~/.Xdefaults
+xrdb -merge ~/.Xresources
+setxkbmap -option ctrl:nocaps
+setxkbmap -option altwin:swap_alt_win
+
+#exec nm-applet
+exec /run/current-system/sw/bin/i3
