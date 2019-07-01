@@ -10,7 +10,6 @@
   home.file.".tmux.conf".source = config/tmux.conf;
   home.file.".xinitrc".source = config/X/xinitrc;
 
-
   programs.git = {
     enable = true;
     userName = "Mattia Gheda";
