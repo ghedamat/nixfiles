@@ -16,4 +16,5 @@ setxkbmap -option ctrl:nocaps
 setxkbmap -option altwin:swap_alt_win
 
 #exec nm-applet
-exec /run/current-system/sw/bin/i3
+# dbus-launch manages cross-process communication (required for GTK systray icons, etc).
+exec dbus-launch --exit-with-x11 i3
