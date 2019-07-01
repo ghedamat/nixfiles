@@ -21,6 +21,7 @@
     rofi
     xss-lock
     polybar
+    i3status-rust
   ];
 
   # build polybar with i3 support

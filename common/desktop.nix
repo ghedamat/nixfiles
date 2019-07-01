@@ -42,6 +42,7 @@
     pcmanfm
     gotop
     openvpn
+    bc
 
     # Wireless
     bluez
@@ -100,6 +101,7 @@
   };
 
   networking.networkmanager.enable = true;
+  programs.nm-applet.enable = true;
   # networking.firewall.allowedTCPPorts = [];
   # networking.firewall.allowedUDPPorts = [];
 
