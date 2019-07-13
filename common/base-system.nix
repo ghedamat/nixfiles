@@ -11,7 +11,7 @@
     yarn
     nodejs-11_x
 
-    (import ./common/vim.nix)
+    (import ./vim.nix)
     neovim
     emacs
 

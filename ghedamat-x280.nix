@@ -27,6 +27,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   imports = [
     ./hardware/thinkpad-x280.nix
     ./common/boot.nix
+    ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
     ./common/dev.nix
