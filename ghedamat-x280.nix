@@ -89,6 +89,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
   networking.extraHosts = 
     ''
+    127.0.0.1 es-dev.precisionnutrition.com
     '';
 
   users.users.ghedamat = {

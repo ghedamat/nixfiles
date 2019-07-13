@@ -19,7 +19,11 @@
     yarn
     nodejs-11_x
 
+    electron
+
     heroku
+
+    meld
   ];
 
   # docker stuff
