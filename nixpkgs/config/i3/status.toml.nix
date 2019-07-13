@@ -1,3 +1,5 @@
+{
+home.file.".config/i3/status.toml".text = ''
 theme = "solarized-dark"
 
 [icons]
@@ -82,4 +84,5 @@ block = "sound"
 block = "time"
 interval = 10
 format = "%a %Y-%m-%d %l:%M%p"
-
+'';
+}

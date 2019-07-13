@@ -5,10 +5,15 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.file.".config/i3/config".source = config/i3/config;
-  home.file.".config/i3/status.toml".source = config/i3/status.toml;
-  home.file.".tmux.conf".source = config/tmux.conf;
-  home.file.".xinitrc".source = config/X/xinitrc;
+  home.packages = with pkgs; [
+    vscode
+  ];
+
+  imports = [
+    ./config/i3/config.nix
+    ./config/i3/status.toml.nix
+    ./config/tmux.conf.nix
+  ];
 
   programs.git = {
     enable = true;
@@ -67,16 +72,16 @@
     };
   };
 
-  #gtk = {
-  #  enable = true;
-  #  theme = {
-  #    package = pkgs.theme-vertex;
-  #    name = "Vertex-Dark";
-  #  };
-  #  iconTheme = {
-  #    package = pkgs.tango-icon-theme;
-  #    name = "Tango";
-  #  };
-  #};
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.theme-vertex;
+      name = "Vertex-Dark";
+    };
+    iconTheme = {
+      package = pkgs.tango-icon-theme;
+      name = "Tango";
+    };
+  };
 
 }

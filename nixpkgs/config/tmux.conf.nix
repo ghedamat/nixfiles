@@ -1,3 +1,5 @@
+{
+home.file.".tmux.conf".text = ''
 #set -g default-terminal "screen-256color"
 set -g default-terminal "xterm"
 set -ga terminal-overrides ",rxvt*:XT"
@@ -162,3 +164,5 @@ bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft=
 #set-option -g default-command "reattach-to-user-namespace -l zsh"
 # Use vim keybindings in copy mode
 setw -g mode-keys vi
+'';
+}
