@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
     ./hardware/vm.nix
+    ./common/base-system.nix
+    ./common/dev.nix
   ];
 
   # Use the GRUB 2 boot loader.
