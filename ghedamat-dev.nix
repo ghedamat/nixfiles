@@ -42,17 +42,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git curl ruby emacs google-chrome docker docker-compose zsh
-    keychain
-    homesick
-    fzf
-    autojump
-    tmux
-    source-code-pro
-    silver-searcher
-    yarn
-    nodejs-11_x
-    tig
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -33,47 +33,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   ];
 
   environment.systemPackages = with pkgs; [
-    # Desktop
-    alsaTools
-    arandr
-    blueman
-    colord
-    dunst
-    feh
-    libnotify
-    maim
-    openvpn
-    pavucontrol
-    xclip
-    xdotool
-    xsel
-    xorg.xbacklight
-
-    # Apps
-    alacritty
-    gnupg
-
-    # Other
-    alsa-firmware
-
-    # mix 
-    wget
-    (import ./common/vim.nix)
-    git
-    curl
-    emacs
-    zsh
-    keychain
-    homesick
-    fzf
-    autojump
-    tmux
-    source-code-pro
-    silver-searcher
-    rxvt_unicode
-    xfontsel
-
-    tig
   ];
 
   # zsh stuff

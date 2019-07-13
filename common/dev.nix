@@ -24,6 +24,10 @@
     heroku
 
     meld
+
+    google-chrome
+    docker
+    docker-compose
   ];
 
   # docker stuff

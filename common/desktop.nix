@@ -63,6 +63,33 @@
     calibre
     google-chrome-beta
     firefox-beta-bin
+
+    # Desktop
+    alsaTools
+    arandr
+    blueman
+    colord
+    dunst
+    feh
+    libnotify
+    maim
+    openvpn
+    pavucontrol
+    xclip
+    xdotool
+    xsel
+    xorg.xbacklight
+
+    # Apps
+    alacritty
+    gnupg
+
+    # Other
+    alsa-firmware
+
+    # mix
+    rxvt_unicode
+    xfontsel
   ];
 
   environment.shellInit = ''
