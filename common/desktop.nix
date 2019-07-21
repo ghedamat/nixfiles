@@ -79,6 +79,7 @@
     xdotool
     xsel
     xorg.xbacklight
+    rdesktop
 
     # Apps
     alacritty
