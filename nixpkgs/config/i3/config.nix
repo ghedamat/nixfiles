@@ -92,7 +92,7 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2: web
+bindsym $mod+2 workspace 2: work
 bindsym $mod+3 workspace 3: chat
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
@@ -104,7 +104,7 @@ bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+2 move container to workspace 2: work
 bindsym $mod+Shift+3 move container to workspace 3: chat
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
