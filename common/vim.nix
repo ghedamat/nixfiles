@@ -19,6 +19,7 @@ vim_configurable.customize {
       "Syntastic"
       "vim-nix"
       "nerdtree"
+      "vimproc-vim"
     ]; }
   ];
 }

@@ -28,6 +28,12 @@
     google-chrome
     docker
     docker-compose
+
+    solargraph
+    nodePackages.eslint
+    ocamlPackages.reason
+
+    fd
   ];
 
   # docker stuff
