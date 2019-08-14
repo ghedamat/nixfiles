@@ -34,6 +34,8 @@
     ocamlPackages.reason
 
     fd
+
+    rustup
   ];
 
   # docker stuff
