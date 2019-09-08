@@ -8,4 +8,5 @@
 
   networking.networkmanager.enable = true;
   services.sshd.enable = true;
+  programs.mosh.enable = true;
 }
