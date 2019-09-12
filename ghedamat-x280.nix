@@ -75,6 +75,10 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   ## NEW
   services.openssh.enable = true;
 
+  services.logind.extraConfig = ''
+    RuntimeDirectorySize=7.8G
+  '';
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you

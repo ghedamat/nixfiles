@@ -22,6 +22,8 @@
     xss-lock
     polybar
     i3status-rust
+
+    compton
   ];
 
   # build polybar with i3 support
