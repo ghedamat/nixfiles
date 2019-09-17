@@ -23,5 +23,7 @@
     tmux
     source-code-pro
     silver-searcher
+
+    keybase
   ];
 }
