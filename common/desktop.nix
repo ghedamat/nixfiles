@@ -91,6 +91,9 @@
     # mix
     rxvt_unicode
     xfontsel
+
+    # tether
+    libimobiledevice
   ];
 
   environment.shellInit = ''
@@ -133,8 +136,8 @@
 
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
-  # networking.firewall.allowedTCPPorts = [];
-  # networking.firewall.allowedUDPPorts = [];
+  networking.firewall.allowedTCPPorts = [2323 3000];
+  networking.firewall.allowedUDPPorts = [2323 3000];
 
   hardware.sane.enable = true;
   hardware.pulseaudio = {
@@ -166,4 +169,6 @@
     layout = "us";
     libinput.enable = true;
   };
+
+  services.usbmuxd.enable = true;
 }

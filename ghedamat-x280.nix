@@ -47,9 +47,11 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
+  #127.0.0.1 es-dev.precisionnutrition.com
   networking.extraHosts = 
     ''
-    127.0.0.1 es-dev.precisionnutrition.com
+  127.0.0.1 es-dev.precisionnutrition.com es-foo
+  127.0.0.1 local_rails
     '';
 
   users.users.ghedamat = {
