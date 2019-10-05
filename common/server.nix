@@ -13,6 +13,10 @@
   services.openssh.enable = true;
   services.openssh.forwardX11 = true;
 
+  # enable open-vm-tools for esxi integration
+  virtualisation.vmware.guest.enable = true;
+  virtualisation.vmware.guest.headless = true;
+
   services.xserver = {
     enable = true;
     layout = "us";
