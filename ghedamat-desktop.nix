@@ -7,14 +7,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   time.timeZone = "America/Toronto";
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" ];
-  boot.blacklistedKernelModules = [ "mei_me" ];
-  #options iwlwifi power_save=1 d0i3_disable=0 uapsd_disable=0
-  boot.extraModprobeConfig = ''
-     options iwldvm force_cam=0
-     options cfg80211 ieee80211_regdom=US
-     options snd_hda_intel power_save=1 power_save_controller=Y
-  '';
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
@@ -25,8 +17,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   imports = [
-    ./hardware/thinkpad-x280.nix
-    ./common/boot-x280.nix
+    ./hardware/desktop-i5.nix
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
@@ -43,29 +34,27 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   programs.autojump.enable = true;
 
 
-  networking.hostName = "x280nix";
+  networking.hostName = "border";
   networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
   #127.0.0.1 es-dev.precisionnutrition.com
-  networking.extraHosts = 
+  networking.extraHosts =
     ''
-  127.0.0.1 es-dev.precisionnutrition.com es-foo
-  127.0.0.1 local_rails
     '';
 
   users.users.ghedamat = {
     isNormalUser = true;
     home = "/home/ghedamat";
     description = "ghedamat";
-    extraGroups = [ 
+    extraGroups = [
       "wheel"
       "sudoers"
       "audio"
-      "video" 
-      "disk" 
+      "video"
+      "disk"
       "networkmanager"
-      "plugdev" 
+      "plugdev"
       "adbusers"
       "docker"
     ];
