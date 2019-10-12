@@ -1,5 +1,3 @@
-let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see Makefile)
-
 { config, pkgs, lib, ... }:
 
 {
@@ -13,8 +11,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   hardware.bluetooth.powerOnBoot = false;
   hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver ];
 
-  nix.maxJobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  nix.maxJobs = lib.mkDefault 4;
 
   imports = [
     ./hardware/desktop-i5.nix
@@ -23,6 +20,9 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     ./common/yubikey.nix
     ./common/dev.nix
   ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   environment.systemPackages = with pkgs; [
   ];
@@ -59,7 +59,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
       "docker"
     ];
     uid = 1000;
-    hashedPassword = hashedPassword;
     shell = pkgs.zsh;
   };
 
@@ -74,5 +73,5 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 }

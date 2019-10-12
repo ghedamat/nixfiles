@@ -9,7 +9,7 @@
 
     ruby
     yarn
-    nodejs-11_x
+    nodejs-10_x
 
     (import ./vim.nix)
     neovim

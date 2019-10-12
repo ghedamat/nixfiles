@@ -17,7 +17,7 @@
     bundix
 
     yarn
-    nodejs-11_x
+    nodejs-10_x
 
     electron
 
