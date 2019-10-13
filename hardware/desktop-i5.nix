@@ -23,9 +23,7 @@
     Option "DRI" "2"
   '';
 
-  services.xserver.screen = ''
-    Identifier     "Screen0"
-    Device         "Device0"
+  services.xserver.screenSection = ''
     Monitor        "Monitor0"
     DefaultDepth    24
     Option         "Stereo" "0"
