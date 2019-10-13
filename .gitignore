@@ -1,6 +1,7 @@
 /.*
 configuration.nix
 disk.nix
+nixpkgs/home.nix
 *.gz
 *.key
 *.ovpn
