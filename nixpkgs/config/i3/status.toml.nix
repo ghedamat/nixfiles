@@ -60,6 +60,14 @@ interval = 20
 format = "{min}~{max}°"
 
 [[block]]
+block = "battery"
+interval = 10
+show = "both"
+
+[[block]]
+block = "backlight"
+
+[[block]]
 block = "toggle"
 command_state = "systemctl --user -q is-active redshift && echo on"
 command_on = "systemctl --user start redshift"
