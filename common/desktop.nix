@@ -56,7 +56,6 @@
     # comm
     tdesktop
     slack
-    zoom-us
     discord
 
     # misc

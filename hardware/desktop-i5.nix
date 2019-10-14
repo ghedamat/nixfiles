@@ -42,4 +42,12 @@
         Depth       24
     EndSubSection
   '';
+
+  environment.systemPackages = with pkgs; [
+    libv4l
+    v4l-utils
+    xawtv
+  ];
+
+  hardware.logitech.enableGraphical = true;
 }
