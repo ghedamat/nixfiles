@@ -65,6 +65,7 @@
 
     # Desktop
     alsaTools
+    libpulseaudio
     arandr
     blueman
     colord
@@ -80,7 +81,8 @@
     xorg.xbacklight
     rdesktop
     x2goclient
-
+    tightvnc
+    tigervnc
 
     # Apps
     alacritty
