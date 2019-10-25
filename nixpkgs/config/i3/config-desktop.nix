@@ -91,10 +91,10 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2: work
-bindsym $mod+3 workspace 3: chat
-bindsym $mod+4 workspace 4: home
+bindsym $mod+1 workspace 1: main
+bindsym $mod+2 workspace 2: web
+bindsym $mod+3 workspace 3: misc
+bindsym $mod+4 workspace 4: chat
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -103,10 +103,10 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2: work
-bindsym $mod+Shift+3 move container to workspace 3: chat
-bindsym $mod+Shift+4 move container to workspace 4: home
+bindsym $mod+Shift+1 move container to workspace 1: main
+bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+3 move container to workspace 3: misc
+bindsym $mod+Shift+4 move container to workspace 4: chat
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -161,12 +161,14 @@ for_window [class="Pidgin"] layout splith
 for_window [class="Skype"] split vertical
 for_window [class="Pidgin"] split vertical
 
-assign [class="Firefox"] 4: home
-assign [title="Google Chrome"] 2: work
-assign [class="Skype"] 3: chat
-assign [class="Pidgin"] 3: chat
-assign [class="Telegram"] 3: chat
-assign [title="Slack"] 3: chat
+for_window [class="Telegram"] split horizontal
+for_window [class="Slack"] split horizontal
+
+assign [class="Firefox"] 2: web
+assign [title="Google Chrome"] 1: main
+assign [class="Skype"] 4: chat
+assign [class="Telegram"] 4: chat
+assign [title="Slack"] 4: chat
 assign [title="Discord"] 5: discord
 
 bindsym $mod+n workspace next
@@ -181,14 +183,6 @@ bindsym $mod+Shift+comma move scratchpad
 # # Show the first scratchpad window
 bindsym $mod+comma scratchpad show
 
-# Solarized Colors
-# class border backgr. text indicator
-
-  #status_command /home/tha/Dev/VAR/i3status/h2status
-  #status_command /home/tha/Dev/VAR/i3status/i3status
-  #status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/test.rb
-  #status_command /home/tha/Dev/GO/src/github.com/ghedamat/go-i3status/go-i3status
-  #
 bindsym $mod+Control+n focus output up
 bindsym $mod+Control+b focus output down
 bindsym $mod+Shift+n move workspace to output up
@@ -201,11 +195,15 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 #exec btsync
-exec $term
 #exec polybar i3wmthemer_bar
 exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
-#exec google-chrome
-#exec Telegram
+
+exec $term
+exec google-chrome-stable
+exec firefox
+exec telegram-desktop
+exec slack
+
 client.background #1E272B
 client.focused #EAD49B #EAD49B #1E272B #9D6A47 #9D6A47
 client.unfocused #EAD49B #1E272B #EAD49B #78824B #78824B

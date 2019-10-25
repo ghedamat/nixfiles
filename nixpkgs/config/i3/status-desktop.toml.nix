@@ -73,6 +73,10 @@ interval = 60
 block = "sound"
 
 [[block]]
+block = "pomodoro"
+use_nag = true
+
+[[block]]
 block = "time"
 interval = 10
 format = "%a %Y-%m-%d %l:%M%p"
