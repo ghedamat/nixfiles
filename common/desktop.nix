@@ -79,6 +79,8 @@
     xsel
     xorg.xbacklight
     rdesktop
+    x2goclient
+
 
     # Apps
     alacritty
