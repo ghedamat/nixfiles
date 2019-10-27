@@ -16,7 +16,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
      options snd_hda_intel power_save=1 power_save_controller=Y
   '';
 
-  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver ];
@@ -33,9 +33,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     ./common/desktop-i3.nix
     ./common/yubikey.nix
     ./common/dev.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
   ];
 
   # zsh stuff
