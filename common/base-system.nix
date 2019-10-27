@@ -9,7 +9,7 @@
 
     ruby
     yarn
-    nodejs-11_x
+    nodejs-10_x
 
     (import ./vim.nix)
     (import ./neovim.nix)
@@ -24,6 +24,6 @@
     source-code-pro
     silver-searcher
 
-    keybase
+    htop
   ];
 }

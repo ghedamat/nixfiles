@@ -52,7 +52,6 @@
     # comm
     tdesktop
     slack
-    zoom-us
     discord
 
     # misc
@@ -62,6 +61,7 @@
 
     # Desktop
     alsaTools
+    libpulseaudio
     arandr
     blueman
     colord
@@ -76,6 +76,9 @@
     xsel
     xorg.xbacklight
     rdesktop
+    x2goclient
+    tightvnc
+    tigervnc
 
     # Apps
     alacritty
@@ -153,8 +156,9 @@
   #services.dnsmasq.servers = [ "1.1.1.1" "8.8.8.8" "8.8.4.4" ];
 
   # Gaming (Steam)
+  xdg.portal.enable = true;
   services.flatpak.enable = true;
-  services.flatpak.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   hardware.opengl.driSupport32Bit = true;
   hardware.pulseaudio.support32Bit = true;
 

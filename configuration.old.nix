@@ -7,24 +7,22 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-    ./hardware/vm.nix
-    ./common/base-system.nix
-    ./common/dev.nix
-    ./common/server.nix
-  ];
+      ./hardware-configuration.nix
+    ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "thanix"; # Define your hostname.
-  networking.firewall.enable = false;
+  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = false;
+  networking.interfaces.eno1.useDHCP = true;
+  networking.interfaces.enp6s0.useDHCP = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -40,17 +38,21 @@
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
 
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   wget vim
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -65,6 +67,11 @@
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
 
+  # Enable the X11 windowing system.
+  # services.xserver.enable = true;
+  # services.xserver.layout = "us";
+  # services.xserver.xkbOptions = "eurosign:e";
+
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
 
@@ -73,35 +80,16 @@
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ghedamat = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
-
-  # zsh stuff
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
-  programs.autojump.enable = true;
-
-  programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
-
-  # DEV env
-  # docker stuff
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
-
-  # increase /run/user/1000 tmpfs size
-  services.logind.extraConfig = ''
-        RuntimeDirectorySize=7.8G
-  '';
-
-  services.keybase.enable = true;
+  # users.users.jane = {
+  #   isNormalUser = true;
+  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  # };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 
 }
+
