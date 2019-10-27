@@ -64,17 +64,11 @@ bind -nr M-m resize-pane -Z
 #set -g mouse-resize-pane on
 #set -g mouse-select-window on
 
-setw -g window-status-fg cyan
-setw -g window-status-bg default
-setw -g window-status-attr dim
-setw -g window-status-current-fg white
-setw -g window-status-current-bg red
-setw -g window-status-current-attr bright
+setw -g window-status-style fg=cyan,bg=default,dim
+setw -g window-status-current-style fg=white,bg=red,bright
 
-set -g pane-active-border-bg yellow
-set -g pane-active-border-fg white
-set -g pane-border-bg black
-set -g pane-border-fg green
+set -g pane-active-border-style fg=white,bg=yellow
+set -g pane-border-style fg=green,bg=black
 
 #set -g message-fg white
 #set -g message-bg black
@@ -88,27 +82,20 @@ set -g visual-activity on
 #### COLOUR (Solarized 256)
 
 # default statusbar colors
-set-option -g status-bg colour235 #base02
-set-option -g status-fg colour136 #yellow
-set-option -g status-attr default
+set-option -g status-style bg=colour235 #base02,fg=colour136 #yellow,default
+
 
 # default window title colors
-set-window-option -g window-status-fg colour244 #base0
-set-window-option -g window-status-bg default
-#set-window-option -g window-status-attr dim
+set-window-option -g window-status-style fg=colour244 #base0,bg=default,dim
 
 # active window title colors
-set-window-option -g window-status-current-fg colour166 #orange
-set-window-option -g window-status-current-bg default
-#set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-style fg=colour166 #orange,bg=default,bright
 
 # pane border
-set-option -g pane-border-fg colour235 #base02
-set-option -g pane-active-border-fg colour240 #base01
+set-option -g pane-border-style bg=colour235 #base02,fg=colour240 #base01
 
 # message text
-set-option -g message-bg colour235 #base02
-set-option -g message-fg colour166 #orange
+set-option -g message-style bg=colour235 #base02,fg=colour166 #orange
 
 # pane number display
 set-option -g display-panes-active-colour colour33 #blue
@@ -141,14 +128,10 @@ bind -n M-/ capture-pane -S -32767 \; new-window ' \
 
 set -g status-left-length 52
 set -g status-right-length 451
-set -g status-fg white
-set -g status-bg colour234
-set -g window-status-activity-attr bold
-set -g pane-border-fg colour245
-set -g pane-active-border-fg colour39
-set -g message-fg colour16
-set -g message-bg colour221
-set -g message-attr bold
+set -g status-style fg=white,bg=colour234
+set -g window-status-activity-style bold
+set -g pane-border-style bg=colour245,fg=colour39
+set -g message-style fg=colour16,bg=colour221,bold
 #set -g status-left '#[fg=colour235,bg=colour252,bold] ❐ #S #[fg=colour252,bg=colour238,nobold]⮀#[fg=colour245,bg=colour238,bold] #(whoami) #[fg=colour238,bg=colour234,nobold]⮀'
 set -g window-status-format "#[fg=white,bg=colour234] #I #W "
 #set -g window-status-current-format "#[fg=colour234,bg=colour39]⮀#[fg=colour25,bg=colour39,noreverse,bold] #I ⮁ #W #[fg=colour39,bg=colour234,nobold]⮀"

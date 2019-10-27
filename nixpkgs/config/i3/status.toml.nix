@@ -81,6 +81,12 @@ interval = 60
 block = "sound"
 
 [[block]]
+block = "pomodoro"
+length = 25
+message = "Take a break!"
+use_nag = true
+
+[[block]]
 block = "time"
 interval = 10
 format = "%a %Y-%m-%d %l:%M%p"
