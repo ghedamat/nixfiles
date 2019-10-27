@@ -12,7 +12,7 @@
     nodejs-10_x
 
     (import ./vim.nix)
-    neovim
+    (import ./neovim.nix)
     emacs
 
     zsh

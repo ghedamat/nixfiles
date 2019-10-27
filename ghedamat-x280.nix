@@ -16,13 +16,15 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
      options snd_hda_intel power_save=1 power_save_controller=Y
   '';
 
-  hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
   hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver ];
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     ./hardware/thinkpad-x280.nix
@@ -31,9 +33,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
     ./common/desktop-i3.nix
     ./common/yubikey.nix
     ./common/dev.nix
-  ];
-
-  environment.systemPackages = with pkgs; [
   ];
 
   # zsh stuff
@@ -50,7 +49,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   #127.0.0.1 es-dev.precisionnutrition.com
   networking.extraHosts = 
     ''
-  127.0.0.1 es-dev.precisionnutrition.com es-foo
   127.0.0.1 local_rails
     '';
 

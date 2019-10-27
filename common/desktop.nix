@@ -7,9 +7,6 @@
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      neovim = pkgs.neovim.override {
-        #vimAlias = true;
-      };
     };
   };
 
@@ -29,7 +26,6 @@
     inetutils
     lm_sensors
     mkpasswd
-    neovim
     p7zip
     patchelf
     pciutils
@@ -139,8 +135,8 @@
 
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
-  networking.firewall.allowedTCPPorts = [2323 3000];
-  networking.firewall.allowedUDPPorts = [2323 3000];
+  networking.firewall.allowedTCPPorts = [2323 3000 3035];
+  networking.firewall.allowedUDPPorts = [2323 3000 3035];
 
   hardware.sane.enable = true;
   hardware.pulseaudio = {
