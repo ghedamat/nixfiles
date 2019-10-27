@@ -24,6 +24,8 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./hardware/thinkpad-x280.nix
     ./common/boot.nix
@@ -50,7 +52,6 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   #127.0.0.1 es-dev.precisionnutrition.com
   networking.extraHosts = 
     ''
-  127.0.0.1 es-dev.precisionnutrition.com es-foo
   127.0.0.1 local_rails
     '';
 
