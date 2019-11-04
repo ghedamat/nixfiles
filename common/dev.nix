@@ -36,6 +36,8 @@
     fd
 
     rustup
+
+    tmate
   ];
 
   # docker stuff
