@@ -3,6 +3,7 @@
 {
   services.localtime.enable = true;
   time.timeZone = "America/Toronto";
+  services.ntp.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
