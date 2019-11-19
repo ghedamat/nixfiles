@@ -83,6 +83,7 @@
     # Apps
     alacritty
     gnupg
+    _1password
 
     # Other
     alsa-firmware

@@ -38,6 +38,8 @@
     rustup
 
     tmate
+
+    bc
   ];
 
   # docker stuff
