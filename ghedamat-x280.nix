@@ -14,6 +14,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
      options iwldvm force_cam=0
      options cfg80211 ieee80211_regdom=US
      options snd_hda_intel power_save=1 power_save_controller=Y
+     options i915                fastboot=0 enable_rc6=7 modeset=1 enable_fbc=1 enable_guc_loading=1 enable_guc_submission=1 enable_huc=1 enable_psr=1 disable_power_well=0 i915.semaphores=1
   '';
 
   hardware.enableRedistributableFirmware = true;
