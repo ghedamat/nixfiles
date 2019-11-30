@@ -28,6 +28,7 @@
       merge = {
         keepBackup = false;
         tool = "custom";
+        #tool = "nvimdiff";
       };
       github = {
         user = "ghedamat";
@@ -52,6 +53,22 @@
         added = "yellow";
         changed = "green";
         untracked = "cyan";
+      };
+      "diff" = {
+        tool = "nvimdiff";
+      };
+      "difftool" = {
+        prompt = true;
+      };
+      "difftool \"nvimdiff\"" = {
+        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
+      };
+
+      "mergetool" = {
+        prompt = true;
+      };
+      "mergetool \"nvimdiff\"" = {
+        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
       };
     };
   };

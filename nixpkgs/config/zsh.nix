@@ -55,6 +55,8 @@
       ssh $*
       }
       compdef _ssh color-ssh=ssh
+
+      PATH=$PATH:$HOME/npm-prefix/bin
     '';
   };
 }
