@@ -6,15 +6,17 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   services.localtime.enable = true;
   time.timeZone = "America/Toronto";
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_4_9;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" ];
   boot.blacklistedKernelModules = [ "mei_me" ];
   #options iwlwifi power_save=1 d0i3_disable=0 uapsd_disable=0
+ #options i915                fastboot=0 enable_rc6=1 modeset=1 enable_fbc=1 enable_guc_loading=1 enable_guc_submission=1 enable_huc=1 enable_psr=1 disable_power_well=0 semaphores=1 nuclear_pageflip=1  enable_gvt=0 enable_psr=2 
+ #options intel_iommu off
+ #options intel_idle max_cstate=1
   boot.extraModprobeConfig = ''
      options iwldvm force_cam=0
      options cfg80211 ieee80211_regdom=US
      options snd_hda_intel power_save=1 power_save_controller=Y
-     options i915                fastboot=0 enable_rc6=7 modeset=1 enable_fbc=1 enable_guc_loading=1 enable_guc_submission=1 enable_huc=1 enable_psr=1 disable_power_well=0 i915.semaphores=1
   '';
 
   hardware.enableRedistributableFirmware = true;
