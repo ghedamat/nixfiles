@@ -9,6 +9,7 @@
     vscode
     homesick
     fzf
+    starship
     (import ./../common/neovim.nix)
   ];
 
@@ -18,9 +19,17 @@
     ./config/tmux.conf.nix
     ./config/git.nix
     ./config/zsh.nix
+    ./config/starship.toml.nix
   ];
 
-  programs.zsh.oh-my-zsh.theme = "gentoo";
+  programs.zsh = {
+    oh-my-zsh = {
+      theme = "gentoo";
+    };
+    initExtraBeforeCompInit = ''
+      eval "$(starship init zsh)"
+    '';
+  };
 
   gtk = {
     enable = true;
