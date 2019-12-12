@@ -9,5 +9,8 @@ symbol = "➜"     # The "symbol" segment is being set to "➜"
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = false
+
+[username]
+style_user = "bold green"
 '';
 }

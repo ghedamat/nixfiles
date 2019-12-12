@@ -9,12 +9,15 @@
     vscode
     homesick
     fzf
+    meld
+    starship
   ];
 
   imports = [
     ./config/tmux.conf.nix
     ./config/git.nix
     ./config/zsh.nix
+    ./config/starship-dev.toml.nix
   ];
 
   programs.zsh = {
@@ -23,6 +26,9 @@
     };
     profileExtra = ''
       export PATH=$PATH:$HOME/.npm-prefix/bin
+    '';
+    initExtraBeforeCompInit = ''
+      eval "$(starship init zsh)"
     '';
   };
 }

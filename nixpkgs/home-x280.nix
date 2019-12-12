@@ -19,7 +19,7 @@
     ./config/tmux.conf.nix
     ./config/git.nix
     ./config/zsh.nix
-    ./config/starship.toml.nix
+    ./config/starship-x280.toml.nix
   ];
 
   programs.zsh = {
