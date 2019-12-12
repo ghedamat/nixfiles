@@ -11,6 +11,12 @@ symbol = "➜"     # The "symbol" segment is being set to "➜"
 disabled = false
 
 [username]
+disabled = false
+show_always = true
 style_user = "bold cyan"
+
+[hostname]
+ssh_only = false
+style = "bold cyan"
 '';
 }

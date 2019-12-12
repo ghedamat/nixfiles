@@ -24,7 +24,7 @@
 
   programs.zsh = {
     oh-my-zsh = {
-      theme = "gentoo";
+      theme = "minimal";
     };
     initExtraBeforeCompInit = ''
       eval "$(starship init zsh)"
