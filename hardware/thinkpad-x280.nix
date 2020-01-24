@@ -13,7 +13,7 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.deviceSection = ''
     Option "TearFree" "true"
-    Option "DRI" "2"
+    Option "DRI" "3"
     Option "Backlight" "intel_backlight"
   '';
 
