@@ -62,6 +62,7 @@
     # Desktop
     alsaTools
     libpulseaudio
+    pulseaudio
     arandr
     blueman
     colord
