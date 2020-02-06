@@ -92,9 +92,9 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1: main
-bindsym $mod+2 workspace 2: web
-bindsym $mod+3 workspace 3: misc
-bindsym $mod+4 workspace 4: chat
+bindsym $mod+2 workspace 2: chat
+bindsym $mod+3 workspace 3: web
+bindsym $mod+4 workspace 4: misc
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -104,9 +104,9 @@ bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: main
-bindsym $mod+Shift+2 move container to workspace 2: web
-bindsym $mod+Shift+3 move container to workspace 3: misc
-bindsym $mod+Shift+4 move container to workspace 4: chat
+bindsym $mod+Shift+2 move container to workspace 2: chat
+bindsym $mod+Shift+3 move container to workspace 3: web
+bindsym $mod+Shift+4 move container to workspace 4: misc
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -164,11 +164,11 @@ for_window [class="Pidgin"] split vertical
 for_window [class="Telegram"] split horizontal
 for_window [class="Slack"] split horizontal
 
-assign [class="Firefox"] 2: web
+assign [class="Firefox"] 3: web
 assign [title="Google Chrome"] 1: main
-assign [class="Skype"] 4: chat
-assign [class="Telegram"] 4: chat
-assign [title="Slack"] 4: chat
+assign [class="Skype"] 2: chat
+assign [class="Telegram"] 2: chat
+assign [title="Slack"] 2: chat
 assign [title="Discord"] 5: discord
 
 bindsym $mod+n workspace next
@@ -199,7 +199,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
 
 exec $term
-exec google-chrome-stable
+exec google-chrome-beta
 exec firefox
 exec telegram-desktop
 exec slack
