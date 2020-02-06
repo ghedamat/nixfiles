@@ -12,8 +12,6 @@
   hardware.bluetooth.powerOnBoot = false;
   hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver ];
 
-  nix.maxJobs = lib.mkDefault 4;
-
   imports = [
     ./hardware/desktop-hive.nix
     ./common/base-system.nix

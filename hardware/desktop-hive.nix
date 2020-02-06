@@ -1,24 +1,30 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ];
+  imports =
+    [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
+    ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "firewire_ohci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "virtio_pci" "usbhid" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.blacklistedKernelModules = [ "mei_me" ];
-  boot.extraModprobeConfig = ''
-     options snd_hda_intel power_save=1 power_save_controller=Y
-  '';
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
+    { device = "/dev/disk/by-uuid/0290cf89-14a2-486e-8a96-b09e3087727a";
       fsType = "ext4";
     };
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/boot";
+    { device = "/dev/disk/by-uuid/CF3D-29CA";
       fsType = "vfat";
     };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/001d3c55-7c06-474e-8e20-e0bf9a8bf1a1"; }
+    ];
+
+  nix.maxJobs = lib.mkDefault 16;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -32,7 +38,7 @@
     DefaultDepth    24
     Option         "Stereo" "0"
     Option         "nvidiaXineramaInfoOrder" "DFP-1"
-    Option         "metamodes" "DVI-D-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: nvidia-auto-select +1920+1080 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-2: nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: 1920x1080 +1920+0; DVI-D-0: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +0+0; DVI-D-0: 1920x1080 +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +0+0; DVI-D-0: 1680x1050 +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +0+0; DVI-D-0: 1600x1200 +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: nvidia-auto-select +0+0"
+    Option         "metamodes" "HDMI-0: nvidia-auto-select +0+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-2: nvidia-auto-select +3840+0 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, DP-0: 1920x1080 +1920+0, HDMI-1: nvidia-auto-select +1920+1080; DP-0: nvidia-auto-select +0+0, HDMI-1: nvidia-auto-select +3840+0"
     Option         "SLI" "Off"
     Option         "MultiGPU" "Off"
     Option         "BaseMosaic" "off"
