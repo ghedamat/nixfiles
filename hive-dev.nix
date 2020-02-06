@@ -40,6 +40,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    qemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -92,6 +93,8 @@
   '';
 
   services.keybase.enable = true;
+
+  services.qemuGuest.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
