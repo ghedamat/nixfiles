@@ -1,5 +1,9 @@
 { pkgs, ... }:
+let 
+  unstable = import <unstable> {};
+in
 {
+
   environment.systemPackages = with pkgs; [
     git
     gnumake
@@ -40,6 +44,10 @@
     tmate
 
     bc
+
+    unstable.git-up
+
+    devtodo
   ];
 
   # docker stuff
