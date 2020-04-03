@@ -151,3 +151,12 @@ below his friends that helped!
 - https://nixos.wiki/wiki/Full_Disk_Encryption
 - https://gist.github.com/ladinu/bfebdd90a5afd45dec811296016b2a3f
 - https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134
+
+## extras
+
+add unstable channel for `dev.nix` to work
+
+```
+nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+nix-channel --update unstable
+```
