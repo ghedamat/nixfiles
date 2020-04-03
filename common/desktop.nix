@@ -95,6 +95,9 @@
 
     # tether
     libimobiledevice
+
+    # autokey
+    autokey
   ];
 
   environment.shellInit = ''
