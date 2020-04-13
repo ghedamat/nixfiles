@@ -88,6 +88,7 @@
 
     # Other
     alsa-firmware
+    usbutils
 
     # mix
     rxvt_unicode
@@ -176,4 +177,8 @@
   };
 
   services.usbmuxd.enable = true;
+
+  users.extraGroups.vboxusers.members = [ "ghedamat" ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 }
