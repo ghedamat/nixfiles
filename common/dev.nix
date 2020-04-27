@@ -12,8 +12,6 @@ in
 
     terraform
 
-    chefdk
-
     docker
     docker-compose
 

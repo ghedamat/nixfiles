@@ -7,7 +7,8 @@
 
   services.xserver = {
     displayManager.startx.enable = true;
-    desktopManager.default = "i3";  # We startx in our home.nix
+    displayManager.defaultSession = "none+i3";  # We startx in our home.nix
+
     windowManager.i3.enable = true;
   };
 
