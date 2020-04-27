@@ -16,7 +16,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "hive-dev-template"; # Define your hostname.
+  networking.hostName = "ultralisk"; # Define your hostname.
   networking.firewall.enable = false;
   networking.useDHCP = false;
   networking.interfaces.enp6s18.useDHCP = true;
@@ -97,7 +97,7 @@
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 11 ''
       local all all trust
-      host all all ::1/128 trust
+      host all all 192.168.199.1/24 trust
     '';
   };
 
