@@ -1,4 +1,4 @@
-Edit this configuration file to define what should be installed on
+#Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -17,6 +17,8 @@ Edit this configuration file to define what should be installed on
 
   networking.hostName = "hive-dev-template"; # Define your hostname.
   networking.firewall.enable = false;
+  networking.useDHCP = false;
+  networking.interfaces.enp6s18.useDHCP = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
