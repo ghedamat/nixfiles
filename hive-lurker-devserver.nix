@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 
 {
+  deployment.targetHost = "lurker";
   imports =
     [ # Include the results of the hardware scan.
     ./hardware/hive-dev.nix
