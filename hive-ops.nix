@@ -1,5 +1,18 @@
 {
   network.description = "hivemind dev network";
-  ultralisk = (import ./hive-ultralisk-postgres.nix);
-  lurker = (import ./hive-lurker-devserver.nix);
+
+  lurker = {
+    imports = [ ./hive-lurker-devserver.nix ];
+    deployment.targetHost = "lurker";
+  };
+
+  ultralisk = {
+    imports = [ ./hive-ultralisk-postgres.nix ];
+    deployment.targetHost = "ultralisk";
+  };
+
+  hydralisk = {
+    imports = [ ./hive-hydralisk-desktop.nix ];
+    deployment.targetHost = "hydralisk";
+  };
 }

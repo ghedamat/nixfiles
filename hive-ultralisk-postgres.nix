@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  deployment.targetHost = "192.168.199.159";
   imports =
     [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix

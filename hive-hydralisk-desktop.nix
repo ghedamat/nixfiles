@@ -17,6 +17,7 @@
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
+    ./common/server.nix
     ./common/dev.nix
   ];
 
