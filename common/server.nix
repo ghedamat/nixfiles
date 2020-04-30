@@ -11,6 +11,7 @@
   programs.ssh.forwardX11 = true;
   services.openssh.enable = true;
   services.openssh.forwardX11 = true;
+  services.openssh.permitRootLogin = "yes";
 
   # enable open-vm-tools for esxi integration
   virtualisation.vmware.guest.enable = true;

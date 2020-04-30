@@ -99,6 +99,52 @@
       local all all trust
       host all all 192.168.199.1/24 trust
     '';
+    extraConfig = ''
+
+shared_buffers = 12GB			# min 128kB
+work_mem = 16MB				# min 64kB
+maintenance_work_mem = 256MB		# min 1MB
+dynamic_shared_memory_type = posix	# the default is the first option
+effective_io_concurrency = 1000		# 1-1000; 0 disables prefetching
+max_worker_processes = 16		# (change requires restart)
+max_parallel_maintenance_workers = 4	# taken from max_parallel_workers
+max_parallel_workers_per_gather = 4	# taken from max_parallel_workers
+max_parallel_workers = 16		# maximum number of max_worker_processes that
+max_wal_size = 1GB
+min_wal_size = 80MB
+checkpoint_completion_target = 0.9	# checkpoint target duration, 0.0 - 1.0
+
+
+enable_partitionwise_join = on 
+enable_partitionwise_aggregate = on
+seq_page_cost = 1.0			# measured on an arbitrary scale
+random_page_cost = 1.0			# same scale as above
+effective_cache_size = 20GB
+
+
+
+
+log_line_prefix = '%m [%p] %q%u@%d '		# special values:
+log_timezone = 'Etc/UTC'
+
+cluster_name = '11/main'			# added to process titles if nonempty
+stats_temp_directory = '/var/run/postgresql/12-main.pg_stat_tmp'
+
+
+
+datestyle = 'iso, mdy'
+timezone = 'Etc/UTC'
+lc_messages = 'en_US.UTF-8'			# locale for system error message
+lc_monetary = 'en_US.UTF-8'			# locale for monetary formatting
+lc_numeric = 'en_US.UTF-8'			# locale for number formatting
+lc_time = 'en_US.UTF-8'				# locale for time formatting
+
+default_text_search_config = 'pg_catalog.english'
+
+
+
+
+    '';
   };
 
   # This value determines the NixOS release with which your system is to be
