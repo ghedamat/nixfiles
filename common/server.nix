@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     git
+    nixops
   ];
 
   networking.networkmanager.enable = true;
