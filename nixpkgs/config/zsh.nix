@@ -57,6 +57,7 @@
       compdef _ssh color-ssh=ssh
 
       PATH=$PATH:$HOME/npm-prefix/bin
+      PATH=$PATH:$HOME/bin
 
       export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
     '';
