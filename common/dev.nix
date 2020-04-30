@@ -12,8 +12,6 @@ in
 
     terraform
 
-    chefdk
-
     docker
     docker-compose
 
@@ -48,6 +46,7 @@ in
     unstable.git-up
 
     devtodo
+    (pkgs.callPackage ./comma.nix {})
   ];
 
   # docker stuff

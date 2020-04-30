@@ -29,7 +29,7 @@ setw -g pane-base-index 1
 #bind r source-file ~/.tmux.conf; display "reloaded!"
 bind-key C-b send-prefix
 
-bind -n M-\ split-window -h
+bind -n M-\\ split-window -h
 bind -n M-- split-window -v
 
 bind -n M-h select-pane -L
