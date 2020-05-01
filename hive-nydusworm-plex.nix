@@ -8,9 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware/hive-exsi-mbr-vm.nix
-      ./common/base-system.nix
-      ./common/server.nix
     ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -19,9 +19,9 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/nvme0n1"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nydusworm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -29,55 +29,22 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.ens160.useDHCP = true;
-  networking.hostName = "overlord"; # Define your hostname.
-  networking.firewall.enable = false;
-  networking.extraHosts =
-  ''
-    192.168.199.26 esxi.starcraft.local
-    192.168.199.33 dnsmasq.starcraft.local
 
-    192.168.199.90 hue.starcraft.local
-    192.168.199.66 rando.starcraft.local
-    192.168.199.127 outerrim.starcraft.local
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  };
 
-    192.168.199.137 ark.starcraft.local
+  fileSystems."/mnt/storage" = {
+    device = "192.168.199.105:/volume2/storage";
+    fsType = "nfs";
+    options = ["x-systemd.automount" "noauto"];
+  };
 
-    192.168.199.184 winfan.starcraft.local
-
-    192.168.199.191 es-dev.precisionnutrition.com mobile-es-dev.precisionnutrition.com mobile.es-dev.precisionnutrition.com
-    192.168.199.191 lurker.starcraft.local
-
-    192.168.199.180 hivemind.starcraft.local
-    192.168.199.192 hydralisk.starcraft.local
-    192.168.199.159 ultralisk.starcraft.local
-    192.168.199.160 overlord.starcraft.local
-    192.168.199.149 nydusworm.starcraft.local
-
-    192.168.199.170 comsat-station.starcraft.local
-    192.168.199.163 mineos.starcraft.local
-  '';
-
-  services.dnsmasq.enable = true;
-  services.dnsmasq.servers = [ "1.1.1.1" "/pnroof.local/192.168.123.47" ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
-
-
-  # List services that you want to enable:
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
 
   # This value determines the NixOS release from which the default

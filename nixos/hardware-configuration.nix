@@ -6,19 +6,19 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "nvme" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/6010a588-dc7c-493a-a40b-401c19aaf8ec";
+    { device = "/dev/disk/by-uuid/da1fcdb1-8a4d-4da7-878e-86f61b72c54f";
       fsType = "ext4";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/6484fb3c-95a8-4561-895b-24e8d472cfcd"; }
+    [ { device = "/dev/disk/by-uuid/ebe083c0-f65d-4f35-939e-aa422106cbc1"; }
     ];
 
-  nix.maxJobs = lib.mkDefault 4;
+  nix.maxJobs = lib.mkDefault 8;
 }

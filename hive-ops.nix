@@ -18,6 +18,11 @@
 
   overlord = {
     imports = [ ./hive-overlord-dnsmasq.nix ];
-    deployment.targetHost = "overlord";
+    deployment.targetHost = "192.168.199.160";
+  };
+
+  nydusworm = {
+    imports = [ ./hive-nydusworm-plex.nix ];
+    deployment.targetHost = "nydusworm";
   };
 }
