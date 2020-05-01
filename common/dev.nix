@@ -1,5 +1,5 @@
 { pkgs, ... }:
-let 
+let
   unstable = import <unstable> {};
 in
 {
