@@ -15,4 +15,9 @@
     imports = [ ./hive-hydralisk-desktop.nix ];
     deployment.targetHost = "hydralisk";
   };
+
+  overlord = {
+    imports = [ ./hive-overlord-dnsmasq.nix ];
+    deployment.targetHost = "overlord";
+  };
 }
