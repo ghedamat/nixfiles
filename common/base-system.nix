@@ -11,8 +11,8 @@
     yarn
     nodejs-10_x
 
-    (import ./vim.nix)
-    (import ./neovim.nix)
+    (import ./packages/vim.nix)
+    (import ./packages/neovim.nix)
     emacs
 
     zsh

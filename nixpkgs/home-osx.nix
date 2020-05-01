@@ -15,7 +15,7 @@
   home.packages = with pkgs; [
     vscode
     homesick
-    (import ./../common/neovim.nix)
+    (import ./../common/packages/neovim.nix)
     fzf
     solargraph
     rustup

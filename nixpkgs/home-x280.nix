@@ -10,7 +10,7 @@
     homesick
     fzf
     starship
-    (import ./../common/neovim.nix)
+    (import ./../common/packages/neovim.nix)
   ];
 
   imports = [

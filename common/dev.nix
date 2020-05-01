@@ -46,7 +46,7 @@ in
     unstable.git-up
 
     devtodo
-    (pkgs.callPackage ./comma.nix {})
+    (pkgs.callPackage ./packages/comma.nix {})
   ];
 
   # docker stuff
