@@ -45,7 +45,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   programs.autojump.enable = true;
 
 
-  networking.hostName = "zearling";
+  networking.hostName = "zergling";
   networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];

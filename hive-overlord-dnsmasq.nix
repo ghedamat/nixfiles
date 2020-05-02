@@ -55,6 +55,7 @@
 
     192.168.199.170 comsat-station.starcraft.local
     192.168.199.163 mineos.starcraft.local
+    192.168.199.177 zergling.starcraft.local
   '';
 
   services.dnsmasq.enable = true;

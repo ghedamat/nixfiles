@@ -25,4 +25,9 @@
     imports = [ ./hive-nydusworm-plex.nix ];
     deployment.targetHost = "nydusworm";
   };
+
+  zergling = {
+    imports = [ ./ghedamat-x280.nix ];
+    deployment.targetHost = "zergling";
+  };
 }
