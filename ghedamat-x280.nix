@@ -45,7 +45,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
   programs.autojump.enable = true;
 
 
-  networking.hostName = "x280nix";
+  networking.hostName = "zearling";
   networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
@@ -77,6 +77,7 @@ let hashedPassword = import ./.hashedPassword.nix; in  # Make with mkpasswd (see
 
   ## NEW
   services.openssh.enable = true;
+  services.openssh.permitRootLogin = "yes";
 
   services.logind.extraConfig = ''
     RuntimeDirectorySize=7.8G
