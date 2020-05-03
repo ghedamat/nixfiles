@@ -12,5 +12,11 @@ disabled = false
 
 [username]
 style_user = "bold green"
+
+[custom.nix]
+command = "echo THIS IS A NIX SHELL"
+when = """ test $IN_NIX_SHELL """
+prefix = ""
+disabled = false
 '';
 }
