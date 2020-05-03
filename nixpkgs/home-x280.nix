@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <unstable> {};
+in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -9,7 +12,7 @@
     vscode
     homesick
     fzf
-    starship
+    unstable.starship
     (import ./../common/packages/neovim.nix)
   ];
 

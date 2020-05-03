@@ -1,34 +1,37 @@
 { config, pkgs, ... }:
 
-{
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
+let
+  unstable = import <unstable> {};
+in
+  {
+    # Let Home Manager install and manage itself.
+    programs.home-manager.enable = true;
+    nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    vscode
-    homesick
-    fzf
-    meld
-    starship
-  ];
+    home.packages = with pkgs; [
+      vscode
+      homesick
+      fzf
+      meld
+      unstable.starship
+    ];
 
-  imports = [
-    ./config/tmux.conf.nix
-    ./config/git.nix
-    ./config/zsh.nix
-    ./config/starship-dev.toml.nix
-  ];
+    imports = [
+      ./config/tmux.conf.nix
+      ./config/git.nix
+      ./config/zsh.nix
+      ./config/starship-dev.toml.nix
+    ];
 
-  programs.zsh = {
-    oh-my-zsh = {
-      theme = "minimal";
+    programs.zsh = {
+      oh-my-zsh = {
+        theme = "minimal";
+      };
+      profileExtra = ''
+        export PATH=$PATH:$HOME/.npm-prefix/bin
+      '';
+      initExtraBeforeCompInit = ''
+        eval "$(starship init zsh)"
+      '';
     };
-    profileExtra = ''
-      export PATH=$PATH:$HOME/.npm-prefix/bin
-    '';
-    initExtraBeforeCompInit = ''
-      eval "$(starship init zsh)"
-    '';
-  };
-}
+  }
