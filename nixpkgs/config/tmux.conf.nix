@@ -133,6 +133,7 @@ set -g window-status-activity-style bold
 set -g pane-border-style bg=colour245,fg=colour39
 set -g message-style fg=colour16,bg=colour221,bold
 #set -g status-left '#[fg=colour235,bg=colour252,bold] ❐ #S #[fg=colour252,bg=colour238,nobold]⮀#[fg=colour245,bg=colour238,bold] #(whoami) #[fg=colour238,bg=colour234,nobold]⮀'
+set -g status-right "#{=21:pane_title} %H:%M %d-%b-%y #[fg=red,dim,bg=default]#(hostname)"
 set -g window-status-format "#[fg=white,bg=colour234] #I #W "
 #set -g window-status-current-format "#[fg=colour234,bg=colour39]⮀#[fg=colour25,bg=colour39,noreverse,bold] #I ⮁ #W #[fg=colour39,bg=colour234,nobold]⮀"
 set-option -g status-position top
