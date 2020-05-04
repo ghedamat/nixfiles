@@ -41,6 +41,13 @@
     options = ["x-systemd.automount" "noauto"];
   };
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.ghedamat = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+  };
+
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
