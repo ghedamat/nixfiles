@@ -14,6 +14,8 @@
     ./config/i3/status-desktop.toml.nix
     ./config/tmux.conf.nix
   ];
+  home.file."/bin/focus.sh".source = ./bin/focus.sh;
+
 
   programs.git = {
     enable = true;

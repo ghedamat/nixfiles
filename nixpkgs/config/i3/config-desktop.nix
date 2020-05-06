@@ -92,8 +92,8 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1: main
-bindsym $mod+2 workspace 2: chat
-bindsym $mod+3 workspace 3: web
+bindsym $mod+2 workspace 2: web
+bindsym $mod+3 workspace 3: chat
 bindsym $mod+4 workspace 4: misc
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -104,8 +104,8 @@ bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: main
-bindsym $mod+Shift+2 move container to workspace 2: chat
-bindsym $mod+Shift+3 move container to workspace 3: web
+bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+3 move container to workspace 3: chat
 bindsym $mod+Shift+4 move container to workspace 4: misc
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -113,6 +113,11 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+workspace X1 output DP-2
+workspace X2 output HDMI-0
+workspace X3 output HDMI-1
+bindsym $mod+Shift+f exec focus.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -161,14 +166,14 @@ for_window [class="Pidgin"] layout splith
 for_window [class="Skype"] split vertical
 for_window [class="Pidgin"] split vertical
 
-for_window [class="Telegram"] split horizontal
-for_window [class="Slack"] split horizontal
+#for_window [class="Telegram"] split vertical
+#for_window [class="Slack"] split vertical
 
-assign [class="Firefox"] 3: web
+assign [class="Firefox"] 2: web
 assign [title="Google Chrome"] 1: main
-assign [class="Skype"] 2: chat
-assign [class="Telegram"] 2: chat
-assign [title="Slack"] 2: chat
+assign [class="Skype"] 3: chat
+assign [class="Telegram"] 3: chat
+assign [title="Slack"] 3: chat
 assign [title="Discord"] 5: discord
 
 bindsym $mod+n workspace next
