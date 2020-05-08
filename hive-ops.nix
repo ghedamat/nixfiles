@@ -30,4 +30,9 @@
     imports = [ ./ghedamat-x280.nix ];
     deployment.targetHost = "zergling";
   };
+
+  infestedTerran = {
+    imports = [ ./hive-infested-terran-opstest.nix ];
+    deployment.targetHost = "infested-terran";
+  };
 }
