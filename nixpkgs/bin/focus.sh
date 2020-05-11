@@ -1,4 +1,6 @@
-i3-msg workspace X1
-i3-msg workspace X2
-i3-msg workspace X3
-i3-msg workspace 1: main
+i3-msg workspace web
+i3-msg workspace nullw
+i3-msg workspace misc
+i3-msg workspace nullm
+i3-msg workspace chat
+i3-msg workspace nullc
