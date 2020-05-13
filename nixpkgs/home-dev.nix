@@ -14,6 +14,7 @@ in
       fzf
       meld
       unstable.starship
+      pass
     ];
 
     imports = [
@@ -33,5 +34,13 @@ in
       initExtraBeforeCompInit = ''
         eval "$(starship init zsh)"
       '';
+    };
+
+    services.gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+      sshKeys = [
+        "2018_id_rsa"
+      ];
     };
   }
