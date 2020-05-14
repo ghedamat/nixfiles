@@ -1,13 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [
-    ./desktop.nix
-  ];
+  imports = [ ./desktop.nix ];
 
   services.xserver = {
     displayManager.startx.enable = true;
-    displayManager.defaultSession = "none+i3";  # We startx in our home.nix
+    displayManager.defaultSession = "none+i3"; # We startx in our home.nix
 
     windowManager.i3.enable = true;
   };
@@ -42,7 +40,7 @@
   # Based on https://github.com/cdown/clipmenu/blob/develop/init/clipmenud.service
   systemd.user.services.clipmenud = {
     description = "Clipmenu daemon";
-    serviceConfig =  {
+    serviceConfig = {
       Type = "simple";
       NoNewPrivileges = true;
       ProtectControlGroups = true;
@@ -51,9 +49,7 @@
       MemoryDenyWriteExecute = true;
     };
     wantedBy = [ "default.target" ];
-    environment = {
-      DISPLAY = ":0";
-    };
+    environment = { DISPLAY = ":0"; };
     path = [ pkgs.clipmenu ];
     script = ''
       ${pkgs.clipmenu}/bin/clipmenud

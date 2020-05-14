@@ -1,28 +1,26 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix>
-    ];
+  imports = [ <nixpkgs/nixos/modules/profiles/qemu-guest.nix> ];
 
-  boot.initrd.availableKernelModules = [ "uhci_hcd" "ahci" "virtio_pci" "usbhid" ];
+  boot.initrd.availableKernelModules =
+    [ "uhci_hcd" "ahci" "virtio_pci" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/0290cf89-14a2-486e-8a96-b09e3087727a";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/0290cf89-14a2-486e-8a96-b09e3087727a";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CF3D-29CA";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/CF3D-29CA";
+    fsType = "vfat";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/001d3c55-7c06-474e-8e20-e0bf9a8bf1a1"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/001d3c55-7c06-474e-8e20-e0bf9a8bf1a1"; }];
 
   nix.maxJobs = lib.mkDefault 16;
 
@@ -52,16 +50,12 @@
     EndSubSection
   '';
 
-  environment.systemPackages = with pkgs; [
-    libv4l
-    v4l-utils
-    xawtv
-  ];
+  environment.systemPackages = with pkgs; [ libv4l v4l-utils xawtv ];
 
   hardware.logitech.enableGraphical = true;
   hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.configFile = pkgs.runCommand "default.pa" {} ''
-	  sed 's/module-udev-detect$/module-udev-detect tsched=0/' \
-	  ${pkgs.pulseaudio}/etc/pulse/default.pa > $out
-	  '';
+  hardware.pulseaudio.configFile = pkgs.runCommand "default.pa" { } ''
+    sed 's/module-udev-detect$/module-udev-detect tsched=0/' \
+    ${pkgs.pulseaudio}/etc/pulse/default.pa > $out
+  '';
 }

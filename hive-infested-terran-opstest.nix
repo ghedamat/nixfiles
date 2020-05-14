@@ -1,4 +1,4 @@
-#Edit this configuration file to define what should be installed on
+# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -11,10 +11,8 @@ let
     ${pkgs.docker}/bin/docker pull 483218180663.dkr.ecr.us-east-2.amazonaws.com/precisionnutrition-production-eternal-sledgehammer/web:$1
     ${pkgs.docker}/bin/docker image tag 483218180663.dkr.ecr.us-east-2.amazonaws.com/precisionnutrition-production-eternal-sledgehammer/web:$1 es-web:$1
   '';
-in
-{
-  imports =
-    [ # Include the results of the hardware scan.
+in {
+  imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
     ./common/server.nix
@@ -55,7 +53,6 @@ in
   # time.timeZone = "Europe/Amsterdam";
 
   nixpkgs.config.allowUnfree = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -122,55 +119,51 @@ in
   docker-containers.nginx = {
     image = "nginx-container";
     imageFile = pkgs.dockerTools.examples.nginx;
-    ports = ["8181:80"];
+    ports = [ "8181:80" ];
   };
 
   docker-containers.mailcatcher = {
     image = "mailcatcher";
     imageFile = pkgs.dockerTools.pullImage {
       imageName = "schickling/mailcatcher";
-      imageDigest = "sha256:994aba62ace1a4442e796041b6c6c96aed5eca9de4a6584f3d5d716f1d7549ed";
+      imageDigest =
+        "sha256:994aba62ace1a4442e796041b6c6c96aed5eca9de4a6584f3d5d716f1d7549ed";
       sha256 = "1gi1d1gnl50ahv5mwz4dqzqnydbv3f5z7mvxl202jpqdmj2skpdz";
       finalImageTag = "latest";
       finalImageName = "mailcatcher";
     };
 
-    ports = [
-      "1080:1080"
-      "25:25"
-    ];
+    ports = [ "1080:1080" "25:25" ];
   };
 
   docker-containers.redis-main = {
     image = "redis";
     imageFile = pkgs.dockerTools.pullImage {
       imageName = "redis";
-      imageDigest = "sha256:2e03fdd159f4a08d2165ca1c92adde438ae4e3e6b0f74322ce013a78ee81c88d";
+      imageDigest =
+        "sha256:2e03fdd159f4a08d2165ca1c92adde438ae4e3e6b0f74322ce013a78ee81c88d";
       sha256 = "0zjr44w5fakm7x0ljxy7fczk0wm4bq46dzq87xzp88n6fbakhi81";
       finalImageTag = "latest";
       finalImageName = "redis";
     };
 
-    ports = ["6379:6379"];
-    volumes = [
-      "redis_main:/data"
-    ];
+    ports = [ "6379:6379" ];
+    volumes = [ "redis_main:/data" ];
   };
 
   docker-containers.redis-cache = {
     image = "redis";
     imageFile = pkgs.dockerTools.pullImage {
       imageName = "redis";
-      imageDigest = "sha256:2e03fdd159f4a08d2165ca1c92adde438ae4e3e6b0f74322ce013a78ee81c88d";
+      imageDigest =
+        "sha256:2e03fdd159f4a08d2165ca1c92adde438ae4e3e6b0f74322ce013a78ee81c88d";
       sha256 = "0zjr44w5fakm7x0ljxy7fczk0wm4bq46dzq87xzp88n6fbakhi81";
       finalImageTag = "latest";
       finalImageName = "redis";
     };
 
-    ports = ["6666:6666"];
-    volumes = [
-      "redis_cache:/data"
-    ];
+    ports = [ "6666:6666" ];
+    volumes = [ "redis_cache:/data" ];
   };
 
   systemd.services.es-web = {
@@ -187,8 +180,7 @@ in
           es-web:latest \
           "$@"
     '';
-    scriptArgs = pkgs.lib.concatStringsSep " " [
-    ];
+    scriptArgs = pkgs.lib.concatStringsSep " " [ ];
     #preStop = "${pkgs.docker}/bin/docker stop prometheus";
     #reload = "${pkgs.docker}/bin/docker restart prometheus";
     serviceConfig = {

@@ -1,12 +1,11 @@
-#Edit this configuration file to define what should be installed on
+# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
   ];
@@ -39,9 +38,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    qemu
-  ];
+  environment.systemPackages = with pkgs; [ qemu ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -84,7 +81,7 @@
 
   # increase /run/user/1000 tmpfs size
   services.logind.extraConfig = ''
-        RuntimeDirectorySize=7.8G
+    RuntimeDirectorySize=7.8G
   '';
 
   services.qemuGuest.enable = true;

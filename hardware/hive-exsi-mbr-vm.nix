@@ -6,19 +6,18 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "nvme" "sr_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "ata_piix" "uhci_hcd" "ehci_pci" "ahci" "nvme" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
-    ];
+  swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
 
   nix.maxJobs = lib.mkDefault 4;
 }

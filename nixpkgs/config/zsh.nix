@@ -3,17 +3,13 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "rbenv"
-      ];
+      plugins = [ "git" "rbenv" ];
     };
     shellAliases = {
       vi = "vim";
       ssh = "color-ssh";
     };
-    profileExtra = ''
-    '';
+    profileExtra = "";
     initExtra = ''
       stty stop undef
       stty start undef

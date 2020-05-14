@@ -1,8 +1,6 @@
 { pkgs, ... }:
-let
-  unstable = import <unstable> {};
-in
-{
+let unstable = import <unstable> { };
+in {
 
   environment.systemPackages = with pkgs; [
     git
@@ -46,7 +44,7 @@ in
     unstable.git-up
 
     devtodo
-    (pkgs.callPackage ./packages/comma.nix {})
+    (pkgs.callPackage ./packages/comma.nix { })
   ];
 
   # docker stuff

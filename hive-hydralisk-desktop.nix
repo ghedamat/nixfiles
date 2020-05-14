@@ -10,7 +10,13 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
-  hardware.opengl.extraPackages = with pkgs; [ vaapiIntel libvdpau-va-gl vaapiVdpau intel-ocl intel-media-driver ];
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+    libvdpau-va-gl
+    vaapiVdpau
+    intel-ocl
+    intel-media-driver
+  ];
 
   imports = [
     ./hardware/desktop-hive.nix
@@ -24,9 +30,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  environment.systemPackages = with pkgs; [
-    qemu
-  ];
+  environment.systemPackages = with pkgs; [ qemu ];
 
   # zsh stuff
   programs.zsh.enable = true;
@@ -34,15 +38,13 @@
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
   programs.autojump.enable = true;
 
-
   networking.hostName = "hydralisk";
-  networking.networkmanager.wifi.macAddress = "preserve";  # Or "random", "stable", "permanent", "00:11:22:33:44:55"
+  networking.networkmanager.wifi.macAddress =
+    "preserve"; # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
   #127.0.0.1 es-dev.precisionnutrition.com
-  networking.extraHosts =
-    ''
-    '';
+  networking.extraHosts = "";
 
   users.users.ghedamat = {
     isNormalUser = true;

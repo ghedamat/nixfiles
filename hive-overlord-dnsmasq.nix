@@ -5,12 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware/hive-exsi-mbr-vm.nix
-      ./common/base-system.nix
-      ./common/server.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware/hive-exsi-mbr-vm.nix
+    ./common/base-system.nix
+    ./common/server.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -31,8 +30,7 @@
   networking.interfaces.ens160.useDHCP = true;
   networking.hostName = "overlord"; # Define your hostname.
   networking.firewall.enable = false;
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     192.168.199.26 esxi.starcraft.local
     192.168.199.33 dnsmasq.starcraft.local
 
@@ -72,7 +70,6 @@
   #   wget vim
   # ];
 
-
   # List services that you want to enable:
 
   # Open ports in the firewall.
@@ -80,7 +77,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

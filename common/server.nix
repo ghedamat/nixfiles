@@ -1,10 +1,5 @@
-{ pkgs, ... }:
-{
-  environment.systemPackages = with pkgs; [
-    gnumake
-    git
-    nixops
-  ];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ gnumake git nixops ];
 
   networking.networkmanager.enable = true;
   services.sshd.enable = true;
@@ -23,7 +18,7 @@
     layout = "us";
     libinput.enable = true;
     displayManager.startx.enable = true;
-    displayManager.defaultSession = "none+i3";  # We startx in our home.nix
+    displayManager.defaultSession = "none+i3"; # We startx in our home.nix
 
     windowManager.i3.enable = true;
   };

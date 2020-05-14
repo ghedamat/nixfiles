@@ -5,17 +5,11 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    vscode
-  ];
+  home.packages = with pkgs; [ vscode ];
 
-  imports = [
-    ./config/i3/status-desktop.toml.nix
-    ./config/tmux.conf.nix
-  ];
+  imports = [ ./config/i3/status-desktop.toml.nix ./config/tmux.conf.nix ];
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
   home.file.".config/i3/config".source = ./config/i3/config-desktop;
-
 
   programs.git = {
     enable = true;
@@ -30,8 +24,10 @@
       ff = "merge --ff-only";
       df = "diff";
       lg = "log -p";
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`";
-      add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
+      edit-unmerged =
+        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`";
+      add-unmerged =
+        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
       clone = "clone --recursive";
     };
     extraConfig = {
@@ -40,16 +36,12 @@
         whitespace = "trailing-space,space-before-tab";
         excludesfile = "/home/ghedamat/.gitignore_global";
       };
-      push = {
-        default = "tracking";
-      };
+      push = { default = "tracking"; };
       merge = {
         keepBackup = false;
         tool = "custom";
       };
-      github = {
-        user = "ghedamat";
-      };
+      github = { user = "ghedamat"; };
       color = {
         branch = "auto";
         diff = "auto";

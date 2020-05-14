@@ -12,8 +12,10 @@
       ff = "merge --ff-only";
       df = "diff";
       lg = "log -p";
-      edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`";
-      add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
+      edit-unmerged =
+        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; emacs `f`";
+      add-unmerged =
+        "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`";
       clone = "clone --recursive";
     };
     extraConfig = {
@@ -22,17 +24,13 @@
         whitespace = "trailing-space,space-before-tab";
         excludesfile = "/home/ghedamat/.gitignore_global";
       };
-      push = {
-        default = "tracking";
-      };
+      push = { default = "tracking"; };
       merge = {
         keepBackup = false;
         tool = "custom";
         #tool = "nvimdiff";
       };
-      github = {
-        user = "ghedamat";
-      };
+      github = { user = "ghedamat"; };
       color = {
         branch = "auto";
         diff = "auto";
@@ -54,22 +52,12 @@
         changed = "green";
         untracked = "cyan";
       };
-      "diff" = {
-        tool = "nvimdiff";
-      };
-      "difftool" = {
-        prompt = true;
-      };
-      "difftool \"nvimdiff\"" = {
-        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
-      };
+      "diff" = { tool = "nvimdiff"; };
+      "difftool" = { prompt = true; };
+      "difftool \"nvimdiff\"" = { cmd = ''nvim -d "$LOCAL" "$REMOTE"''; };
 
-      "mergetool" = {
-        prompt = true;
-      };
-      "mergetool \"nvimdiff\"" = {
-        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
-      };
+      "mergetool" = { prompt = true; };
+      "mergetool \"nvimdiff\"" = { cmd = ''nvim -d "$LOCAL" "$REMOTE"''; };
     };
   };
 }

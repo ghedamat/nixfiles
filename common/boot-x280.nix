@@ -12,8 +12,7 @@
 # - FDE example: https://github.com/Chiiruno/configuration/blob/master/etc/nixos/boot.nix
 #
 let disk = import ../disk.nix;
-in
-{
+in {
   boot.loader.systemd-boot.enable = true;
 
   # EFI
@@ -27,7 +26,8 @@ in
     device = "nodev"; # Use EFI as the bootloader
     efiSupport = true;
     enableCryptodisk = true;
-    extraInitrd = disk.extraInitrd; # Replaced by boot.initrd.secrets? https://github.com/NixOS/nixpkgs/issues/41608
+    extraInitrd =
+      disk.extraInitrd; # Replaced by boot.initrd.secrets? https://github.com/NixOS/nixpkgs/issues/41608
     # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
   };
 
@@ -41,26 +41,40 @@ in
 
   # LUKS
   boot.initrd.supportedFilesystems = [ "btrfs" ];
-  boot.initrd.luks.devices =
-  let
-    keyFile = disk.keyFile;
-  in
-  {
-    cryptroot = {device = disk.cryptroot; allowDiscards = true; keyFile = keyFile; };
-    cryptswap = {device = disk.cryptswap; allowDiscards = true; keyFile = keyFile; };
-  } ;
+  boot.initrd.luks.devices = let keyFile = disk.keyFile;
+  in {
+    cryptroot = {
+      device = disk.cryptroot;
+      allowDiscards = true;
+      keyFile = keyFile;
+    };
+    cryptswap = {
+      device = disk.cryptswap;
+      allowDiscards = true;
+      keyFile = keyFile;
+    };
+  };
 
   # Filesystems
   fileSystems."/" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "defaults" "noatime" "nodiratime" "compress=lzo" "autodefrag" "commit=100" "subvol=@rootnix" ];
+    options = [
+      "defaults"
+      "noatime"
+      "nodiratime"
+      "compress=lzo"
+      "autodefrag"
+      "commit=100"
+      "subvol=@rootnix"
+    ];
   };
 
   fileSystems."/home" = {
     device = "/dev/mapper/cryptroot";
     fsType = "btrfs";
-    options = [ "defaults" "noatime" "compress=lzo" "autodefrag" "subvol=@home" ];
+    options =
+      [ "defaults" "noatime" "compress=lzo" "autodefrag" "subvol=@home" ];
   };
 
   fileSystems."/boot/efi" = {
@@ -70,7 +84,5 @@ in
     options = [ "discard" ];
   };
 
-  swapDevices = [
-    { device = "/dev/mapper/cryptswap"; }
-  ];
+  swapDevices = [{ device = "/dev/mapper/cryptswap"; }];
 }

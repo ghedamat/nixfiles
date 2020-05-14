@@ -8,7 +8,7 @@
     enable = true;
     enableAutojump = true;
     profileExtra = ''
-    . /Users/ghedamat/.nix-profile/etc/profile.d/nix.sh
+      . /Users/ghedamat/.nix-profile/etc/profile.d/nix.sh
     '';
   };
 
@@ -21,16 +21,10 @@
     rustup
   ];
 
-  imports = [
-    ./config/tmux.conf.nix
-    ./config/git.nix
-    ./config/zsh.nix
-  ];
+  imports = [ ./config/tmux.conf.nix ./config/git.nix ./config/zsh.nix ];
 
   programs.zsh = {
-    oh-my-zsh = {
-      theme = "robbyrussell";
-    };
+    oh-my-zsh = { theme = "robbyrussell"; };
     profileExtra = ''
       . /Users/ghedamat/.nix-profile/etc/profile.d/nix.sh
       . ${pkgs.autojump}/share/autojump/autojump.zsh

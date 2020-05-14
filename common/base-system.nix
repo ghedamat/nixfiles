@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -25,5 +24,6 @@
     silver-searcher
 
     htop
+    nixfmt
   ];
 }

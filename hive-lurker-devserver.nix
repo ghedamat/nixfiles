@@ -5,8 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev.nix
     ./common/base-system.nix
     ./common/dev.nix
@@ -39,9 +38,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    qemu
-  ];
+  environment.systemPackages = with pkgs; [ qemu ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -89,7 +86,7 @@
 
   # increase /run/user/1000 tmpfs size
   services.logind.extraConfig = ''
-        RuntimeDirectorySize=7.8G
+    RuntimeDirectorySize=7.8G
   '';
 
   services.keybase.enable = true;

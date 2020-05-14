@@ -2,13 +2,12 @@
 
 {
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true; # see https://github.com/shazow/nixfiles/commit/1439b454cd3ccbb60e5bd92b09d9d3b703b62208
-
+  hardware.enableRedistributableFirmware =
+    true; # see https://github.com/shazow/nixfiles/commit/1439b454cd3ccbb60e5bd92b09d9d3b703b62208
 
   # Backport from <nixos-hardware/lenovo/thinkpad/x1/6th-gen/QHD>
   boot.kernelModules = [ "acpi_call" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-
 
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.deviceSection = ''

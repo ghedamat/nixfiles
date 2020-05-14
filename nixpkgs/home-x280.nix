@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
-let
-  unstable = import <unstable> {};
-in
-{
+let unstable = import <unstable> { };
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -26,9 +24,7 @@ in
   ];
 
   programs.zsh = {
-    oh-my-zsh = {
-      theme = "minimal";
-    };
+    oh-my-zsh = { theme = "minimal"; };
     initExtraBeforeCompInit = ''
       eval "$(starship init zsh)"
     '';

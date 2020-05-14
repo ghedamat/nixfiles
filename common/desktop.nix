@@ -1,13 +1,11 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
 
   # FIXME: Is this necessary?
   system.copySystemConfiguration = true;
 
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: {
-    };
+    packageOverrides = pkgs: { };
   };
 
   # required by https://github.com/rycee/home-manager/blob/master/FAQ.md#why-do-i-get-an-error-message-about-cadesrtdconf
@@ -108,12 +106,12 @@
 
   fonts = {
     enableFontDir = true;
-    fontconfig.enable= true;
+    fontconfig.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-    emojione
-    terminus
-      nerdfonts  # Includes font-awesome, material-icons, powerline-fonts
+      emojione
+      terminus
+      nerdfonts # Includes font-awesome, material-icons, powerline-fonts
       fira
       fira-code
       fira-mono
@@ -141,8 +139,8 @@
 
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
-  networking.firewall.allowedTCPPorts = [2323 3000 3035];
-  networking.firewall.allowedUDPPorts = [2323 3000 3035];
+  networking.firewall.allowedTCPPorts = [ 2323 3000 3035 ];
+  networking.firewall.allowedUDPPorts = [ 2323 3000 3035 ];
 
   hardware.sane.enable = true;
   hardware.pulseaudio = {
@@ -156,7 +154,7 @@
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brgenml1lpr pkgs.brgenml1cupswrapper];
+  services.printing.drivers = [ pkgs.brgenml1lpr pkgs.brgenml1cupswrapper ];
 
   #services.dnsmasq.enable = true;
   #services.dnsmasq.servers = [ "1.1.1.1" "8.8.8.8" "8.8.4.4" ];

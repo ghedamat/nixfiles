@@ -5,10 +5,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware/hive-exsi-mbr-vm.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware/hive-exsi-mbr-vm.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -38,7 +37,7 @@
   fileSystems."/mnt/storage" = {
     device = "192.168.199.105:/volume2/storage";
     fsType = "nfs";
-    options = ["x-systemd.automount" "noauto"];
+    options = [ "x-systemd.automount" "noauto" ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -48,11 +47,9 @@
     shell = pkgs.zsh;
   };
 
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

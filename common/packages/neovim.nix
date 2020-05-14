@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 neovim.override {
   withNodeJs = true;
