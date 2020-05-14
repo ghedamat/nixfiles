@@ -20,8 +20,9 @@ in {
     ./config/tmux.conf.nix
     ./config/git.nix
     ./config/zsh.nix
-    ./config/starship-x280.toml.nix
   ];
+
+  home.file.".config/starship.toml".source = ./config/starship-x280.toml;
 
   programs.zsh = {
     oh-my-zsh = { theme = "minimal"; };
