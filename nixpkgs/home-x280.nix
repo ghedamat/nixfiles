@@ -21,8 +21,9 @@ in {
     ./xfiles/xfiles-x280.nix
   ];
 
-  home.file.".config/tmux.conf".source = ./config/tmux.conf;
+  home.file.".tmux.conf".source = ./config/tmux.conf;
   home.file.".config/starship.toml".source = ./config/starship-x280.toml;
+  home.file.".config/alacritty/alacritty.yml".source = ./config/alacritty.yml;
   home.file.".config/i3/config".source = ./config/i3/config-x280;
   home.file.".config/i3/status.toml".source = ./config/i3/status-x280.toml;
 
