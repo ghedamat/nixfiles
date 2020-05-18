@@ -18,6 +18,7 @@ in {
     ./config/git.nix
     ./config/zsh.nix
     ./SpaceVim.d/space-vim.nix
+    ./xfiles/xfiles-x280.nix
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
