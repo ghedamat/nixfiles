@@ -18,10 +18,11 @@ in {
   imports = [
     ./config/git.nix
     ./config/zsh.nix
+    ./SpaceVim.d/space-vim.nix
   ];
 
   home.file.".config/starship.toml".source = ./config/starship-dev.toml;
-  home.file.".config/tmux.conf".source = ./config/tmux.conf;
+  home.file.".tmux.conf".source = ./config/tmux.conf;
 
   programs.zsh = {
     oh-my-zsh = { theme = "minimal"; };

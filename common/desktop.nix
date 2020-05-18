@@ -177,6 +177,6 @@
   services.usbmuxd.enable = true;
 
   users.extraGroups.vboxusers.members = [ "ghedamat" ];
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.host.enable = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
 }
