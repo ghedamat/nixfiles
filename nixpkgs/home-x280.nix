@@ -15,14 +15,14 @@ in {
   ];
 
   imports = [
-    ./config/i3/config.nix
-    ./config/i3/status.toml.nix
-    ./config/tmux.conf.nix
     ./config/git.nix
     ./config/zsh.nix
   ];
 
+  home.file.".config/tmux.conf".source = ./config/tmux.conf;
   home.file.".config/starship.toml".source = ./config/starship-x280.toml;
+  home.file.".config/i3/config".source = ./config/i3/config-x280;
+  home.file.".config/i3/status.toml".source = ./config/i3/status-x280.toml;
 
   programs.zsh = {
     oh-my-zsh = { theme = "minimal"; };

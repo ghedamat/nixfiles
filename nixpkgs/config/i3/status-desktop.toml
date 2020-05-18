@@ -1,9 +1,7 @@
-{
-  home.file.".config/i3/status.toml".text = ''
-    theme = "solarized-dark"
+theme = "solarized-dark"
 
-    [icons]
-    name = "awesome"
+[icons]
+name = "awesome"
     #name = "material"
 
     #[[block]]
@@ -60,14 +58,6 @@
     format = "{min}~{max}°"
 
     [[block]]
-    block = "battery"
-    interval = 10
-    show = "both"
-
-    [[block]]
-    block = "backlight"
-
-    [[block]]
     block = "toggle"
     command_state = "systemctl --user -q is-active redshift && echo on"
     command_on = "systemctl --user start redshift"
@@ -82,13 +72,9 @@
 
     [[block]]
     block = "pomodoro"
-    length = 25
-    message = "Take a break!"
     use_nag = true
 
     [[block]]
     block = "time"
     interval = 10
     format = "%a %Y-%m-%d %l:%M%p"
-  '';
-}

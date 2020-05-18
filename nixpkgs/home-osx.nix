@@ -21,7 +21,11 @@
     rustup
   ];
 
-  imports = [ ./config/tmux.conf.nix ./config/git.nix ./config/zsh.nix ];
+  imports = [
+    ./config/git.nix
+    ./config/zsh.nix
+  ];
+  home.file.".config/tmux.conf".source = ./config/tmux.conf;
 
   programs.zsh = {
     oh-my-zsh = { theme = "robbyrussell"; };
