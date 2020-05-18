@@ -17,6 +17,7 @@ in {
   imports = [
     ./config/git.nix
     ./config/zsh.nix
+    ./SpaceVim.d/space-vim.nix
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
