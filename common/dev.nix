@@ -25,7 +25,7 @@ in {
 
     meld
 
-    google-chrome
+    firefox
     docker
     docker-compose
 
