@@ -27,7 +27,8 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.ens160.useDHCP = true;
+  #networking.interfaces.ens160.useDHCP = true;
+  networking.interfaces.ens192.useDHCP = true;
   networking.hostName = "overlord"; # Define your hostname.
   networking.firewall.enable = false;
   networking.extraHosts = ''
@@ -48,7 +49,7 @@
     192.168.199.180 hivemind.starcraft.local
     192.168.199.192 hydralisk.starcraft.local
     192.168.199.159 ultralisk.starcraft.local
-    192.168.199.160 overlord.starcraft.local
+    192.168.199.140 overlord.starcraft.local
     192.168.199.149 nydusworm.starcraft.local
 
     192.168.199.170 comsat-station.starcraft.local
