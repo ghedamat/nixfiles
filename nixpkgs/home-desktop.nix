@@ -17,6 +17,15 @@
   home.file.".config/i3/config".source = ./config/i3/config-desktop;
   home.file.".config/i3/status.toml".source = ./config/i3/status-desktop.toml;
 
+  programs.zsh = {
+    oh-my-zsh = { theme = "minimal"; };
+    profileExtra = ''
+      export PATH=$PATH:$HOME/.npm-prefix/bin
+    '';
+    initExtraBeforeCompInit = ''
+    '';
+  };
+
   gtk = {
     enable = true;
     theme = {
