@@ -5,11 +5,12 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [ vscode ];
 
   imports = [
     ./config/git.nix
     ./config/zsh.nix
+    ./config/programs.nix
+    ./config/packages.nix
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;

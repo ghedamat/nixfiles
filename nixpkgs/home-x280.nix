@@ -6,17 +6,11 @@ in {
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.packages = with pkgs; [
-    vscode
-    homesick
-    fzf
-    unstable.starship
-    (import ./../common/packages/neovim.nix)
-  ];
-
   imports = [
     ./config/git.nix
     ./config/zsh.nix
+    ./config/programs.nix
+    ./config/packages.nix
     ./SpaceVim.d/space-vim.nix
     ./xfiles/xfiles-x280.nix
   ];
