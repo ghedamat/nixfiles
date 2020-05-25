@@ -27,7 +27,7 @@
   };
 
   zergling = {
-    imports = [ ./ghedamat-x280.nix ];
+    imports = [ ./hive-zergling-x280.nix ];
     deployment.targetHost = "zergling";
   };
 
