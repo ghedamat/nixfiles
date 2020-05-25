@@ -62,6 +62,10 @@ in { config, pkgs, lib, ... }:
     127.0.0.1 local_rails
       '';
 
+  services.printing.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
   users.users.ghedamat = {
     isNormalUser = true;
     home = "/home/ghedamat";
