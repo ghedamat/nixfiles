@@ -35,4 +35,9 @@
     imports = [ ./hive-infested-terran-opstest.nix ];
     deployment.targetHost = "infested-terran";
   };
+
+  spawningPool = {
+    imports = [ ./hive-spawning-pool-printserver.nix ];
+    deployment.targetHost = "spawning-pool";
+  };
 }
