@@ -4,14 +4,7 @@
 
 { config, pkgs, ... }:
 
-let
-  downloadScript = pkgs.writeShellScriptBin "download-es" ''
-    source ~/.noe-aws-prod-creds
-    eval $(${pkgs.awscli}/bin/aws ecr get-login --region us-east-2 --no-include-email)
-    ${pkgs.docker}/bin/docker pull 483218180663.dkr.ecr.us-east-2.amazonaws.com/precisionnutrition-production-eternal-sledgehammer/web:$1
-    ${pkgs.docker}/bin/docker image tag 483218180663.dkr.ecr.us-east-2.amazonaws.com/precisionnutrition-production-eternal-sledgehammer/web:$1 es-web:$1
-  '';
-in {
+{
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
@@ -24,8 +17,6 @@ in {
     qemu
 
     awscli
-
-    downloadScript
   ];
 
   # Use the systemd-boot EFI boot loader.
