@@ -6,6 +6,11 @@
     deployment.targetHost = "lurker";
   };
 
+  drone = {
+    imports = [ ./hive-drone-devserver.nix ];
+    deployment.targetHost = "drone";
+  };
+
   ultralisk = {
     imports = [ ./hive-ultralisk-postgres.nix ];
     deployment.targetHost = "ultralisk";

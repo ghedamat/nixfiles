@@ -51,6 +51,7 @@
     192.168.199.159 ultralisk.starcraft.local
     192.168.199.140 overlord.starcraft.local
     192.168.199.149 nydusworm.starcraft.local
+    192.168.199.131 drone.starcraft.local
 
     192.168.199.170 comsat-station.starcraft.local
     192.168.199.163 mineos.starcraft.local
