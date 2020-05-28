@@ -73,7 +73,8 @@
   '';
 
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.brlaser ];
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
 
   services.qemuGuest.enable = true;
 
