@@ -88,7 +88,7 @@ name = "lang#rust"
 name = "test"
 
 [[layers]]
-name = "elixir"
+name = "lang#elixir"
 
 # reason ml layer
 [[custom_plugins]]
