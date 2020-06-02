@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-
+{ pkgs, ... }:
+let unstable = import <unstable> { };
+in {
   # FIXME: Is this necessary?
   system.copySystemConfiguration = true;
 
@@ -97,6 +98,8 @@
 
     # autokey
     autokey
+
+    unstable.standardnotes
   ];
 
   environment.shellInit = ''
