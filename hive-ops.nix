@@ -4,13 +4,13 @@
   lurker = {
     imports = [ ./hive-lurker-devserver.nix ];
     deployment.targetHost = "lurker";
-    nix.gc.automatic = true;
+    nix.gc.automatic = false;
   };
 
   drone = {
     imports = [ ./hive-drone-devserver.nix ];
     deployment.targetHost = "drone";
-    nix.gc.automatic = true;
+    nix.gc.automatic = false;
   };
 
   ultralisk = {
@@ -22,7 +22,7 @@
   hydralisk = {
     imports = [ ./hive-hydralisk-desktop.nix ];
     deployment.targetHost = "hydralisk";
-    nix.gc.automatic = true;
+    nix.gc.automatic = false;
   };
 
   overlord = {
