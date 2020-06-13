@@ -9,6 +9,7 @@
     ./config/git.nix
     ./config/zsh.nix
     ./config/programs.nix
+    ./config/services.nix
     ./config/packages.nix
     ./SpaceVim.d/space-vim.nix
   ];
