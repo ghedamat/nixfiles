@@ -11,6 +11,7 @@
     ./config/zsh.nix
     ./config/programs.nix
     ./config/packages.nix
+    ./config/services.nix
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
