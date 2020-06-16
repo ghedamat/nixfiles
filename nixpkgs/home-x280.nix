@@ -17,6 +17,7 @@ in {
   ];
 
   home.file.".tmux.conf".source = ./config/tmux.conf;
+  home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   home.file.".config/starship.toml".source = ./config/starship-x280.toml;
   home.file.".config/alacritty/alacritty.yml".source = ./config/alacritty.yml;
   home.file.".config/i3/config".source = ./config/i3/config-x280;
