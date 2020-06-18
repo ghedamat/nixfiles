@@ -12,6 +12,7 @@
     ./config/programs.nix
     ./config/packages.nix
     ./config/services.nix
+    ./xfiles/xfiles-hydralisk.nix
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
