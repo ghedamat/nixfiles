@@ -4,7 +4,7 @@
   imports = [ ./desktop.nix ];
 
   services.xserver = {
-    displayManager.startx.enable = true;
+    displayManager.lightdm.enable = true;
     displayManager.defaultSession = "none+i3"; # We startx in our home.nix
 
     windowManager.i3.enable = true;

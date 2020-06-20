@@ -90,6 +90,12 @@ name = "test"
 [[layers]]
 name = "lang#elixir"
 
+[[layers]]
+  name = "lang#markdown"
+
+[[layers]]
+  name = "format"
+
 # reason ml layer
 [[custom_plugins]]
    name = "reasonml-editor/vim-reason-plus"
