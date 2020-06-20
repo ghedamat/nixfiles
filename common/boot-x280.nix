@@ -22,26 +22,24 @@ in {
   # Grub
 
   # Once boot.initrd.secrets is a thing again... (See above)
-  boot.initrd.secrets = {
-    "${disk.keyFile}" = builtins.toPath disk.keyFile; 
-  };
+  #boot.initrd.secrets = {
+  #  "${disk.keyFile}" = builtins.toPath disk.keyFile; 
+  #};
 
   # Resume
   boot.resumeDevice = "/dev/cryptswap";
 
   # LUKS
   boot.initrd.supportedFilesystems = [ "btrfs" ];
-  boot.initrd.luks.devices = let keyFile = disk.keyFile;
-  in {
+  boot.initrd.luks.devices =
+  {
     cryptroot = {
       device = disk.cryptroot;
       allowDiscards = true;
-      keyFile = keyFile;
     };
     cryptswap = {
       device = disk.cryptswap;
       allowDiscards = true;
-      keyFile = keyFile;
     };
   };
 
