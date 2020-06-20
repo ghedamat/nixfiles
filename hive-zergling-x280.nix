@@ -56,6 +56,7 @@ in { config, pkgs, lib, ... }:
   networking.networkmanager.wifi.macAddress =
     "preserve"; # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
+  networking.networkmanager.enable = true;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
   #127.0.0.1 es-dev.precisionnutrition.com
   networking.extraHosts = ''
@@ -93,8 +94,6 @@ in { config, pkgs, lib, ... }:
   services.logind.extraConfig = ''
     RuntimeDirectorySize=7.8G
   '';
-
-  environment.systemPackages = with pkgs; [ zoom-us ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

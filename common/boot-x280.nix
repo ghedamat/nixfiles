@@ -20,21 +20,11 @@ in {
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Grub
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    device = "nodev"; # Use EFI as the bootloader
-    efiSupport = true;
-    enableCryptodisk = true;
-    extraInitrd =
-      disk.extraInitrd; # Replaced by boot.initrd.secrets? https://github.com/NixOS/nixpkgs/issues/41608
-    # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-  };
 
   # Once boot.initrd.secrets is a thing again... (See above)
-  #boot.initrd.secrets = {
-  #  "${disk.keyFile}" = disk.keyFile;
-  #};
+  boot.initrd.secrets = {
+    "${disk.keyFile}" = builtins.toPath disk.keyFile; 
+  };
 
   # Resume
   boot.resumeDevice = "/dev/cryptswap";
