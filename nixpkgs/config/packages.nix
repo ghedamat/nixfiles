@@ -7,6 +7,7 @@ in {
     meld
     unstable.starship
     pass
+    ngrok
     (import ./../../common/packages/neovim.nix)
     unstable.vscode
     nnn
