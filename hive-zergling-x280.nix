@@ -99,6 +99,16 @@ in { config, pkgs, lib, ... }:
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
 
+  environment.systemPackages = with pkgs; [ direnv  nix-direnv ];
+  # nix options for derivations to persist garbage collection
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you

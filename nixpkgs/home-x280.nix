@@ -15,6 +15,9 @@ in {
     ./SpaceVim.d/space-vim.nix
     ./xfiles/xfiles-x280.nix
   ];
+  home.packages = with pkgs; [
+    zoom-us
+  ];
 
   home.file.".tmux.conf".source = ./config/tmux.conf;
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
@@ -27,6 +30,7 @@ in {
     oh-my-zsh = { theme = "minimal"; };
     initExtraBeforeCompInit = ''
       eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
     '';
   };
 
