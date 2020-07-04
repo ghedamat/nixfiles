@@ -99,7 +99,7 @@ in {
     # autokey
     autokey
 
-    unstable.standardnotes
+    (import ./packages/standardnotes.nix)
   ];
 
   environment.shellInit = ''
