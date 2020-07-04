@@ -8,7 +8,7 @@ in { config, pkgs, lib, ... }:
   services.localtime.enable = true;
   time.timeZone = "America/Toronto";
 
-  boot.kernelPackages = pkgs.linuxPackages_4_9;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" ];
   boot.blacklistedKernelModules = [ "mei_me" ];
   #options iwlwifi power_save=1 d0i3_disable=0 uapsd_disable=0
