@@ -1,6 +1,5 @@
 { pkgs, ... }:
-let unstable = import <unstable> { };
-in {
+{
   # FIXME: Is this necessary?
   system.copySystemConfiguration = true;
 

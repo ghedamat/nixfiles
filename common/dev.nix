@@ -1,6 +1,5 @@
 { pkgs, ... }:
-let unstable = import <unstable> { };
-in {
+{
   environment.systemPackages = with pkgs; [
     git
     gnumake
@@ -40,7 +39,7 @@ in {
 
     bc
 
-    unstable.git-up
+    git-up
 
     devtodo
     (pkgs.callPackage ./packages/comma.nix { })

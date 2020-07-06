@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
-let unstable = import <unstable> { };
-in {
+{
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
