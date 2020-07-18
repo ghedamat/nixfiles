@@ -10,5 +10,8 @@
     (import ./../../common/packages/neovim.nix)
     vscode
     nnn
+    anki
+    ripgrep
+    tig
   ];
 }
