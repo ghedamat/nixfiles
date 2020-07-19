@@ -13,5 +13,6 @@
     anki
     ripgrep
     tig
+    niv
   ];
 }
