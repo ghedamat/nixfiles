@@ -1,0 +1,14 @@
+{
+  "suggest.autoTrigger": "always",
+  "suggest.maxCompleteItemCount": 10,
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
+  "eslint.filetypes": ["javascript", "typescript"],
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
+  "solargraph.useBundler": true,
+  "tabnine.binary_path": "/home/ghedamat/bin/TabNine",
+  "coc.preferences.formatOnSaveFiletypes": ["elixir"]
+}

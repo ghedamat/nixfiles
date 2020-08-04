@@ -5,6 +5,28 @@ function! myspacevim#before() abort
 endfunction
 
 function! myspacevim#after() abort
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  let s:coc_extensions = [
+        \ 'coc-dictionary',
+        \ 'coc-elixir',
+        \ 'coc-ember',
+        \ 'coc-eslint',
+        \ 'coc-html',
+        \ 'coc-json',
+        \ 'coc-json',
+        \ 'coc-rls',
+        \ 'coc-solargraph',
+        \ 'coc-tabnine',
+        \ 'coc-tag',
+        \ 'coc-tsserver',
+        \ 'coc-ultisnips',
+        \]
+
+  for extension in s:coc_extensions
+    call coc#add_extension(extension)
+  endfor
+
   " trailing whitespace
   EnableWhitespace
 
@@ -36,29 +58,6 @@ function! myspacevim#after() abort
 
   let g:neomake_typescript_enabled_makers = ['eslint']
 
-  call coc#config('coc.preferences', {
-        \ "autoTrigger": "always",
-        \ "maxCompleteItemCount": 10,
-        \ "codeLens.enable": 1,
-        \ "diagnostic.virtualText": 1,
-        \ "eslint.fileTypes": ["javascript", "typescript"]
-        \})
-
-  let s:coc_extensions = [
-        \ 'coc-dictionary',
-        \ 'coc-json',
-        \ 'coc-tag',
-        \ 'coc-rls',
-        \ 'coc-ultisnips',
-        \ 'coc-tabnine',
-        \ 'coc-tsserver',
-        \ 'coc-solargraph',
-        \ 'coc-eslint',
-        \]
-
-  for extension in s:coc_extensions
-    call coc#add_extension(extension)
-  endfor
   " Use `[c` and `]c` to navigate diagnostics
   nmap <silent> [c <Plug>(coc-diagnostic-prev)
   nmap <silent> ]c <Plug>(coc-diagnostic-next)
