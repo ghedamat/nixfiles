@@ -19,11 +19,11 @@
     nix.gc.automatic = true;
   };
 
-  hydralisk = {
-    imports = [ ./hive-hydralisk-desktop.nix ];
-    deployment.targetHost = "hydralisk";
-    nix.gc.automatic = false;
-  };
+  #hydralisk = {
+  #  imports = [ ./hive-hydralisk-desktop.nix ];
+  #  deployment.targetHost = "hydralisk";
+  #  nix.gc.automatic = false;
+  #};
 
   overlord = {
     imports = [ ./hive-overlord-dnsmasq.nix ];
@@ -37,10 +37,10 @@
     nix.gc.automatic = true;
   };
 
-  zergling = {
-    imports = [ ./hive-zergling-x280.nix ];
-    deployment.targetHost = "zergling";
-  };
+  #zergling = {
+  #  imports = [ ./hive-zergling-x280.nix ];
+  #  deployment.targetHost = "zergling";
+  #};
 
   infestedTerran = {
     imports = [ ./hive-infested-terran-opstest.nix ];
