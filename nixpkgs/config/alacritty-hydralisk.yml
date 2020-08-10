@@ -69,25 +69,25 @@ font:
   # Font configuration (changes require restart)
   # The normal (roman) font face to use.
   normal:
-    family: Office Code Pro 
+    family: Source Code Pro 
     #family: Droid Sans Mono Slashed for Powerline
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Office Code Pro 
+    family: Source Code Pro 
     #family: Droid Sans Mono Slashed for Powerline
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Office Code Pro 
+    family: Source Code Pro 
     #family: Droid Sans Mono Slashed for Powerline
     # Style can be specified to pick a specific face.
     style: Italic
-  
+
   # Normal (roman) font face
   #normal:
     # Font family
@@ -124,7 +124,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 8.0
+  size: 24.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -254,7 +254,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-bell:
+visual_bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
@@ -575,3 +575,4 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
+

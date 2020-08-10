@@ -15,13 +15,14 @@
     ./xfiles/xfiles-hydralisk.nix
   ];
   home.packages = with pkgs; [
-    zoom-us
+    #zoom-us
   ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   home.file.".config/i3/config".source = ./config/i3/config-desktop;
+  home.file.".config/alacritty/alacritty-hydralisk.yml".source = ./config/alacritty.yml;
   home.file.".config/i3/status.toml".source = ./config/i3/status-desktop.toml;
 
   programs.zsh = {
