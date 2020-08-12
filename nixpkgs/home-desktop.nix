@@ -22,7 +22,7 @@
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   home.file.".config/i3/config".source = ./config/i3/config-desktop;
-  home.file.".config/alacritty/alacritty-hydralisk.yml".source = ./config/alacritty.yml;
+  home.file.".config/alacritty.yml".source = ./config/alacritty-hydralisk.yml;
   home.file.".config/i3/status.toml".source = ./config/i3/status-desktop.toml;
 
   programs.zsh = {
