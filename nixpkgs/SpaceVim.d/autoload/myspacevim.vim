@@ -21,11 +21,14 @@ function! myspacevim#after() abort
         \ 'coc-tag',
         \ 'coc-tsserver',
         \ 'coc-ultisnips',
+        \ 'coc-prettier',
         \]
 
   for extension in s:coc_extensions
     call coc#add_extension(extension)
   endfor
+
+  command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
   " trailing whitespace
   EnableWhitespace
