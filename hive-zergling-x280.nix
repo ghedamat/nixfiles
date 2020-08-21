@@ -31,6 +31,9 @@ in { config, pkgs, lib, ... }:
     intel-ocl
     intel-media-driver
   ];
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware.pulseaudio.support32Bit = true;
 
   nix.maxJobs = lib.mkDefault 8;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
@@ -99,7 +102,7 @@ in { config, pkgs, lib, ... }:
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
 
-  environment.systemPackages = with pkgs; [ direnv  nix-direnv ];
+  environment.systemPackages = with pkgs; [ direnv  nix-direnv steam ];
   # nix options for derivations to persist garbage collection
   nix.extraOptions = ''
     keep-outputs = true
