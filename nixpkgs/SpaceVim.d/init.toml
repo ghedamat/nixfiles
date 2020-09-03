@@ -99,6 +99,9 @@ name = "lang#elixir"
 [[layers]]
   name = "format"
 
+[[layers]]
+  name = "lang#go"
+
 # reason ml layer
 [[custom_plugins]]
    name = "reasonml-editor/vim-reason-plus"
