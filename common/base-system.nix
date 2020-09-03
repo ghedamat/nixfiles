@@ -9,6 +9,7 @@
     ruby
     yarn
     nodejs-10_x
+    perl
 
     (import ./packages/vim.nix)
     (import ./packages/neovim.nix)
