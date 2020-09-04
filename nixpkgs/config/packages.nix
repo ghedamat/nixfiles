@@ -4,7 +4,6 @@
     homesick
     fzf
     meld
-    starship
     pass
     ngrok
     (import ./../../common/packages/neovim.nix)

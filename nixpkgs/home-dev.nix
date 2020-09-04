@@ -6,30 +6,27 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./config/git.nix
-    ./config/zsh.nix
+    ./config/shell.nix
     ./config/programs.nix
-    ./config/services.nix
+    ./config/git.nix
     ./config/packages.nix
-    ./SpaceVim.d/space-vim.nix
+    ./config/spacevim.nix
   ];
 
-  home.file.".config/starship.toml".source = ./config/starship-dev.toml;
-  home.file.".tmux.conf".source = ./config/tmux.conf;
-
-  programs.zsh = {
-    oh-my-zsh = { theme = "minimal"; };
-    profileExtra = ''
-      export PATH=$PATH:$HOME/.npm-prefix/bin
-    '';
-    initExtraBeforeCompInit = ''
-      eval "$(starship init zsh)"
-    '';
+  ghedamat = {
+    shell = {
+      starship = {
+        enable = true;
+        configFile = "starship-dev.toml";
+      };
+      zsh.enable = true;
+    };
+    programs = {
+      tmux.enable = true;
+      vsliveshare.enable = true;
+    };
+    spacevim.enable = true;
   };
-
-  services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
-    sshKeys = [ "2018_id_rsa" ];
-  };
+  programs.bat.enable = true;
+  programs.go.enable = true;
 }

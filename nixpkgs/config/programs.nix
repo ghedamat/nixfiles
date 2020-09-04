@@ -1,4 +1,6 @@
 {
-  programs.bat.enable = true;
-  programs.go.enable = true;
+  imports = [
+    ./programs/tmux.nix
+    ./programs/vsliveshare.nix
+  ];
 }
