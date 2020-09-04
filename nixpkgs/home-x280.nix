@@ -11,11 +11,12 @@
     ./config/git.nix
     ./config/packages.nix
     ./config/spacevim.nix
-    ./xfiles/xfiles-x280.nix
+    ./config/xfiles.nix
   ];
 
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   ghedamat = {
+
     shell = {
       starship = {
         enable = true;
@@ -26,6 +27,7 @@
         direnv = true;
       };
     };
+
     programs = {
       zoom.enable = true;
       tmux.enable = true;
@@ -40,7 +42,14 @@
         statusFile = "status-x280.toml";
       };
     };
+
     spacevim.enable = true;
+
+    xfiles = {
+      enable = true;
+      xinitrcFile = "xinitrc-x280";
+      xprofileFile = "xprofile-x280";
+    };
   };
 
   programs.bat.enable = true;

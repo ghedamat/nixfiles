@@ -5,7 +5,6 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-
   imports = [
     ./config/git.nix
     ./config/zsh.nix
@@ -14,9 +13,10 @@
     ./config/services.nix
     ./xfiles/xfiles-hydralisk.nix
   ];
-  home.packages = with pkgs; [
-    #zoom-us
-  ];
+  home.packages = with pkgs;
+    [
+      #zoom-us
+    ];
 
   home.file.".config/tmux.conf".source = ./config/tmux.conf;
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
@@ -30,8 +30,7 @@
     profileExtra = ''
       export PATH=$PATH:$HOME/.npm-prefix/bin
     '';
-    initExtraBeforeCompInit = ''
-    '';
+    initExtraBeforeCompInit = "";
   };
 
   gtk = {

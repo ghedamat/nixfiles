@@ -11,9 +11,7 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      starship
-    ];
+    home.packages = with pkgs; [ starship ];
     home.file.".config/starship.toml".source = ./. + ("/" + cfg.configFile);
   };
 }

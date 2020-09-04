@@ -2,9 +2,4 @@
 
 with lib;
 let cfg = config.ghedamat.shell;
-in {
-  imports = [
-    ./shell/starship.nix
-    ./shell/zsh.nix
-  ];
-}
+in { imports = [ ./shell/starship.nix ./shell/zsh.nix ]; }
