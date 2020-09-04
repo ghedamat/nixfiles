@@ -11,14 +11,14 @@ let
     i386-linux = "0v2nsis6vb1lnhmjd28vrfxqwwpycv02j0nvjlfzcgj4b3400j7a";
     x86_64-linux = "0kxqdpr9jfyvr0dhvilksfwcbnwx1dy04fnv6nad6k99gxmak48a";
   }.${stdenv.hostPlatform.system};
-in
 
-stdenv.mkDerivation {
+in stdenv.mkDerivation {
   pname = "standardnotes";
   inherit version;
 
   src = fetchurl {
-    url = "https://github.com/standardnotes/desktop/releases/download/v3.4.2/standard-notes-3.4.2-linux-x86_64.AppImage";
+    url =
+      "https://github.com/standardnotes/desktop/releases/download/v3.4.2/standard-notes-3.4.2-linux-x86_64.AppImage";
     inherit sha256;
   };
 
@@ -40,7 +40,7 @@ stdenv.mkDerivation {
       Standard Notes is a private notes app that features unmatched simplicity,
       end-to-end encryption, powerful extensions, and open-source applications.
     '';
-    homepage = https://standardnotes.org;
+    homepage = "https://standardnotes.org";
     license = licenses.agpl3;
     maintainers = with maintainers; [ mgregoire ];
     platforms = [ "i386-linux" "x86_64-linux" ];

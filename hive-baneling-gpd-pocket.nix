@@ -7,10 +7,10 @@ in { config, pkgs, lib, ... }:
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-nixpkgs.config = {
-  packageOverrides = pkgs: {
-    linux_5_0 = pkgs.linux_5_0.override {
-      extraConfig = ''
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      linux_5_0 = pkgs.linux_5_0.override {
+        extraConfig = ''
           B43_SDIO y
           PMIC_OPREGION y
           CHT_WC_PMIC_OPREGION y
@@ -27,10 +27,10 @@ nixpkgs.config = {
           PWM_LPSS_PCI m
           PWM_LPSS_PLATFORM m
           PWM_SYSFS y
-      '';
+        '';
+      };
     };
   };
-};
 
   powerManagement = {
     enable = true;
@@ -58,16 +58,13 @@ nixpkgs.config = {
         modprobe btusb
         echo "0000 0000" > /sys/bus/usb/drivers/btusb/new_id
       '';
-    in
-      ''
-       SUBSYSTEM=="usb", ATTRS{idVendor}=="0000", ATTRS{idProduct}=="0000", RUN+="${script}/bin/enable-bluetooth"
+    in ''
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="0000", ATTRS{idProduct}=="0000", RUN+="${script}/bin/enable-bluetooth"
     '';
   };
 
-   boot = {
-    kernelParams = [
-      "gpd-pocket-fan.speed_on_ac=0"
-    ];
+  boot = {
+    kernelParams = [ "gpd-pocket-fan.speed_on_ac=0" ];
     kernelModules = [ "kvm-intel" ];
 
     initrd = {
@@ -95,45 +92,41 @@ nixpkgs.config = {
       options i915 enable_fbc=1 enable_rc6=1 modeset=1
     '';
   };
- boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "baneling";
 
   i18n.consoleFont = "latarcyrheb-sun32";
 
-  environment.variables = {
-    MOZ_USE_XINPUT2 = "1";
-  };
+  environment.variables = { MOZ_USE_XINPUT2 = "1"; };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   nixpkgs.config.allowUnfree = true;
 
-
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
 
-  imports =
-    [ <nixpkgs/nixos/modules/hardware/network/broadcom-43xx.nix>
-      <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+  imports = [
+    <nixpkgs/nixos/modules/hardware/network/broadcom-43xx.nix>
+    <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
     ./common/dev.nix
-    ];
+  ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/81f060a3-9bcb-4e0b-b625-187f91a88706";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/81f060a3-9bcb-4e0b-b625-187f91a88706";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/791D-CD20";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/791D-CD20";
+    fsType = "vfat";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/3fe7318e-0603-48f7-a5a6-3a8e0abb7ca1"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/3fe7318e-0603-48f7-a5a6-3a8e0abb7ca1"; }];
 
   nix.maxJobs = lib.mkDefault 4;
 
@@ -143,7 +136,8 @@ nixpkgs.config = {
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
   programs.autojump.enable = true;
 
-  networking.networkmanager.wifi.macAddress = "preserve"; # Or "random", "stable", "permanent", "00:11:22:33:44:55"
+  networking.networkmanager.wifi.macAddress =
+    "preserve"; # Or "random", "stable", "permanent", "00:11:22:33:44:55"
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.enable = true;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
@@ -175,8 +169,8 @@ nixpkgs.config = {
   };
 
   hardware.cpu.intel.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true; # see https://github.com/shazow/nixfiles/commit/1439b454cd3ccbb60e5bd92b09d9d3b703b62208
-
+  hardware.enableRedistributableFirmware =
+    true; # see https://github.com/shazow/nixfiles/commit/1439b454cd3ccbb60e5bd92b09d9d3b703b62208
 
   services.xserver = {
     dpi = 168;
@@ -186,25 +180,26 @@ nixpkgs.config = {
       Option      "DRI"             "3"
     '';
     xrandrHeads = [{
-      output= "DSI-1";
+      output = "DSI-1";
       primary = true;
       monitorConfig = ''Option "Rotate" "right"'';
     }];
     inputClassSections = [
-    ''
-      Identifier  "calibration"
-      MatchProduct    "Goodix Capacitive TouchScreen"
-      Option  "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
-    ''
-    ''
-      Identifier "GPD trackpoint"
-      MatchProduct "SINO WEALTH Gaming Keyboard"
-      MatchIsPointer "on"
-      Driver "libinput"
-      Option "MiddleEmulation" "1"
-      Option "ScrollButton" "3"
-      Option "ScrollMethod" "button"
-    ''];
+      ''
+        Identifier  "calibration"
+        MatchProduct    "Goodix Capacitive TouchScreen"
+        Option  "TransformationMatrix" "0 1 0 -1 0 1 0 0 1"
+      ''
+      ''
+        Identifier "GPD trackpoint"
+        MatchProduct "SINO WEALTH Gaming Keyboard"
+        MatchIsPointer "on"
+        Driver "libinput"
+        Option "MiddleEmulation" "1"
+        Option "ScrollButton" "3"
+        Option "ScrollMethod" "button"
+      ''
+    ];
   };
 
   services.xserver.libinput = {

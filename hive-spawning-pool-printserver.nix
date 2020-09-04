@@ -101,7 +101,9 @@
   services.avahi.publish.userServices = true;
 
   services.printing.browsing = true;
-  services.printing.listenAddresses = [ "*:631" ]; # Not 100% sure this is needed and you might want to restrict to the local network
+  services.printing.listenAddresses = [
+    "*:631"
+  ]; # Not 100% sure this is needed and you might want to restrict to the local network
   services.printing.defaultShared = true; # If you want
   #services.printing.allowFrom = [ "all" ]; # not available in 20.03
   services.printing.extraConf = ''

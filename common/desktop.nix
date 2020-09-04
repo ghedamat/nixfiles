@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # FIXME: Is this necessary?
   system.copySystemConfiguration = true;
 
