@@ -6,32 +6,45 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./config/git.nix
-    ./config/zsh.nix
+    ./config/shell.nix
     ./config/programs.nix
-    ./config/services.nix
+    ./config/git.nix
     ./config/packages.nix
-    ./SpaceVim.d/space-vim.nix
+    ./config/spacevim.nix
     ./xfiles/xfiles-x280.nix
   ];
-  home.packages = with pkgs; [
-    zoom-us
-  ];
 
-  home.file.".tmux.conf".source = ./config/tmux.conf;
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
-  home.file.".config/starship.toml".source = ./config/starship-x280.toml;
-  home.file.".config/alacritty/alacritty.yml".source = ./config/alacritty.yml;
-  home.file.".config/i3/config".source = ./config/i3/config-x280;
-  home.file.".config/i3/status.toml".source = ./config/i3/status-x280.toml;
-
-  programs.zsh = {
-    oh-my-zsh = { theme = "minimal"; };
-    initExtraBeforeCompInit = ''
-      eval "$(starship init zsh)"
-      eval "$(direnv hook zsh)"
-    '';
+  ghedamat = {
+    shell = {
+      starship = {
+        enable = true;
+        configFile = "starship-x280.toml";
+      };
+      zsh = {
+        enable = true;
+        direnv = true;
+      };
+    };
+    programs = {
+      zoom.enable = true;
+      tmux.enable = true;
+      vsliveshare.enable = true;
+      alacritty = {
+        enable = true;
+        configFile = "x280.yml";
+      };
+      i3 = {
+        enable = true;
+        configFile = "config-x280";
+        statusFile = "status-x280.toml";
+      };
+    };
+    spacevim.enable = true;
   };
+
+  programs.bat.enable = true;
+  programs.go.enable = true;
 
   gtk = {
     enable = true;

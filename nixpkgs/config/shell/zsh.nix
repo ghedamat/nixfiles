@@ -5,6 +5,7 @@ let cfg = config.ghedamat.shell.zsh;
 in {
   options = {
     ghedamat.shell.zsh.enable = mkEnableOption "enable zsh";
+    ghedamat.shell.zsh.direnv = mkEnableOption "enable zsh direnv";
   };
   config = mkIf cfg.enable {
     programs.zsh = {
@@ -21,8 +22,10 @@ in {
       profileExtra = ''
         export PATH=$PATH:$HOME/.npm-prefix/bin
       '';
-      initExtraBeforeCompInit = mkIf config.ghedamat.shell.starship.enable ''
+      initExtraBeforeCompInit = optionalString config.ghedamat.shell.starship.enable ''
         eval "$(starship init zsh)"
+      '' + optionalString cfg.direnv ''
+        eval "$(direnv hook zsh)"
       '';
       initExtra = ''
         stty stop undef
