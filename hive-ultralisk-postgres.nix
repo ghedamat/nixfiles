@@ -8,7 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
-    ./common/server.nix
+    ./common/hivemind/server.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -86,6 +86,9 @@
   '';
 
   services.qemuGuest.enable = true;
+
+  # hivemind config
+  hivemind.server.enable = true;
 
   # postgres config
   services.postgresql = {

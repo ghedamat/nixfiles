@@ -8,8 +8,8 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev.nix
     ./common/base-system.nix
-    ./common/dev.nix
-    ./common/server.nix
+    ./common/hivemind/dev.nix
+    ./common/hivemind/server.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -48,9 +48,17 @@
   xdg.portal.enable = true;
   services.flatpak.enable = true;
 
-  hivemind.server.enable = true;
-  hivemind.server.xserver = true;
-  hivemind.server.docker = true;
+  # hivemind config
+  hivemind = {
+    server = {
+      enable = true;
+      xserver = true;
+    };
+    dev = {
+      enable = true;
+      docker = true;
+    };
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

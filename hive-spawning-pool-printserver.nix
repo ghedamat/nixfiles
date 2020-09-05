@@ -8,7 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
-    ./common/server.nix
+    ./common/hivemind/server.nix
   ];
 
   # List packages installed in system profile. To search, run:
@@ -90,6 +90,9 @@
   '';
 
   services.qemuGuest.enable = true;
+
+  # hivemind config
+  hivemind.server.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

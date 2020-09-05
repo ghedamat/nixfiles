@@ -8,7 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-exsi-mbr-vm.nix
     ./common/base-system.nix
-    ./common/server.nix
+    ./common/hivemind/server.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -66,6 +66,9 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
+
+  # hivemind config
+  hivemind.server.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
