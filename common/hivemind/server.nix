@@ -25,9 +25,9 @@ in {
     virtualisation.vmware.guest.headless = true;
 
     services.xserver = mkIf cfg.xserver {
-        enable = true;
-        layout = "us";
-        libinput.enable = true;
+      enable = true;
+      layout = "us";
+      libinput.enable = true;
     };
 
     # docker stuff

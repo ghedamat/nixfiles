@@ -19,22 +19,10 @@
     pcmanfm
     rofi
     xss-lock
-    polybar
     i3status-rust
 
     compton
   ];
-
-  # build polybar with i3 support
-  # does not seem to build w/out pulseaudio support as well
-  nixpkgs.config = {
-    packageOverrides = pkgs: rec {
-      polybar = pkgs.polybar.override {
-        i3Support = true;
-        pulseSupport = true;
-      };
-    };
-  };
 
   services.clipmenu.enable = true;
   # Based on https://github.com/cdown/clipmenu/blob/develop/init/clipmenud.service

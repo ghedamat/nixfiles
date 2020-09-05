@@ -23,11 +23,7 @@
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   ghedamat = {
 
-    shell = {
-      zsh = {
-        enable = true;
-      };
-    };
+    shell = { zsh = { enable = true; }; };
 
     programs = {
       tmux.enable = true;

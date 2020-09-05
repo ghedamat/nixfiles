@@ -42,7 +42,7 @@ in { config, pkgs, lib, ... }:
 
   imports = [
     ./hardware/thinkpad-x280.nix
-    ./common/boot-x280.nix
+    ./hardware/boot-x280.nix
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
@@ -93,7 +93,6 @@ in { config, pkgs, lib, ... }:
   programs.zsh.enableCompletion = true;
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
   programs.autojump.enable = true;
-
 
   # hivemind modules
   hivemind.dev = {
