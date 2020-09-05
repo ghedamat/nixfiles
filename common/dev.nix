@@ -43,8 +43,4 @@
     devtodo
     (pkgs.callPackage ./packages/comma.nix { })
   ];
-
-  # docker stuff
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
 }

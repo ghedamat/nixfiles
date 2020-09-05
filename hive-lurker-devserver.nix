@@ -18,54 +18,11 @@
 
   networking.hostName = "lurker"; # Define your hostname.
   networking.firewall.enable = false;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
 
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [ qemu google-chrome ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ghedamat = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
@@ -75,14 +32,9 @@
   # zsh stuff
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
-  programs.autojump.enable = true;
-
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 
-  # DEV env
-  # docker stuff
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
+  programs.autojump.enable = true;
 
   # increase /run/user/1000 tmpfs size
   services.logind.extraConfig = ''
@@ -95,6 +47,10 @@
 
   xdg.portal.enable = true;
   services.flatpak.enable = true;
+
+  hivemind.server.enable = true;
+  hivemind.server.xserver = true;
+  hivemind.server.docker = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
