@@ -46,14 +46,8 @@ in { config, pkgs, lib, ... }:
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
-    ./common/dev.nix
+    ./common/hivemind/dev.nix
   ];
-
-  # zsh stuff
-  programs.zsh.enable = true;
-  programs.zsh.enableCompletion = true;
-  programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
-  programs.autojump.enable = true;
 
   networking.hostName = "zergling";
   networking.networkmanager.wifi.macAddress =
@@ -90,17 +84,30 @@ in { config, pkgs, lib, ... }:
     shell = pkgs.zsh;
   };
 
-  ## NEW
-  services.openssh.enable = true;
-  services.openssh.permitRootLogin = "yes";
-
   services.logind.extraConfig = ''
     RuntimeDirectorySize=7.8G
   '';
 
+  # zsh stuff
+  programs.zsh.enable = true;
+  programs.zsh.enableCompletion = true;
+  programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
+  programs.autojump.enable = true;
+
+
+  # hivemind modules
+  hivemind.dev = {
+    enable = true;
+    docker = true;
+  };
+
+  ## stuff to move
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
+  services.openssh.enable = true;
+  services.openssh.permitRootLogin = "yes";
 
+  # temporary config
   environment.systemPackages = with pkgs; [ direnv nix-direnv steam ];
   # nix options for derivations to persist garbage collection
   nix.extraOptions = ''

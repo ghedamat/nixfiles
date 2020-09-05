@@ -26,5 +26,6 @@
 
     htop
     nixfmt
+    (pkgs.callPackage ./packages/comma.nix { })
   ];
 }
