@@ -23,8 +23,8 @@
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
-    ./common/server.nix
-    ./common/dev.nix
+    ./common/hivemind/server.nix
+    ./common/hivemind/dev.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -77,6 +77,14 @@
   services.avahi.nssmdns = true;
 
   services.qemuGuest.enable = true;
+  # hivemind modules
+  hivemind.dev = {
+    enable = true;
+    docker = true;
+  };
+  hivemind.server = {
+    enable = true;
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

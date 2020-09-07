@@ -6,7 +6,6 @@ in {
   options = {
     hivemind.server.enable = mkEnableOption "enable server mode";
     hivemind.server.xserver = mkEnableOption "enable xserver";
-    hivemind.server.docker = mkEnableOption "enable docker";
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ gnumake git nixops ];
@@ -28,12 +27,6 @@ in {
       enable = true;
       layout = "us";
       libinput.enable = true;
-    };
-
-    # docker stuff
-    virtualisation.docker = mkIf cfg.docker {
-      enable = true;
-      enableOnBoot = true;
     };
   };
 }
