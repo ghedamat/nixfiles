@@ -13,6 +13,12 @@
     nix.gc.automatic = false;
   };
 
+  viper = {
+    imports = [ ./hive-viper-devserver.nix ];
+    deployment.targetHost = "192.168.199.118";
+    nix.gc.automatic = false;
+  };
+
   ultralisk = {
     imports = [ ./hive-ultralisk-postgres.nix ];
     deployment.targetHost = "ultralisk";
@@ -42,11 +48,11 @@
   #  deployment.targetHost = "zergling";
   #};
 
-  infestedTerran = {
-    imports = [ ./hive-infested-terran-opstest.nix ];
-    deployment.targetHost = "infested-terran";
-    nix.gc.automatic = true;
-  };
+  #infestedTerran = {
+  #  imports = [ ./hive-infested-terran-opstest.nix ];
+  #  deployment.targetHost = "infested-terran";
+  #  nix.gc.automatic = true;
+  #};
 
   spawningPool = {
     imports = [ ./hive-spawning-pool-printserver.nix ];
