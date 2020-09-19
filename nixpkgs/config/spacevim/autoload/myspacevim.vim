@@ -19,6 +19,7 @@ function! myspacevim#after() abort
         \ 'coc-solargraph',
         \ 'coc-tabnine',
         \ 'coc-tag',
+        \ 'coc-go',
         \ 'coc-tsserver',
         \ 'coc-ultisnips',
         \]
