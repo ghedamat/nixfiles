@@ -1,7 +1,6 @@
 function! myspacevim#before() abort
   call SpaceVim#logger#info('myspacevim#before called')
-  call add(g:spacevim_custom_plugins, ['neoclide/coc.nvim', {'rev': 'release', 'merged': 0, 'build': './install.sh'}])
-  call add(g:spacevim_custom_plugins, ['Konfekt/vim-scratchpad', {'branch': 'master', 'merged': 0}])
+  call add(g:spacevim_custom_plugins, ['neoclide/coc.nvim', {'rev': 'master', 'merged': 0, 'build': './install.sh'}])
 endfunction
 
 function! myspacevim#after() abort
@@ -122,6 +121,10 @@ function! myspacevim#after() abort
 
   " use `:OR` for organize import of current buffer
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+  let g:coc_fzf_preview = ''
+  let g:coc_fzf_opts = []
 
   echo "bar"
 

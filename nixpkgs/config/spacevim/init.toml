@@ -128,3 +128,9 @@ name = "lang#elixir"
    name = "mustache/vim-mustache-handlebars"
    # note: you need to disable merged feature
    merged = false
+
+[[custom_plugins]]
+   name = "antoinemadec/coc-fzf"
+   # note: you need to disable merged feature
+   merged = false
+   rev = "release"
