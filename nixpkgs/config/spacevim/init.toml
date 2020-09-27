@@ -12,8 +12,8 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "gruvbox"
-    colorscheme_bg = "dark"
+    colorscheme = "one"
+    colorscheme_bg = "light"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
@@ -134,3 +134,24 @@ name = "lang#elixir"
    # note: you need to disable merged feature
    merged = false
    rev = "release"
+
+# Additional themes
+[[custom_plugins]]
+   name = "junegunn/seoul256.vim"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "lifepillar/vim-solarized8"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "overcache/NeoSolarized"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "rakr/vim-one"
+   # note: you need to disable merged feature
+   merged = false

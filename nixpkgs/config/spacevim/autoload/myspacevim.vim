@@ -1,6 +1,5 @@
 function! myspacevim#before() abort
   call SpaceVim#logger#info('myspacevim#before called')
-  call add(g:spacevim_custom_plugins, ['neoclide/coc.nvim', {'rev': 'master', 'merged': 0, 'build': './install.sh'}])
 endfunction
 
 function! myspacevim#after() abort
@@ -40,14 +39,6 @@ function! myspacevim#after() abort
   " H L mappings
   nnoremap H 0
   nnoremap L $
-
-  " vim-scratchpad
-  let g:scratchpad_path = '/home/ghedamat/.scratchpads'
-  nmap dsp <Plug>(ToggleScratchPad)
-
-
-  " fixes mobaxterm https://github.com/neovim/neovim/issues/3692
-  set notermguicolors
 
   " alternate file mapping
   nnoremap <space><space> <c-^>
