@@ -59,10 +59,8 @@ in {
           trap "colorterm.sh" INT EXIT
           if [[ "$*" =~ "prod" ]]; then
           colorterm.sh prod
-          elif [[ "$*" =~ "dev" ]]; then
+          elif [[ "$*" =~ "lurker" ]]; then
           colorterm.sh dev
-          elif [[ "$*" =~ "ghedamat-roof" ]]; then
-          colorterm.sh ghedamat-roof
           else
           colorterm.sh other
           fi
