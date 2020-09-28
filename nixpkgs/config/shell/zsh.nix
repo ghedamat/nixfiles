@@ -17,7 +17,7 @@ in {
       };
       shellAliases = {
         vi = "vim";
-        ssh = "color-ssh";
+        #ssh = "color-ssh";
       };
       profileExtra = ''
         export PATH=$PATH:$HOME/.npm-prefix/bin
