@@ -27,6 +27,7 @@
 
     programs = {
       tmux.enable = true;
+      timeular.enable = true;
       alacritty = {
         enable = true;
         configFile = "hydralisk.yml";
