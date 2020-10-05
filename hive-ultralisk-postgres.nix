@@ -113,23 +113,17 @@
       min_wal_size = "80MB";
       checkpoint_completion_target = 0.9;
 
-
       enable_partitionwise_join = "on";
       enable_partitionwise_aggregate = "on";
       seq_page_cost = 1.0;
       random_page_cost = 1.0;
       effective_cache_size = "20GB";
 
-
-
-
       #log_line_prefix = "%m [%p] %q%u@%d ";
       log_timezone = "Etc/UTC";
 
       cluster_name = "11/main";
       stats_temp_directory = "/var/run/postgresql/12-main.pg_stat_tmp";
-
-
 
       datestyle = "iso, mdy";
       timezone = "Etc/UTC";

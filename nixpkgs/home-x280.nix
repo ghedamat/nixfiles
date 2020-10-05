@@ -14,9 +14,7 @@
     ./config/xfiles.nix
   ];
 
-  home.packages = with pkgs; [
-    obsidian
-  ];
+  home.packages = with pkgs; [ obsidian ];
 
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   ghedamat = {
