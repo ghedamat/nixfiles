@@ -12,8 +12,17 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "one"
-    colorscheme_bg = "light"
+    colorscheme = "dracula"
+    colorscheme_bg = "dark"
+    custom_color_palette = [
+      ['#44475A',  '#8BE9FD',  117,  239],
+      ['#6272A4',  '#343746', 237, 61],
+      ['#6272A4',  '#343746', 237, 61],
+      ['#343746', 273],
+      [255,  141,  255, 141],
+      [255,  84, 255, 84],
+      [255,  203, 255, 141],
+    ]
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
@@ -153,5 +162,10 @@ name = "lang#elixir"
 
 [[custom_plugins]]
    name = "rakr/vim-one"
+   # note: you need to disable merged feature
+   merged = false
+
+[[custom_plugins]]
+   name = "dracula/vim.git"
    # note: you need to disable merged feature
    merged = false

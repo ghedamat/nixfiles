@@ -118,6 +118,5 @@ function! myspacevim#after() abort
   let g:coc_fzf_opts = []
 
   echo "bar"
-
 endfunction
 
