@@ -96,8 +96,6 @@
 
     # autokey
     autokey
-
-    (import ./packages/standardnotes.nix)
   ];
 
   environment.shellInit = ''

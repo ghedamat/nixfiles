@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  version = "3.4.2-b";
+  version = "3.5.0-beta7";
 
   plat = {
     i386-linux = "i386";
@@ -9,7 +9,7 @@ let
 
   sha256 = {
     i386-linux = "0v2nsis6vb1lnhmjd28vrfxqwwpycv02j0nvjlfzcgj4b3400j7a";
-    x86_64-linux = "0kxqdpr9jfyvr0dhvilksfwcbnwx1dy04fnv6nad6k99gxmak48a";
+    x86_64-linux = "1f023c1sp1f7dpc8zhlp7fg8k6r3mpnvxzllfahrl5xwd7gks5fv";
   }.${stdenv.hostPlatform.system};
 
 in stdenv.mkDerivation {
@@ -18,7 +18,7 @@ in stdenv.mkDerivation {
 
   src = fetchurl {
     url =
-      "https://github.com/standardnotes/desktop/releases/download/v3.4.2/standard-notes-3.4.2-linux-x86_64.AppImage";
+      "https://github.com/standardnotes/desktop/releases/download/v${version}/standard-notes-${version}-linux-x86_64.AppImage";
     inherit sha256;
   };
 
