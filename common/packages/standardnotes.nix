@@ -1,6 +1,8 @@
 with import <nixpkgs> { };
 let
-  version = "3.4.6";
+  version = "3.5.1-beta03";
+  pname = "standardnotes";
+  name = "${pname}-${version}";
 
   plat = {
     i386-linux = "i386";
@@ -9,29 +11,37 @@ let
 
   sha256 = {
     i386-linux = "0v2nsis6vb1lnhmjd28vrfxqwwpycv02j0nvjlfzcgj4b3400j7a";
-    x86_64-linux = "17jnqsmhm98kzs5b8dfn1xn0m6r6fj4h3p3hxf5naf31a1d5mgqm";
+    x86_64-linux = "0przgmhykz9c28pkazbqh7j80xnvkldgdgjmzxwc8idcqgwb3bs4";
   }.${stdenv.hostPlatform.system};
 
-in stdenv.mkDerivation {
-  pname = "standardnotes";
-  inherit version;
-
   src = fetchurl {
-    url =
-      "https://github.com/standardnotes/desktop/releases/download/v${version}/standard-notes-${version}-linux-x86_64.AppImage";
+    url = "https://github.com/standardnotes/desktop/releases/download/v${version}/standard-notes-${version}-linux-${plat}.AppImage";
     inherit sha256;
   };
 
-  buildInputs = [ appimage-run ];
+  appimageContents = appimageTools.extractType2 {
+    inherit name src;
+  };
 
-  dontUnpack = true;
+  nativeBuildInputs = [ autoPatchelfHook desktop-file-utils ];
 
-  installPhase = ''
-    mkdir -p $out/{bin,share}
-    cp $src $out/share/standardNotes.AppImage
-    echo "#!${runtimeShell}" > $out/bin/standardnotes
-    echo "${appimage-run}/bin/appimage-run $out/share/standardNotes.AppImage" >> $out/bin/standardnotes
-    chmod +x $out/bin/standardnotes $out/share/standardNotes.AppImage
+in appimageTools.wrapType2 rec {
+  inherit name src;
+
+  extraPkgs = pkgs: with pkgs; [
+    libsecret
+  ];
+
+  extraInstallCommands = ''
+    # directory in /nix/store so readonly
+    cp -r  ${appimageContents}/* $out
+    cd $out
+    chmod -R +w $out
+    mv $out/bin/${name} $out/bin/${pname}
+    # fixup and install desktop file
+    ${desktop-file-utils}/bin/desktop-file-install --dir $out/share/applications \
+      --set-key Exec --set-value ${pname} standard-notes.desktop
+    rm usr/lib/* AppRun standard-notes.desktop .so*
   '';
 
   meta = with stdenv.lib; {
