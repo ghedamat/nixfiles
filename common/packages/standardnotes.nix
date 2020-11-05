@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  version = "3.5.1-beta05";
+  version = "3.5.4";
   pname = "standardnotes";
   name = "${pname}-${version}";
 
@@ -11,7 +11,7 @@ let
 
   sha256 = {
     i386-linux = "0v2nsis6vb1lnhmjd28vrfxqwwpycv02j0nvjlfzcgj4b3400j7a";
-    x86_64-linux = "1f0z4p1did4jizi0gwx6qp42vp59rmxfphjwh1j83w1whh1pa45f";
+    x86_64-linux = "0jww6b8djijginlnliiz1ysjjpj362h4cjh9z2641hga104ln2sq";
   }.${stdenv.hostPlatform.system};
 
   xdg_dirs = builtins.concatStringsSep ":"
