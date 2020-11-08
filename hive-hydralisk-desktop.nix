@@ -25,6 +25,7 @@
     ./common/yubikey.nix
     ./common/hivemind/server.nix
     ./common/hivemind/dev.nix
+    ./common/hivemind/zsa.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -82,7 +83,8 @@
     enable = true;
     docker = true;
   };
-  hivemind.server = { enable = true; };
+  hivemind.server.enable = true;
+  hivemind.zsa.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
