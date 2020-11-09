@@ -17,6 +17,8 @@
   home.packages = with pkgs;
     [
       #zoom-us
+      remmina
+      blueman
     ];
 
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
