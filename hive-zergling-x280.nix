@@ -47,6 +47,7 @@ in { config, pkgs, lib, ... }:
     ./common/desktop-i3.nix
     ./common/yubikey.nix
     ./common/hivemind/dev.nix
+    ./common/hivemind/zsa.nix
   ];
 
   networking.hostName = "zergling";
@@ -99,6 +100,8 @@ in { config, pkgs, lib, ... }:
     enable = true;
     docker = true;
   };
+
+  hivemind.zsa.enable = true;
 
   ## stuff to move
   services.redshift.enable = true;
