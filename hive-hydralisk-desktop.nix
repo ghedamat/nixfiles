@@ -10,6 +10,7 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = false;
+  services.blueman.enable = true;
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel
     libvdpau-va-gl
