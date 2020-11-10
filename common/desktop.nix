@@ -63,7 +63,6 @@
     arandr
     blueman
     colord
-    dunst
     feh
     libnotify
     maim
