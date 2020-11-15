@@ -26,7 +26,9 @@ in {
           padding = 8;
           horizontal_padding = 8;
           font = "DejaVu Sans Mono 10";
-          format = "<b>%s</b>\n%b";
+          format = ''
+            <b>%s</b>
+            %b'';
           icon_position = "left";
           max_icon_size = 48;
           indicate_hidden = "yes";
