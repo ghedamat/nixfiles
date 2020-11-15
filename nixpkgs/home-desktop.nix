@@ -14,11 +14,11 @@
     ./config/xfiles.nix
   ];
 
-  home.packages = with pkgs;
-    [
-      #zoom-us
-      remmina
-    ];
+  home.packages = with pkgs; [
+    #zoom-us
+    remmina
+    rofimoji
+  ];
 
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
