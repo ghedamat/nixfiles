@@ -22,7 +22,7 @@
     autojump
     tmux
     source-code-pro
-    silver-searcher
+    ripgrep
 
     htop
     nixfmt
