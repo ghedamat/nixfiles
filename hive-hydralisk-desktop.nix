@@ -5,7 +5,7 @@
   time.timeZone = "America/Toronto";
   services.ntp.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_5_6;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;

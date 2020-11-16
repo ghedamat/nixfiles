@@ -53,7 +53,6 @@
 
     # misc
     calibre
-    google-chrome
     firefox-beta-bin
 
     # Desktop
