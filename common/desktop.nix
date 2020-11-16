@@ -60,7 +60,6 @@
     libpulseaudio
     pulseaudio
     arandr
-    blueman
     colord
     feh
     libnotify

@@ -5,11 +5,11 @@
   time.timeZone = "America/Toronto";
   services.ntp.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_5_6;
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = false;
+  hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel
