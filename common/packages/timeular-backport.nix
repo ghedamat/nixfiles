@@ -1,13 +1,13 @@
 with import <nixpkgs> { };
 
 let
-  version = "3.4.1";
+  version = "3.6.0";
   pname = "timeular";
   name = "${pname}-${version}";
   src = fetchurl {
     url =
       "https://s3.amazonaws.com/timeular-desktop-packages/linux/production/Timeular-${version}.AppImage";
-    sha256 = "1s5jjdl1nzq9yd582lqs904yl10mp0s25897zmifmcbw1vz38bar";
+    sha256 = "0j0qm9laqmvn48qd3cls5ad0q7cnn03dnaw3wkacvg1ybq7x2xlm";
   };
   appimageContents = appimageTools.extractType2 { inherit name src; };
 in appimageTools.wrapType2 rec {
