@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  unstable = (import <unstable> {});
+in
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -17,6 +20,7 @@
   home.packages = with pkgs; [
     #zoom-us
     remmina
+    unstable.google-chrome-beta
   ];
 
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
