@@ -207,7 +207,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
 
 exec $term
-exec google-chrome-beta
+exec google-chrome
 exec firefox
 exec telegram-desktop
 exec slack
