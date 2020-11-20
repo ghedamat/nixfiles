@@ -22,6 +22,12 @@ in {
     home.file.".Xresources".source = ./xfiles/. + ("/" + cfg.xresourcesFile);
     home.file.".xinitrc".source = ./xfiles/. + ("/" + cfg.xinitrcFile);
     home.file.".xprofile".source = ./xfiles/. + ("/" + cfg.xprofileFile);
+
+    services.picom = {
+      enable = true;
+      backend = "glx";
+      #vSync = true; # <- Probably don't want this unless you have tearing issues
+    };
   };
 }
 

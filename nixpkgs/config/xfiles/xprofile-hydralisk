@@ -1,6 +1,5 @@
 xrdb -merge ~/.Xresources
 setxkbmap -option ctrl:nocaps
-compton -b
 feh --bg-max ~/3000x2000.png
 
 exec nm-applet &
