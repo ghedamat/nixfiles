@@ -20,6 +20,7 @@ function! myspacevim#after() abort
         \ 'coc-go',
         \ 'coc-tsserver',
         \ 'coc-ultisnips',
+        \ 'coc-stylelint',
         \]
 
   for extension in s:coc_extensions
