@@ -37,6 +37,7 @@
     bootstrap_before = "myspacevim#before"
     bootstrap_after = "myspacevim#after"
     filemanager = "nerdtree"
+    enable_vimfiler_welcome = 0
     enable_vimfiler_gitstatus = true
     filetree_direction = "left"
     relativenumber = false
@@ -44,6 +45,8 @@
     enable_ale = true
     enable_neomake = false
     lint_on_the_fly = true
+
+    disabled_plugins = ['vim-startify']
 
 
 [[layers]]
