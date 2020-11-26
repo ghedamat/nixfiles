@@ -64,6 +64,12 @@
   services.dnsmasq.enable = true;
   services.dnsmasq.servers = [ "1.1.1.1" "/pnroof.local/192.168.123.47" ];
 
+  # Enable cron service
+  services.cron = {
+    enable = true;
+    systemCronJobs = [ "*/5 * * * * /usr/local/bin/duck.sh >/dev/null 2>&1" ];
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
