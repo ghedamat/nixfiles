@@ -3,29 +3,6 @@ function! myspacevim#before() abort
 endfunction
 
 function! myspacevim#after() abort
-  inoremap <silent><expr> <c-space> coc#refresh()
-
-  let s:coc_extensions = [
-        \ 'coc-dictionary',
-        \ 'coc-elixir',
-        \ 'coc-ember',
-        \ 'coc-eslint',
-        \ 'coc-html',
-        \ 'coc-json',
-        \ 'coc-json',
-        \ 'coc-rls',
-        \ 'coc-solargraph',
-        \ 'coc-tabnine',
-        \ 'coc-tag',
-        \ 'coc-go',
-        \ 'coc-tsserver',
-        \ 'coc-ultisnips',
-        \ 'coc-stylelint',
-        \]
-
-  for extension in s:coc_extensions
-    call coc#add_extension(extension)
-  endfor
 
   "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -51,6 +28,37 @@ function! myspacevim#after() abort
   " coc vim inoremap <silent><expr> <c-space> coc#refresh()
 
   let g:neomake_typescript_enabled_makers = ['eslint']
+
+  set signcolumn=yes
+
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+  let g:coc_fzf_preview = ''
+  let g:coc_fzf_opts = []
+
+  " vim-coc config
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  let s:coc_extensions = [
+        \ 'coc-dictionary',
+        \ 'coc-elixir',
+        \ 'coc-ember',
+        \ 'coc-eslint',
+        \ 'coc-html',
+        \ 'coc-json',
+        \ 'coc-json',
+        \ 'coc-rls',
+        \ 'coc-solargraph',
+        \ 'coc-tabnine',
+        \ 'coc-tag',
+        \ 'coc-go',
+        \ 'coc-tsserver',
+        \ 'coc-ultisnips',
+        \ 'coc-stylelint',
+        \]
+
+  for extension in s:coc_extensions
+    call coc#add_extension(extension)
+  endfor
 
   " Use `[c` and `]c` to navigate diagnostics
   nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -114,10 +122,6 @@ function! myspacevim#after() abort
   " use `:OR` for organize import of current buffer
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-  let g:coc_fzf_preview = ''
-  let g:coc_fzf_opts = []
-
-  echo "bar"
+  echo "myspacevim loaded"
 endfunction
 
