@@ -67,7 +67,9 @@
   # Enable cron service
   services.cron = {
     enable = true;
-    systemCronJobs = [ "*/5 * * * * /usr/local/bin/duck.sh >/dev/null 2>&1" ];
+    systemCronJobs = [
+      "*/5 * * * * root /usr/local/bin/duck.sh"
+    ];
   };
 
   # Enable the OpenSSH daemon.
