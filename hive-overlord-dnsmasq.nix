@@ -68,7 +68,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "*/5 * * * * root /usr/local/bin/duck.sh"
+      "*/5 * * * * nobody /usr/local/bin/duck.sh"
     ];
   };
 
