@@ -8,7 +8,7 @@ in {
     hivemind.server.xserver = mkEnableOption "enable xserver";
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ gnumake git ];
+    environment.systemPackages = with pkgs; [ gnumake git nixops ];
 
     networking.networkmanager.enable = true;
     programs.mosh.enable = true;
