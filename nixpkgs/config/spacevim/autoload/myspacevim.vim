@@ -54,6 +54,7 @@ function! myspacevim#after() abort
         \ 'coc-tsserver',
         \ 'coc-ultisnips',
         \ 'coc-stylelint',
+        \ 'coc-tailwindcss',
         \]
 
   for extension in s:coc_extensions
