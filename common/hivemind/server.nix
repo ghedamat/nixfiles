@@ -6,6 +6,7 @@ in {
   options = {
     hivemind.server.enable = mkEnableOption "enable server mode";
     hivemind.server.xserver = mkEnableOption "enable xserver";
+    hivemind.server.vmware = mkEnableOption "enable vmware tools";
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ gnumake git nixops ];
@@ -19,14 +20,16 @@ in {
     services.openssh.forwardX11 = true;
     services.openssh.permitRootLogin = "yes";
 
-    # enable open-vm-tools for esxi integration
-    virtualisation.vmware.guest.enable = true;
-    virtualisation.vmware.guest.headless = true;
-
     services.xserver = mkIf cfg.xserver {
       enable = true;
       layout = "us";
       libinput.enable = true;
+    };
+
+    # enable open-vm-tools for esxi integration
+    virtualisation.vmware.guest = mkIf cfg.vmware{
+      enable = true;
+      headless = true;
     };
   };
 }

@@ -78,6 +78,7 @@
 
   # hivemind config
   hivemind.server.enable = true;
+  hivemind.server.vmware = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

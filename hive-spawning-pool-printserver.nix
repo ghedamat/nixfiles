@@ -93,6 +93,7 @@
 
   # hivemind config
   hivemind.server.enable = true;
+  hivemind.server.vmware = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
