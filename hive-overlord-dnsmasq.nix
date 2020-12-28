@@ -59,6 +59,7 @@
     192.168.199.177 zergling.starcraft.local
     192.168.199.150 infested-terran.starcraft.local
     192.168.199.135 spawning-pool.starcraft.local
+    192.168.199.95 swarm-host.starcraft.local
   '';
 
   services.dnsmasq.enable = true;

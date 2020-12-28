@@ -59,4 +59,10 @@
     deployment.targetHost = "spawning-pool";
     nix.gc.automatic = true;
   };
+
+  swarmHost = {
+    imports = [ ./hive-swarm-host-nas.nix ];
+    deployment.targetHost = "192.168.199.95";
+    nix.gc.automatic = true;
+  };
 }
