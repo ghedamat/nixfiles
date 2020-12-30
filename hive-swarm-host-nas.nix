@@ -46,7 +46,42 @@
   nixpkgs.config.allowUnfree = true;
 
   # hivemind config
-  hivemind.server.enable = false;
+  hivemind.server.enable = true;
+
+  # nas config
+  fileSystems."/home/public" = {
+    device = "/dev/sdb1";
+    fsType = "ext4";
+  };
+
+  services.samba.enable = true;
+  services.samba.enableNmbd = true;
+  services.samba.extraConfig = ''
+    workgroup = WORKGROUP
+    server string = Samba Server
+    server role = standalone server
+    log file = /var/log/samba/smbd.%m
+    max log size = 50
+    dns proxy = no
+    map to guest = Bad User
+  '';
+
+  services.samba.shares = {
+    share = {
+      path = "/home/share";
+      browseable = "yes";
+      "writable" = "yes";
+      "guest ok" = "yes";
+      "public" = "yes";
+      "force user" = "share";
+    };
+  };
+
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /home/share         192.168.199.0/24(rw,fsid=0,no_subtree_check,all_squash,anonuid=1002,anongid=100)
+  '';
+  networking.firewall.allowedTCPPorts = [ 2049 ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -80,6 +115,11 @@
     shell = pkgs.bash;
   };
 
+  users.users.share = {
+    isNormalUser = true;
+    shell = pkgs.bash;
+  };
+
   # zsh stuff
   programs.zsh.enable = true;
   programs.zsh.enableCompletion = true;
@@ -93,9 +133,6 @@
   '';
 
   services.qemuGuest.enable = true;
-
-  networking.firewall.allowedUDPPorts = [ 631 ];
-  networking.firewall.allowedTCPPorts = [ 631 ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

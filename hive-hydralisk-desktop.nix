@@ -94,6 +94,12 @@
   hivemind.server.enable = true;
   hivemind.zsa.enable = true;
 
+  fileSystems."/mnt/share" = {
+    device = "swarm-host:/home/share";
+    fsType = "nfs";
+    options = [ "user" "noauto" "x-systemd.automount" ];
+  };
+
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you

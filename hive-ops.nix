@@ -25,11 +25,11 @@
     nix.gc.automatic = true;
   };
 
-  #hydralisk = {
-  #  imports = [ ./hive-hydralisk-desktop.nix ];
-  #  deployment.targetHost = "hydralisk";
-  #  nix.gc.automatic = false;
-  #};
+  hydralisk = {
+    imports = [ ./hive-hydralisk-desktop.nix ];
+    deployment.targetHost = "hydralisk";
+    nix.gc.automatic = false;
+  };
 
   overlord = {
     imports = [ ./hive-overlord-dnsmasq.nix ];
