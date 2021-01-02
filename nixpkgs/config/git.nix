@@ -1,4 +1,8 @@
-{
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [
+    gitAndTools.gh
+  ];
+
   programs.git = {
     enable = true;
     userName = "Mattia Gheda";
