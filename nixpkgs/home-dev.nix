@@ -23,7 +23,6 @@
     };
     programs = {
       tmux.enable = true;
-      rescuetime.enable = true;
       vsliveshare.enable = true;
     };
     spacevim.enable = true;

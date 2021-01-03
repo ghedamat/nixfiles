@@ -30,6 +30,7 @@ in {
     programs = {
       tmux.enable = true;
       timeular.enable = true;
+      rescuetime.enable = true;
       alacritty = {
         enable = true;
         configFile = "hydralisk.yml";
