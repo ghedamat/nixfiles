@@ -35,6 +35,7 @@
       tmux.enable = true;
       vsliveshare.enable = true;
       timeular.enable = true;
+      rescuetime.enable = true;
       alacritty = {
         enable = true;
         configFile = "x280.yml";
