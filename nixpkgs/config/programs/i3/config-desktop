@@ -211,6 +211,7 @@ exec google-chrome-beta
 exec firefox
 exec telegram-desktop
 exec slack
+exec rescuetime
 
 client.background #1E272B
 client.focused #EAD49B #EAD49B #1E272B #9D6A47 #9D6A47
