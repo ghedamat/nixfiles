@@ -27,7 +27,7 @@ in {
     };
 
     # enable open-vm-tools for esxi integration
-    virtualisation.vmware.guest = mkIf cfg.vmware{
+    virtualisation.vmware.guest = mkIf cfg.vmware {
       enable = true;
       headless = true;
     };

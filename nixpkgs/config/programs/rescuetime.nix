@@ -6,9 +6,6 @@ in {
   options = {
     ghedamat.programs.rescuetime.enable = mkEnableOption "enable rescuetime";
   };
-  config = mkIf cfg.enable {
-    home.packages = with pkgs;
-      [ rescuetime ];
-  };
+  config = mkIf cfg.enable { home.packages = with pkgs; [ rescuetime ]; };
 }
 

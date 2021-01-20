@@ -8,14 +8,10 @@
   boot.kernelPackages = pkgs.linuxPackages;
 
   hardware.enableAllFirmware = true;
-   hardware.bluetooth = {
-      enable = true;
-      config = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
+  hardware.bluetooth = {
+    enable = true;
+    config = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+  };
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
   hardware.opengl.extraPackages = with pkgs; [

@@ -1,7 +1,5 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [
-    gitAndTools.gh
-  ];
+  home.packages = with pkgs; [ gitAndTools.gh ];
 
   programs.git = {
     enable = true;
