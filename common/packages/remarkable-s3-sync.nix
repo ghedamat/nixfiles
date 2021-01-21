@@ -21,10 +21,12 @@ in stdenv.mkDerivation {
 
   rM2svg = ./remarkable-s3-sync/rM2svg;
   script = ./remarkable-s3-sync/script.sh;
+  rsync = ./remarkable-s3-sync/rsync-remarkable.sh;
 
   buildCommand = ''
     mkdir -p $out/bin
     cp $rM2svg $out/bin/rM2svg
+    install -Dm755 $rsync $out/bin/rsync-remarkable
     install -Dm755 $script $out/bin/remarkable-s3-sync
     wrapProgram $out/bin/remarkable-s3-sync --prefix PATH : ${
       lib.makeBinPath [ customPython imagemagick awscli2 bash ]
