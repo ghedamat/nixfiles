@@ -48,6 +48,7 @@ in { config, pkgs, lib, ... }:
     ./common/yubikey.nix
     ./common/hivemind/dev.nix
     ./common/hivemind/zsa.nix
+    ./common/hivemind/nas-mount.nix
   ];
 
   networking.hostName = "zergling";
