@@ -13,6 +13,9 @@
     ./config/spacevim.nix
   ];
 
+  home.packages = with pkgs;
+    [ (import ../common/packages/remarkable-s3-sync.nix) ];
+
   ghedamat = {
     shell = {
       starship = {
