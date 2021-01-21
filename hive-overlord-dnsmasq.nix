@@ -8,7 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-exsi-mbr-vm.nix
     ./common/base-system.nix
-    ./common/hivemind/server.nix
+    ./common/hivemind.nix
   ];
 
   # Use the GRUB 2 boot loader.

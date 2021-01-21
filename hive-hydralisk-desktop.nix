@@ -27,9 +27,7 @@
     ./common/base-system.nix
     ./common/desktop-i3.nix
     ./common/yubikey.nix
-    ./common/hivemind/server.nix
-    ./common/hivemind/dev.nix
-    ./common/hivemind/zsa.nix
+    ./common/hivemind.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

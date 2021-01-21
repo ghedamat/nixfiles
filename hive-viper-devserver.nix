@@ -8,8 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
-    ./common/hivemind/dev.nix
-    ./common/hivemind/server.nix
+    ./common/hivemind.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

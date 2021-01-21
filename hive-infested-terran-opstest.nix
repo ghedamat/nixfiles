@@ -15,7 +15,7 @@ in {
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
-    ./common/hivemind/server.nix
+    ./common/hivemind.nix
   ];
 
   # List packages installed in system profile. To search, run:
