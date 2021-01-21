@@ -57,12 +57,7 @@
       enable = true;
       docker = true;
     };
-  };
-
-  fileSystems."/mnt/share" = {
-    device = "swarm-host:/home/share";
-    fsType = "nfs";
-    options = [ "user" "noauto" "x-systemd.automount" ];
+    nas-mount.enable = true;
   };
 
   # This value determines the NixOS release with which your system is to be

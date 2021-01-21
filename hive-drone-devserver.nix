@@ -105,6 +105,7 @@
       enable = true;
       docker = true;
     };
+    nas-mount.enable = true;
   };
 
   # This value determines the NixOS release with which your system is to be

@@ -87,12 +87,8 @@
   };
   hivemind.server.enable = true;
   hivemind.zsa.enable = true;
+  hivemind.nas-mount.enable = true;
 
-  fileSystems."/mnt/share" = {
-    device = "swarm-host:/home/share";
-    fsType = "nfs";
-    options = [ "user" "noauto" "x-systemd.automount" ];
-  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
