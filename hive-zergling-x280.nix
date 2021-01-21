@@ -103,6 +103,8 @@ in { config, pkgs, lib, ... }:
 
   hivemind.zsa.enable = true;
 
+  hivemind.nas-mount.enable = true;
+
   ## stuff to move
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
