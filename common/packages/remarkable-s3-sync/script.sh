@@ -87,14 +87,16 @@ then
   echo -n "" > $outfile
   files=$(cat $path.content | jq -r '.pages | join(" ")')
 
-  for i in $files
+  i=0
+  for file in $files
   do
-    filename=$i.png
+    filename=$(printf "%03d" $i)-$file.png
+    ((i=i+1))
     upload_dir=sync-$dirname
 
-    rM2svg -i $path/$i.rm -o $tmp_dir/$i.svg
-    convert $tmp_dir/$i.svg $tmp_dir/$filename
-    aws s3 cp $tmp_dir/$i.png s3://$bucket/$upload_dir/$filename --profile $aws_profile
+    rM2svg -i $path/$file.rm -o $tmp_dir/$file.svg
+    convert $tmp_dir/$file.svg $tmp_dir/$filename
+    aws s3 cp $tmp_dir/$filename s3://$bucket/$upload_dir/$filename --profile $aws_profile
     aws s3api put-object-acl --bucket $bucket --profile $aws_profile --key $upload_dir/$filename --acl public-read
     echo https://$bucket.s3.$aws_region.amazonaws.com/$upload_dir/$filename >> $outfile
   done
