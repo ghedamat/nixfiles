@@ -27,6 +27,7 @@
     programs = {
       tmux.enable = true;
       vsliveshare.enable = true;
+      postgresql.enable = true;
     };
     spacevim.enable = true;
   };
