@@ -29,6 +29,7 @@ in {
           eval "$(direnv hook zsh)"
         '';
       initExtra = ''
+          export EDITOR=vim
           stty stop undef
           stty start undef
           setopt noflowcontrol
