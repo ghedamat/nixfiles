@@ -17,6 +17,8 @@
     qemu
 
     awscli
+
+    screen
   ];
 
   # Use the systemd-boot EFI boot loader.
