@@ -12,6 +12,6 @@
     ripgrep
     tig
     niv
-    (import ./../../common/packages/standardnotes.nix)
+    #(import ./../../common/packages/standardnotes.nix)
   ];
 }
