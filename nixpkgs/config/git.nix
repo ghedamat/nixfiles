@@ -60,6 +60,9 @@
 
       "mergetool" = { prompt = true; };
       "mergetool \"nvimdiff\"" = { cmd = ''nvim -d "$LOCAL" "$REMOTE"''; };
+      "init" = {
+        "defaultBranch" = "main";
+      };
     };
   };
 }
