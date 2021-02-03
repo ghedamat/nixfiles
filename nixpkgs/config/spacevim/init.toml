@@ -171,3 +171,8 @@ name = "lang#elixir"
    name = "dracula/vim.git"
    # note: you need to disable merged feature
    merged = false
+
+[[custom_plugins]]
+   name = "hashivim/vim-terraform"
+   # note: you need to disable merged feature
+   merged = false
