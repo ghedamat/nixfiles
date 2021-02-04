@@ -14,7 +14,7 @@
   ];
 
   home.packages = with pkgs;
-    [ (import ../common/packages/remarkable-s3-sync.nix) ];
+    [ (import ../common/packages/remarkable-to-png.nix) ];
 
   ghedamat = {
     shell = {

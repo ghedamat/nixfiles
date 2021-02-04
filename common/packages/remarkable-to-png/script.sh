@@ -3,15 +3,12 @@
 set -e
 
 show_help() {
-  echo "remarkable s3 sync"
+  echo "remarkable 2 png"
   echo ""
   echo "usage:"
   echo "-i input directory for your remarkable backup"
   echo "-n name of the notebook"
-  echo "-b s3 bucket"
-  echo "-p aws_profile"
-  echo "-r aws_region"
-  echo "-o output file"
+  echo "-o output directory"
 }
 export AWS_PAGER="" # required to disable pagination https://stackoverflow.com/questions/65163245/how-to-disable-pagination-in-aws-cli
 
@@ -31,13 +28,7 @@ while getopts "h?i:n:b:p:r:o:" opt; do
         ;;
     n)  dirname=$OPTARG
         ;;
-    b)  bucket=$OPTARG
-        ;;
-    p)  aws_profile=$OPTARG
-        ;;
-    r)  aws_region=$OPTARG
-        ;;
-    o)  outfile=$OPTARG
+    o)  outdir=$OPTARG
         ;;
     esac
 done
@@ -52,12 +43,9 @@ echo "Running sync with the following settings:"
 echo ""
 echo input: $backup_dir
 echo notebook: $dirname
-echo s3 bucket: $bucket
-echo aws_profile: $aws_profile
-echo aws_region: $aws_region
-echo output file: $outfile
+echo output dir: $outdir
 
-if [ $OPTIND != 13 ]
+if [ $OPTIND != 7 ]
 then
   echo ""
   echo "All arguments are required"
@@ -81,24 +69,23 @@ done
 if [ $notebook_found ]
 then
   name=$(cat $notebook_found | jq -r ".visibleName")
-  notebook=$(basename $notebook_found)
+  notebook=$(basename "$notebook_found")
   path=$backup_dir/${notebook%.*}
+  upload_dir=sync-$dirname
 
-  echo -n "" > $outfile
-  files=$(cat $path.content | jq -r '.pages | join(" ")')
+  mkdir -p "$outdir"/"$upload_dir"
+  files=$(cat "$path".content | jq -r '.pages | join(" ")')
 
   i=0
   for file in $files
   do
     filename=$(printf "%03d" $i)-$file.png
     ((i=i+1))
-    upload_dir=sync-$dirname
 
-    rM2svg -i $path/$file.rm -o $tmp_dir/$file.svg
-    convert $tmp_dir/$file.svg $tmp_dir/$filename
-    aws s3 cp $tmp_dir/$filename s3://$bucket/$upload_dir/$filename --profile $aws_profile
-    aws s3api put-object-acl --bucket $bucket --profile $aws_profile --key $upload_dir/$filename --acl public-read
-    echo https://$bucket.s3.$aws_region.amazonaws.com/$upload_dir/$filename >> $outfile
+    rM2svg -i "$path"/"$file".rm -o "$tmp_dir"/"$file".svg
+    convert "$tmp_dir"/"$file".svg "$tmp_dir"/"$filename"
+    cp "$tmp_dir"/"$filename" "$outdir"/"$upload_dir"/"$filename"
+    echo Processed: "$filename"
   done
 else
   echo "notebook not found"

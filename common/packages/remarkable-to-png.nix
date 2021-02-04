@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  pname = "remarkable-s3-sync";
+  pname = "remarkable-to-png";
   version = "0.0.1";
   mach-nix = import (builtins.fetchGit {
     url = "https://github.com/DavHau/mach-nix/";
@@ -19,16 +19,16 @@ in stdenv.mkDerivation {
 
   buildInputs = [ makeWrapper ];
 
-  rM2svg = ./remarkable-s3-sync/rM2svg;
-  script = ./remarkable-s3-sync/script.sh;
-  rsync = ./remarkable-s3-sync/rsync-remarkable.sh;
+  rM2svg = ./remarkable-to-png/rM2svg;
+  script = ./remarkable-to-png/script.sh;
+  rsync = ./remarkable-to-png/rsync-remarkable.sh;
 
   buildCommand = ''
     mkdir -p $out/bin
     cp $rM2svg $out/bin/rM2svg
     install -Dm755 $rsync $out/bin/rsync-remarkable
-    install -Dm755 $script $out/bin/remarkable-s3-sync
-    wrapProgram $out/bin/remarkable-s3-sync --prefix PATH : ${
+    install -Dm755 $script $out/bin/remarkable-to-png
+    wrapProgram $out/bin/remarkable-to-png --prefix PATH : ${
       lib.makeBinPath [ customPython imagemagick awscli2 bash ]
     }
     wrapProgram $out/bin/rM2svg --prefix PATH : ${
