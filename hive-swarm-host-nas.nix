@@ -56,28 +56,28 @@
     fsType = "ext4";
   };
 
-  services.samba.enable = true;
-  services.samba.enableNmbd = true;
-  services.samba.extraConfig = ''
-    workgroup = WORKGROUP
-    server string = Samba Server
-    server role = standalone server
-    log file = /var/log/samba/smbd.%m
-    max log size = 50
-    dns proxy = no
-    map to guest = Bad User
-  '';
+  #services.samba.enable = true;
+  #services.samba.enableNmbd = true;
+  #services.samba.extraConfig = ''
+  #  workgroup = WORKGROUP
+  #  server string = Samba Server
+  #  server role = standalone server
+  #  log file = /var/log/samba/smbd.%m
+  #  max log size = 50
+  #  dns proxy = no
+  #  map to guest = Bad User
+  #'';
 
-  services.samba.shares = {
-    share = {
-      path = "/home/share";
-      browseable = "yes";
-      "writable" = "yes";
-      "guest ok" = "yes";
-      "public" = "yes";
-      "force user" = "share";
-    };
-  };
+  #services.samba.shares = {
+  #  share = {
+  #    path = "/home/share";
+  #    browseable = "yes";
+  #    "writable" = "yes";
+  #    "guest ok" = "yes";
+  #    "public" = "yes";
+  #    "force user" = "share";
+  #  };
+  #};
 
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
