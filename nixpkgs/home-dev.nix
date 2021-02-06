@@ -16,7 +16,6 @@
   home.packages = with pkgs; [
     (import ../common/packages/remarkable-to-png.nix)
     (import ../common/packages/exist-to-obsidian.nix)
-
   ];
 
   ghedamat = {

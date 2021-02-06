@@ -56,8 +56,7 @@ in appimageTools.wrapType2 rec {
 
   meta = with stdenv.lib; {
     description = "obsidian app image";
-    longDescription = ''
-    '';
+    longDescription = "";
     homepage = "https://obsidianmd.org";
     license = licenses.agpl3;
     platforms = [ "i386-linux" "x86_64-linux" ];

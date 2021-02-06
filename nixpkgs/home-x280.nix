@@ -14,7 +14,12 @@
     ./config/xfiles.nix
   ];
 
-  home.packages = with pkgs; [ (import ../common/packages/obsidian.nix) rofimoji google-chrome-beta remmina ];
+  home.packages = with pkgs; [
+    (import ../common/packages/obsidian.nix)
+    rofimoji
+    google-chrome-beta
+    remmina
+  ];
 
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   ghedamat = {
