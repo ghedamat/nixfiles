@@ -206,6 +206,9 @@ exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
 #exec google-chrome
 #exec Telegram
 exec rescuetime
+exec --no-start-id xset s off
+exec --no-start-id xset s noblank
+exec --no-start-id xset -dpms
 
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
