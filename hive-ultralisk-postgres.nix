@@ -123,7 +123,7 @@
       log_timezone = "Etc/UTC";
 
       cluster_name = "11/main";
-      stats_temp_directory = "/var/run/postgresql/12-main.pg_stat_tmp";
+      #stats_temp_directory = "/var/run/postgresql/12-main.pg_stat_tmp";
 
       datestyle = "iso, mdy";
       timezone = "Etc/UTC";
