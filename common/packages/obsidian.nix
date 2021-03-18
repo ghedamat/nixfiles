@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  version = "0.10.8";
+  version = "0.11.5-b";
   pname = "obsidian-appimage";
   name = "${pname}-${version}";
 
@@ -11,7 +11,7 @@ let
 
   sha256 = {
     i386-linux = "0v2nsis6vb1lnhmjd28vrfxqwwpycv02j0nvjlfzcgj4b3400j7a";
-    x86_64-linux = "1qdpris8b1ap3x85sq4h4vawdg8a83di2nlhpijjlxrn6g4sl4wl";
+    x86_64-linux = "15pwmkjg43i9ps9pq3qlwli2qa781fji4dyprp3lc5w01v2500dg";
   }.${stdenv.hostPlatform.system};
 
   xdg_dirs = builtins.concatStringsSep ":"
@@ -19,7 +19,7 @@ let
 
   src = fetchurl {
     url =
-      "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.10.8/Obsidian-0.10.8.AppImage";
+      "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.11.5/Obsidian-0.11.5.AppImage";
     inherit sha256;
   };
 
