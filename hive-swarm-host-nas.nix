@@ -81,7 +81,7 @@
 
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /home/share         192.168.199.0/24(rw,fsid=0,no_subtree_check,all_squash,anonuid=1002,anongid=100)
+    /home/share         192.168.199.0/24(rw,fsid=0,no_subtree_check,all_squash,anonuid=1000,anongid=100)
   '';
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
@@ -118,6 +118,7 @@
   };
 
   users.users.share = {
+    uid = 1000;
     isNormalUser = true;
     shell = pkgs.bash;
   };

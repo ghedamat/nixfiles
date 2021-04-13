@@ -10,7 +10,7 @@ in {
     fileSystems."/mnt/share" = {
       device = "swarm-host:/home/share";
       fsType = "nfs";
-      options = [ "user" "noauto" "x-systemd.automount" ];
+      options = [ "user" "noauto" "exec" "x-systemd.automount" ];
     };
   };
 }
