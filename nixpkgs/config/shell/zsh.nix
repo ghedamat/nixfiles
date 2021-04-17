@@ -22,12 +22,8 @@ in {
       profileExtra = ''
         export PATH=$PATH:$HOME/.npm-prefix/bin
       '';
-      initExtraBeforeCompInit =
-        optionalString config.ghedamat.shell.starship.enable ''
-          eval "$(starship init zsh)"
-        '' + optionalString cfg.direnv ''
-          eval "$(direnv hook zsh)"
-        '';
+      initExtraBeforeCompInit = ''
+      '';
       initExtra = ''
           export EDITOR=vim
           stty stop undef
@@ -73,6 +69,10 @@ in {
           PATH=$PATH:$HOME/bin
 
           export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
+      '' + optionalString config.ghedamat.shell.starship.enable ''
+        eval "$(starship init zsh)"
+      '' + optionalString cfg.direnv ''
+        eval "$(direnv hook zsh)"
       '';
     };
   };
