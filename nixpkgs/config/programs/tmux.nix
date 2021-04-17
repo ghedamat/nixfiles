@@ -7,7 +7,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ tmux ];
     home.file.".tmux.conf".source = ./tmux.conf;
-    home.file.".tmate.conf".source = ./tmux.conf;
+    home.file.".tmate.conf".source = ./tmate.conf;
   };
 }
 
