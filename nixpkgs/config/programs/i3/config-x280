@@ -160,6 +160,7 @@ for_window [class="Skype"] split vertical
 for_window [class="Pidgin"] split vertical
 
 assign [class="Standard Notes"] 1: notes
+assign [class="obsidian"] 1: notes
 assign [class="Firefox"] 3: web
 assign [title="Google Chrome"] 3: web
 assign [class="Skype"] 4: chat
