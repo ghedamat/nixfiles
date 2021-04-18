@@ -178,6 +178,7 @@ assign [class="Telegram"] chat
 assign [title="Slack"] chat
 assign [title="Discord"] 5
 assign [class="Standard Notes"] misc
+assign [class="obsidian"] misc
 
 bindsym $mod+n workspace next
 bindsym $mod+b workspace prev
