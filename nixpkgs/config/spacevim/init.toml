@@ -12,7 +12,7 @@
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "dracula"
+    colorscheme = "dracula_pro_buffy"
     colorscheme_bg = "dark"
     custom_color_palette = [
       ['#44475A',  '#8BE9FD',  117,  239],
@@ -47,6 +47,10 @@
     lint_on_the_fly = true
 
     disabled_plugins = ['vim-startify']
+
+[[layers]]
+  name = "colorscheme"
+  enable = false
 
 
 [[layers]]
@@ -171,7 +175,7 @@ name = "lang#elixir"
    merged = false
 
 [[custom_plugins]]
-   name = "dracula/vim.git"
+   name = "ghedamat/dracula_pro_vim"
    # note: you need to disable merged feature
    merged = false
 
