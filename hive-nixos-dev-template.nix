@@ -8,17 +8,20 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware/hive-dev-template.nix
     ./common/base-system.nix
+    ./cachix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "hive-dev-template"; # Define your hostname.
+  networking.hostName = "drone"; # Define your hostname.
   networking.firewall.enable = false;
   networking.useDHCP = false;
   networking.interfaces.enp6s18.useDHCP = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  services.openssh.enable = true;
+  services.openssh.permitRootLogin = "yes";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -38,7 +41,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ qemu ];
+  environment.systemPackages = with pkgs; [ qemu cachix ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
