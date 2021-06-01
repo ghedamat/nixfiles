@@ -17,6 +17,7 @@ in {
       };
       shellAliases = {
         vi = "vim";
+        nvim = "nvim -u ~/.config/nvim/init.vim";
         #ssh = "color-ssh";
       };
       profileExtra = ''
