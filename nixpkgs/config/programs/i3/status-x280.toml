@@ -30,8 +30,8 @@ alert = 10.0
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
 #format_mem = "{Mum}MB/{MTm}MB({Mup}%)"
 #format_swap = "{SUm}MB/{STm}MB({SUp}%)"
 interval = 5
@@ -44,7 +44,7 @@ critical_swap = 95
 [[block]]
 block = "cpu"
 interval = 2
-frequency = true
+format = "{barchart} {utilization} {frequency}"
 
 #[[block]]
 #block = "load"
@@ -60,7 +60,7 @@ format = "{min}~{max}°"
 [[block]]
 block = "battery"
 interval = 10
-show = "both"
+format = "{percentage} {time}"
 
 [[block]]
 block = "backlight"
