@@ -44,7 +44,11 @@ critical_swap = 95
 [[block]]
 block = "cpu"
 interval = 2
-frequency = true
+format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
+
+
+
 
 #[[block]]
 #block = "load"

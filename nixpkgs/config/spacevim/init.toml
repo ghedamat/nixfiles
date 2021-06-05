@@ -14,6 +14,7 @@
     # layer
     colorscheme = "dracula_pro_buffy"
     colorscheme_bg = "dark"
+
     custom_color_palette = [
       ['#44475A',  '#8BE9FD',  117,  239],
       ['#6272A4',  '#343746', 237, 61],

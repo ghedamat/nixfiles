@@ -40,11 +40,14 @@ name = "awesome"
     warning_swap = 80
     critical_mem = 95
     critical_swap = 95
+    format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+    format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
 
     [[block]]
     block = "cpu"
     interval = 2
-    frequency = true
+    format = "{barchart} {utilization} {frequency}"
+
 
     #[[block]]
     #block = "load"
@@ -73,6 +76,8 @@ name = "awesome"
     [[block]]
     block = "pomodoro"
     use_nag = true
+    length = 30
+    break_length = 10
 
     [[block]]
     block = "time"
