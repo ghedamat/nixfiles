@@ -26,7 +26,15 @@ in {
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
   ghedamat = {
 
-    shell = { zsh = { enable = true; }; };
+    shell = {
+      starship = {
+        enable = true;
+        configFile = "starship-x280.toml";
+      };
+      zsh = {
+        enable = true;
+      };
+    };
 
     programs = {
       tmux.enable = true;

@@ -2,7 +2,8 @@ add_newline = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]      # The name of the module we are configuring is "character"
-symbol = "➜"     # The "symbol" segment is being set to "➜"
+success_symbol = "[➜](bold green)"     # The "symbol" segment is being set to "➜"
+error_symbol = "[➜](bold red)"     # The "symbol" segment is being set to "➜"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
