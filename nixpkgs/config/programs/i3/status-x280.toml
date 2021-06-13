@@ -80,7 +80,8 @@ block = "sound"
 
 [[block]]
 block = "pomodoro"
-length = 25
+length = 30
+break_length = 10
 message = "Take a break!"
 use_nag = true
 
