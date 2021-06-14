@@ -102,7 +102,10 @@ in { config, pkgs, lib, ... }:
 
   hivemind.zsa.enable = true;
 
+  hivemind.tailscale.enable = true;
+
   hivemind.nas-mount.enable = true;
+  services.accounts-daemon.enable = true;
 
   ## stuff to move
   services.redshift.enable = true;
