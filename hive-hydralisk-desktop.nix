@@ -89,6 +89,7 @@
   hivemind.server.enable = true;
   hivemind.zsa.enable = true;
   hivemind.nas-mount.enable = true;
+  hivemind.tailscale.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
