@@ -130,7 +130,7 @@
   i18n = {
     #consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-u28n.psf.gz";
     consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_CA.UTF-8";
   };
 
   networking.networkmanager.enable = true;
