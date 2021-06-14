@@ -55,6 +55,7 @@ in { config, pkgs, lib, ... }:
   networking.networkmanager.wifi.powersave = false;
   networking.networkmanager.enable = true;
   networking.networkmanager.appendNameservers = [ "192.168.199.133" ];
+  networking.firewall.enable = false;
   #127.0.0.1 es-dev.precisionnutrition.com
   networking.extraHosts = ''
     127.0.0.1 local_rails
@@ -63,6 +64,8 @@ in { config, pkgs, lib, ... }:
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
+
+  nix.trustedUsers = [ "root" "ghedamat" ];
 
   users.users.ghedamat = {
     isNormalUser = true;
@@ -114,7 +117,7 @@ in { config, pkgs, lib, ... }:
   services.openssh.permitRootLogin = "yes";
 
   # temporary config
-  environment.systemPackages = with pkgs; [ direnv nix-direnv steam ];
+  environment.systemPackages = with pkgs; [ direnv nix-direnv steam cachix ];
   # nix options for derivations to persist garbage collection
   nix.extraOptions = ''
     keep-outputs = true
