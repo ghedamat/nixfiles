@@ -49,6 +49,7 @@
 
   # hivemind config
   hivemind.server.enable = true;
+  hivemind.tailscale.enable = true;
 
   # nas config
   fileSystems."/home/public" = {
