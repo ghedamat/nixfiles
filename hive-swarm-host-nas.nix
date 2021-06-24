@@ -82,7 +82,7 @@
 
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /home/share         192.168.199.0/24(rw,fsid=0,no_subtree_check,all_squash,anonuid=1000,anongid=100)
+    /home/share         192.168.199.0/24(rw,fsid=0,no_subtree_check,all_squash,anonuid=1000,anongid=100) 100.0.0.0/8(rw,fsid=0,no_subtree_check,all_squash,anonuid=1000,anongid=100)
   '';
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
