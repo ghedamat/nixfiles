@@ -9,7 +9,7 @@ in {
     hivemind.server.vmware = mkEnableOption "enable vmware tools";
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ gnumake git nixops ];
+    environment.systemPackages = with pkgs; [ gnumake git nixopsUnstable ];
 
     networking.networkmanager.enable = true;
     programs.mosh.enable = true;
