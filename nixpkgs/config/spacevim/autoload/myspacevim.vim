@@ -3,9 +3,8 @@ function! myspacevim#before() abort
 endfunction
 
 function! myspacevim#after() abort
-
   "command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
+  "
   " trailing whitespace
   EnableWhitespace
 
@@ -122,6 +121,13 @@ function! myspacevim#after() abort
 
   " use `:OR` for organize import of current buffer
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+  " coc popover scrolling https://github.com/neoclide/coc.nvim/issues/609#issuecomment-715461414
+  nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+
 
   echo "myspacevim loaded"
 endfunction

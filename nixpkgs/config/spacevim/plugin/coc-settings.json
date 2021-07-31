@@ -11,5 +11,7 @@
   "solargraph.useBundler": true,
   "coc.preferences.formatOnSaveFiletypes": ["elixir", "ruby", "typescript"],
   "eslint.autoFixOnSave": true,
+  "rust.clippy_preference": "on",
+  "rust.all_features": true,
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
 }

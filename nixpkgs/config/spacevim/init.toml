@@ -45,6 +45,7 @@
 
     enable_ale = true
     enable_neomake = false
+    lint_engine = "ale"
     lint_on_the_fly = true
 
     disabled_plugins = ['vim-startify']
