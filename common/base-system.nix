@@ -8,7 +8,7 @@
 
     ruby
     yarn
-    nodejs-10_x
+    nodejs-12_x
     perl
 
     (import ./packages/vim.nix)

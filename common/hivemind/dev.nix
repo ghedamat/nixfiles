@@ -24,7 +24,7 @@ in {
       heroku
       jq
       meld
-      nodejs-10_x
+      nodejs-12_x
       nodePackages.eslint
       ocamlPackages.reason
       ruby
