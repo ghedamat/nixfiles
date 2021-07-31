@@ -28,7 +28,7 @@
     pciutils
     powertop
     psmisc
-    ripgrep
+    ag
     sysstat
     tmux
     tree

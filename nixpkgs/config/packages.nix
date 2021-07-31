@@ -9,7 +9,7 @@
     vscode
     nnn
     anki
-    ripgrep
+    ag
     tig
     niv
     shellcheck
