@@ -3,7 +3,6 @@
   "suggest.maxCompleteItemCount": 10,
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
-  "eslint.filetypes": ["javascript", "typescript"],
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
@@ -13,5 +12,6 @@
   "eslint.autoFixOnSave": true,
   "rust.clippy_preference": "on",
   "rust.all_features": true,
-  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
+  "tabnine.priority": 100
 }

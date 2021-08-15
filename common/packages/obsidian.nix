@@ -54,7 +54,7 @@ in appimageTools.wrapType2 rec {
     export XDG_DATA_DIRS="${xdg_dirs}''${XDG_DATA_DIRS:+:"$XDG_DATA_DIRS"}"
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "obsidian app image";
     longDescription = "";
     homepage = "https://obsidianmd.org";
