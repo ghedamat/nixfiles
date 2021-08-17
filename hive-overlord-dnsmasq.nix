@@ -35,6 +35,7 @@
     192.168.199.26 esxi.starcraft.local
     192.168.199.33 dnsmasq.starcraft.local
 
+    192.168.199.105 nas.starcraft.local
     192.168.199.90 hue.starcraft.local
     192.168.199.66 rando.starcraft.local
     192.168.199.127 outerrim.starcraft.local
