@@ -43,10 +43,10 @@
     filetree_direction = "left"
     relativenumber = false
 
-    enable_ale = true
-    enable_neomake = false
-    lint_engine = "ale"
-    lint_on_the_fly = true
+#enable_ale = true
+#    enable_neomake = false
+#    lint_engine = "ale"
+#    lint_on_the_fly = true
 
     disabled_plugins = ['vim-startify']
 
@@ -59,7 +59,8 @@
   name = "autocomplete"
 
 [[layers]]
-name = "checkers"
+  name = "checkers"
+  enable = false
 
 [[layers]]
   name = "lsp"

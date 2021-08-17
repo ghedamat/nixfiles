@@ -45,7 +45,7 @@ function! myspacevim#after() abort
         \ 'coc-html',
         \ 'coc-json',
         \ 'coc-json',
-        \ 'coc-rls',
+        \ 'coc-rust-analyzer',
         \ 'coc-solargraph',
         \ 'coc-tabnine',
         \ 'coc-tag',
