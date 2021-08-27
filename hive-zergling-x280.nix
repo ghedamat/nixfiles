@@ -61,6 +61,7 @@ in { config, pkgs, lib, ... }:
     127.0.0.1 local_rails
       '';
 
+  services.usbmuxd.enable = true;
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
@@ -117,7 +118,13 @@ in { config, pkgs, lib, ... }:
   services.openssh.permitRootLogin = "yes";
 
   # temporary config
-  environment.systemPackages = with pkgs; [ direnv nix-direnv steam cachix ];
+  environment.systemPackages = with pkgs; [
+    direnv
+    nix-direnv
+    steam
+    cachix
+    libimobiledevice
+  ];
   # nix options for derivations to persist garbage collection
   nix.extraOptions = ''
     keep-outputs = true
