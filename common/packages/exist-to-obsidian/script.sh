@@ -67,21 +67,22 @@ function fetch_field() {
 # also note that this breaks if the date we are looking for is not of the first page of results
 function update_day() {
   note_date=$1
-  dest_file=$(find "$notes_dir" -name "$note_date*" | grep _Daily)
+  dest_file=$(find "$notes_dir" -name "$note_date.md" | grep _Daily)
   echo update_day "$note_date" "$dest_file"
 
   { \
-    echo "# Exist tracking:"; \
-    echo -n "### exist_mood_level: "; \
-    fetch_field "https://exist.io/api/1/users/$username/attributes/mood/" "$note_date"; \
-    echo "### exists_mood_note: "; \
-    fetch_field "https://exist.io/api/1/users/$username/attributes/mood_note/" "$note_date"; \
-    echo ""; \
-    echo "### exist_tags:"; \
-    fetch_field "https://exist.io/api/1/users/$username/attributes/custom/" "$note_date" | \
+    echo -n "MoodLevel:: "; \
+    fetch_field "https://exist.io/api/1/users/$username/attributes/mood/?date_max=$note_date&limit=100" "$note_date"; \
+    echo -n "ExistTags:: "; \
+    fetch_field "https://exist.io/api/1/users/$username/attributes/custom/?date_max=$note_date&limit=100" "$note_date" | \
     sed -e 's/,//g' | \
-    sed -e 's/^/#exist_/g' | \
-    sed -e 's/ / #exist_/g'; \
+    sed -E 's/^([[:alpha:]]+)_/ \1\//g' | \
+    sed -E 's/ ([[:alpha:]]+)_/ \1\//g' | \
+    sed -E 's/_([[:digit:]]+)/:\1/' | \
+    sed -e 's/ / #exist\//g'; \
+    echo ""; \
+    echo "#### DailyNote: "; \
+    fetch_field "https://exist.io/api/1/users/$username/attributes/mood_note/?date_max=$note_date&limit=100" "$note_date"; \
 
     echo ""; \
     echo "";

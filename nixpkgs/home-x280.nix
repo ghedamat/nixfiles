@@ -16,6 +16,7 @@
 
   home.packages = with pkgs; [
     (import ../common/packages/obsidian.nix)
+    (import ../common/packages/exist-to-obsidian.nix)
     rofimoji
     google-chrome-beta
     remmina
