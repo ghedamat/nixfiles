@@ -1,6 +1,11 @@
 {
   network.description = "hivemind dev network";
 
+  network.storage.legacy = {
+    databasefile = "~/.nixops/deployments.nixops";
+  };
+
+
   lurker = {
     imports = [ ./hive-lurker-devserver.nix ];
     deployment.targetHost = "lurker";

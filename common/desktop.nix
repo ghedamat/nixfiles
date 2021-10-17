@@ -106,7 +106,7 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       emojione
-      terminus
+      #terminus
       nerdfonts # Includes font-awesome, material-icons, powerline-fonts
       fira
       fira-code
