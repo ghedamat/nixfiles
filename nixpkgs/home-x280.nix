@@ -67,14 +67,14 @@
 
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.theme-vertex;
-      name = "Vertex-Dark";
-    };
-    iconTheme = {
-      package = pkgs.tango-icon-theme;
-      name = "Tango";
-    };
+    #theme = {
+    #  package = pkgs.theme-vertex;
+    #  name = "Vertex-Dark";
+    #};
+    #iconTheme = {
+    #  package = pkgs.tango-icon-theme;
+    #  name = "Tango";
+    #};
   };
 
 }
