@@ -206,8 +206,7 @@ exec $term
 exec --no-startup-id nitrogen --restore #; sleep 1; compton -b
 #exec google-chrome
 #exec Telegram
-exec rescuetime
-exec --no-start-id xset s off
+exec -no-start-id xset s off
 exec --no-start-id xset s noblank
 exec --no-start-id xset -dpms
 
