@@ -27,8 +27,9 @@ in {
     };
 
     # enable open-vm-tools for esxi integration
+    # TODO enable, blocked on https://github.com/NixOS/nixpkgs/pull/142408
     virtualisation.vmware.guest = mkIf cfg.vmware {
-      enable = true;
+      enable = false;
       headless = true;
     };
   };
