@@ -48,6 +48,12 @@
     nix.gc.automatic = true;
   };
 
+  probe = {
+    imports = [ ./hive-probe-outer.nix ];
+    deployment.targetHost = "192.168.199.58";
+    nix.gc.automatic = true;
+  };
+
   #zergling = {
   #  imports = [ ./hive-zergling-x280.nix ];
   #  deployment.targetHost = "zergling";
