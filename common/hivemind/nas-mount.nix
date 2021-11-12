@@ -12,6 +12,12 @@ in {
       fsType = "nfs";
       options = [ "user" "noauto" "exec" "x-systemd.automount" ];
     };
+
+    fileSystems."/mnt/volume2" = {
+      device = "192.168.199.105:/volume2/storage";
+      fsType = "nfs";
+      options = [ "user" "noauto" "exec" "x-systemd.automount" ];
+    };
   };
 }
 
