@@ -14,7 +14,6 @@
 
 
 remarkable_data_dir="/home/root/.local/share/remarkable/xochitl/"
-remarkable_rsync_path="/opt/bin/rsync"
 hostname="remarkable"
 
 # EDIT AND UNCOMMENT
@@ -27,7 +26,7 @@ local_backup_dir="/home/ghedamat/remarkable_backup/"
 # see: https://remarkablewiki.com/tech/filesystem
 
 # EDIT AND UNCOMMENT
-if rsync -rv -zz --rsync-path=$remarkable_rsync_path --exclude='*.cache' --exclude='*.highlights' --exclude='*.textconversion' --exclude='*.thumbnails' --exclude='*.pagedata' $hostname:$remarkable_data_dir $local_backup_dir ; then
+if rsync -rv -zz --exclude='*.cache' --exclude='*.highlights' --exclude='*.textconversion' --exclude='*.thumbnails' --exclude='*.pagedata' $hostname:$remarkable_data_dir $local_backup_dir ; then
     timestamp=$(date +"%Y/%m/%d %T")
     echo "$timestamp SUCCESS: rsync done! $remarkable_data_dir <-> $local_backup_dir"
 else

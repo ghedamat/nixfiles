@@ -4,7 +4,7 @@ let
   version = "0.0.1";
   mach-nix = import (builtins.fetchGit {
     url = "https://github.com/DavHau/mach-nix/";
-    ref = "2.0.0";
+    ref = "refs/tags/2.0.0";
   });
 
   customPython = mach-nix.mkPython {
