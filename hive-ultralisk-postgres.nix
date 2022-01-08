@@ -98,7 +98,7 @@
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 11 ''
       local all all trust
-      host all all 192.168.199.1/24 trust
+      host all all 0.0.0.0/0 trust
     '';
     settings = {
       shared_buffers = "12GB";
