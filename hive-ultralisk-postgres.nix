@@ -89,6 +89,7 @@
 
   # hivemind config
   hivemind.server.enable = true;
+  hivemind.tailscale.enable = true;
 
   # postgres config
   services.postgresql = {

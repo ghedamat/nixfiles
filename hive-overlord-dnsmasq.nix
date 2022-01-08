@@ -28,12 +28,17 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
   #networking.interfaces.ens160.useDHCP = true;
-  networking.interfaces.ens192.useDHCP = true;
+  networking.interfaces.ens192.useDHCP = false;
+  networking.interfaces.ens192.ipv4.addresses = [ {
+    address = "192.168.199.9";
+    prefixLength = 24;
+  } ];
+  networking.defaultGateway = "192.168.199.1";
   networking.hostName = "overlord"; # Define your hostname.
   networking.firewall.enable = false;
+  networking.nameservers = ["127.0.0.1" "1.1.1.1"];
   networking.extraHosts = ''
     192.168.199.26 esxi.starcraft.local
-    192.168.199.33 dnsmasq.starcraft.local
 
     192.168.199.105 nas.starcraft.local
     192.168.199.90 hue.starcraft.local
@@ -50,7 +55,7 @@
     192.168.199.180 hivemind.starcraft.local
     192.168.199.192 hydralisk.starcraft.local
     192.168.199.159 ultralisk.starcraft.local
-    192.168.199.140 overlord.starcraft.local
+    192.168.199.9 overlord.starcraft.local
     192.168.199.149 nydusworm.starcraft.local
     192.168.199.131 drone.starcraft.local
     192.168.199.118 viper.starcraft.local
@@ -65,7 +70,7 @@
   '';
 
   services.dnsmasq.enable = true;
-  services.dnsmasq.servers = [ "1.1.1.1" "/pnroof.local/192.168.123.47" ];
+  services.dnsmasq.servers = [ "1.1.1.1"];
 
   # Enable cron service
   services.cron = {

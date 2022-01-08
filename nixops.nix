@@ -26,7 +26,7 @@
 
   ultralisk = {
     imports = [ ./hive-ultralisk-postgres.nix ];
-    deployment.targetHost = "ultralisk";
+    deployment.targetHost = "192.168.199.202";
     nix.gc.automatic = true;
   };
 
@@ -38,7 +38,7 @@
 
   overlord = {
     imports = [ ./hive-overlord-dnsmasq.nix ];
-    deployment.targetHost = "192.168.199.140";
+    deployment.targetHost = "192.168.199.9";
     nix.gc.automatic = true;
   };
 
@@ -50,7 +50,7 @@
 
   probe = {
     imports = [ ./hive-probe-outer.nix ];
-    deployment.targetHost = "192.168.199.58";
+    deployment.targetHost = "probe";
     nix.gc.automatic = true;
   };
 
