@@ -91,10 +91,10 @@ bindsym $mod+a focus parent
 #
 bindsym $mod+Shift+f exec focus.sh
 
-workspace main output DP-0
-workspace chat output DP-2
-workspace web output HDMI-0
-workspace misc output HDMI-1
+workspace main output HDMI-0
+workspace chat output HDMI-1
+workspace web output DP-2
+workspace misc output DP-1
 
 # switch to workspace
 bindsym $mod+1 workspace main
