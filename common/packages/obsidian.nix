@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  version = "0.11.5-b";
+  version = "0.12.19";
   pname = "obsidian-appimage";
   name = "${pname}-${version}";
 
@@ -19,7 +19,7 @@ let
 
   src = fetchurl {
     url =
-      "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.11.5/Obsidian-0.11.5.AppImage";
+      "https://github.com/obsidianmd/obsidian-releases/releases/download/v0.12.19/Obsidian-0.12.19.AppImage";
     inherit sha256;
   };
 
