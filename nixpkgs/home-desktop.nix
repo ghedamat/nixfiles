@@ -19,7 +19,7 @@ in {
     #zoom-us
     remmina
     unstable.google-chrome-beta
-    (import ../common/packages/obsidian.nix)
+    obsidian
   ];
 
   home.file."/bin/focus.sh".source = ./bin/focus.sh;
