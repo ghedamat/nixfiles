@@ -15,11 +15,12 @@
   ];
 
   home.packages = with pkgs; [
-    (import ../common/packages/obsidian.nix)
+    obsidian
     (import ../common/packages/exist-to-obsidian.nix)
     rofimoji
     google-chrome-beta
     remmina
+    _1password-gui
   ];
 
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
