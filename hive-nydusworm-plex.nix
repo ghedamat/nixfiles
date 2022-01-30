@@ -21,6 +21,7 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
   networking.hostName = "nydusworm"; # Define your hostname.
+  networking.firewall.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -50,6 +51,22 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   services.openssh.permitRootLogin = "yes";
+
+  # docker stuff
+  virtualisation.docker.enable = true;
+  virtualisation.docker.enableOnBoot = true;
+  virtualisation.oci-containers.containers = {
+    homebridge = {
+      image = " oznu/homebridge:latest";
+      #ports = ["127.0.0.1:8581:8581"];
+      volumes = [ "/home/ghedamat/homebridge:/homebridge" ];
+      extraOptions = [ "--net=host" ];
+      environment = {
+        PUID = "1000";
+        PGID = "100";
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

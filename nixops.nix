@@ -44,13 +44,13 @@
 
   nydusworm = {
     imports = [ ./hive-nydusworm-plex.nix ];
-    deployment.targetHost = "nydusworm";
+    deployment.targetHost = "192.168.199.207";
     nix.gc.automatic = true;
   };
 
   probe = {
     imports = [ ./hive-probe-outer.nix ];
-    deployment.targetHost = "probe";
+    deployment.targetHost = "192.168.199.58";
     nix.gc.automatic = true;
   };
 
@@ -67,13 +67,13 @@
 
   spawningPool = {
     imports = [ ./hive-spawning-pool-printserver.nix ];
-    deployment.targetHost = "spawning-pool";
+    deployment.targetHost = "192.168.199.135";
     nix.gc.automatic = true;
   };
 
   swarmHost = {
     imports = [ ./hive-swarm-host-nas.nix ];
-    deployment.targetHost = "192.168.199.95";
+    deployment.targetHost = "192.168.199.200";
     nix.gc.automatic = true;
   };
 }

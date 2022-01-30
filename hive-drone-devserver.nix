@@ -86,10 +86,6 @@
 
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 
-  # DEV env
-  # docker stuff
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = true;
 
   # increase /run/user/1000 tmpfs size
   services.logind.extraConfig = ''

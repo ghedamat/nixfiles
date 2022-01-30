@@ -5,12 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
     ./hardware/hive-esxi-gpt-vm.nix
     ./common/base-system.nix
     ./common/hivemind.nix
-    ];
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -19,18 +18,16 @@
   networking.hostName = "probe"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.ens160.useDHCP = true;
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ghedamat = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
   # List services that you want to enable:
@@ -57,13 +54,12 @@
     options = [ "user" "noauto" "exec" "x-systemd.automount" ];
   };
 
-  environment.systemPackages = with pkgs; [
-    screen
-  ];
+  environment.systemPackages = with pkgs; [ screen ];
 
   services.openvpn.servers = {
-    homeVPN  = { config = '' config /root/openvpn/home.conf ''; };
+    homeVPN = { config = "config /root/openvpn/home.conf "; };
   };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
