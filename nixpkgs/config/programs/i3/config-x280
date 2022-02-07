@@ -175,11 +175,10 @@ bindsym $mod+d move container to workspace |
 bindsym $mod+m mark focused
 bindsym $mod+t [con_mark="focused"] focus
 
-# Make the currently focused window a scratchpad
-bindsym $mod+Shift+comma move scratchpad
-#
-# # Show the first scratchpad window
-bindsym $mod+comma scratchpad show
+# scratchpad
+bindsym $mod+Shift+grave move scratchpad
+for_window [instance="dropdown"] move scratchpad, border pixel 2, resize set 80 ppt 100 ppt, move absolute position 250 0
+bindsym $mod+grave exec --no-startup-id ~/bin/i3-scratchpad.sh "dropdown"
 
 # Solarized Colors
 # class border backgr. text indicator

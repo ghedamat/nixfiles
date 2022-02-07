@@ -24,6 +24,7 @@
   ];
 
   home.file."/bin/colorterm.sh".source = ./bin/colorterm.sh;
+  home.file."/bin/i3-scratchpad.sh".source = ./bin/i3-scratchpad.sh;
   ghedamat = {
 
     shell = {
