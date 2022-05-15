@@ -94,9 +94,9 @@
   # postgres config
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_11;
+    package = pkgs.postgresql_12;
     enableTCPIP = true;
-    authentication = pkgs.lib.mkOverride 11 ''
+    authentication = pkgs.lib.mkOverride 12 ''
       local all all trust
       host all all 0.0.0.0/0 trust
     '';

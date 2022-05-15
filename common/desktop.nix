@@ -8,7 +8,7 @@
   };
 
   # required by https://github.com/rycee/home-manager/blob/master/FAQ.md#why-do-i-get-an-error-message-about-cadesrtdconf
-  services.dbus.packages = with pkgs; [ gnome3.dconf ];
+  services.dbus.packages = with pkgs; [ dconf ];
 
   # Desktop environment agnostic packages.
   environment.systemPackages = with pkgs; [
@@ -72,7 +72,6 @@
     xorg.xbacklight
     rdesktop
     x2goclient
-    tightvnc
     tigervnc
 
     # Apps

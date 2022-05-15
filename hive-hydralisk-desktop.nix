@@ -72,6 +72,9 @@
   ## NEW
   services.openssh.enable = true;
 
+  services.redshift.enable = true;
+  services.redshift.provider = "geoclue2";
+
   services.logind.extraConfig = ''
     RuntimeDirectorySize=7.8G
   '';
