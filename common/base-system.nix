@@ -8,7 +8,7 @@
 
     ruby
     yarn
-    nodejs-12_x
+    nodejs
     perl
 
     (import ./packages/vim.nix)
@@ -22,7 +22,7 @@
     autojump
     tmux
     source-code-pro
-    ag
+    silver-searcher
 
     htop
     nixfmt

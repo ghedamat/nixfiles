@@ -97,6 +97,7 @@
   services.qemuGuest.enable = true;
 
   xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.flatpak.enable = true;
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
