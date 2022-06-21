@@ -69,7 +69,7 @@
     xclip
     xdotool
     xsel
-    xorg.xbacklight
+    xlibs.xbacklight
     rdesktop
     x2goclient
     tigervnc
@@ -118,7 +118,7 @@
       opensans-ttf
       freefont_ttf
       liberation_ttf
-      xorg.fontmiscmisc
+      xlibs.fontmiscmisc
       ubuntu_font_family
       dejavu_fonts
       powerline-fonts

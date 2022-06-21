@@ -28,11 +28,15 @@
     };
     programs = {
       tmux.enable = true;
-      vsliveshare.enable = true;
+      #vsliveshare.enable = true;
       postgresql.enable = true;
     };
     spacevim.enable = true;
   };
   programs.bat.enable = true;
   programs.go.enable = true;
+
+  home.username = "ghedamat";
+  home.homeDirectory = "/home/ghedamat/";
+  home.stateVersion = "22.05";
 }

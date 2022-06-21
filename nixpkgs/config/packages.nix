@@ -9,7 +9,7 @@
     vscode
     nnn
     anki
-    ag
+    silver-searcher
     tig
     niv
     shellcheck
