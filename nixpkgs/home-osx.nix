@@ -5,13 +5,12 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
   imports = [
-    ./config/git.nix
-    ./config/zsh.nix
+    ./config/shell.nix
     ./config/programs.nix
-    ./SpaceVim.d/space-vim.nix
+    ./config/git.nix
+    ./config/spacevim.nix
   ];
 
-  home.file.".config/tmux.conf".source = ./config/tmux.conf;
 
   programs.bash = {
     enable = true;
@@ -22,22 +21,32 @@
   };
 
   home.packages = with pkgs; [
-    vscode
-    homesick
     (import ./../common/packages/neovim.nix)
+    fd
     fzf
+    keychain
     solargraph
     rustup
+    nodejs
   ];
 
-  programs.zsh = {
-    oh-my-zsh = { theme = "robbyrussell"; };
-    profileExtra = ''
-      . /Users/ghedamat/.nix-profile/etc/profile.d/nix.sh
-      . ${pkgs.autojump}/share/autojump/autojump.zsh
-      export NIX_PATH=/Users/ghedamat/.nix-defexpr/channels/
-      export PATH=$PATH:$HOME/npm-prefix/bin
-    '';
+  ghedamat = {
+
+    shell = {
+      starship = {
+        enable = true;
+        configFile = "starship-x280.toml";
+      };
+      zsh = {
+        enable = true;
+      };
+    };
+
+    programs = {
+      tmux.enable = true;
+    };
+
+    spacevim.enable = true;
   };
 
 }
