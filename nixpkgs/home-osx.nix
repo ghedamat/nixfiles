@@ -2,6 +2,9 @@
 
 {
   # Let Home Manager install and manage itself.
+  home.stateVersion = "22.11";
+  home.username = "ghedamat";
+  home.homeDirectory = "/Users/ghedamat";
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
   imports = [
@@ -28,6 +31,7 @@
     solargraph
     rustup
     nodejs
+    silver-searcher
   ];
 
   ghedamat = {
