@@ -32,6 +32,7 @@
     rustup
     nodejs
     silver-searcher
+    tig
   ];
 
   ghedamat = {
