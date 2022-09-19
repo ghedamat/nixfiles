@@ -33,6 +33,7 @@
     nodejs
     silver-searcher
     tig
+    git-up
   ];
 
   ghedamat = {
