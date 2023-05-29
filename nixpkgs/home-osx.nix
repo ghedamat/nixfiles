@@ -55,4 +55,5 @@
     spacevim.enable = true;
   };
 
+  home.file.".mackup.cfg".source = ./config/programs/mackup/mackup.cfg;
 }
