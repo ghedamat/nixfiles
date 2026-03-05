@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -16,7 +16,8 @@
 
   home.packages = with pkgs; [
     obsidian
-    (import ../common/packages/exist-to-obsidian.nix)
+    # Temporarily disabled due to flake compatibility issues
+    # (callPackage ../common/packages/exist-to-obsidian.nix {})
     rofimoji
     google-chrome-beta
     remmina
@@ -41,7 +42,7 @@
     programs = {
       zoom.enable = true;
       tmux.enable = true;
-      vsliveshare.enable = true;
+      vsliveshare.enable = false; # Temporarily disabled due to flake compatibility
       timeular.enable = true;
       rescuetime.enable = false;
       alacritty = {

@@ -1,11 +1,11 @@
-with import <nixpkgs> { };
+{ pkgs }:
+
+with pkgs;
 let
   pname = "remarkable-to-png";
   version = "0.0.1";
-  mach-nix = import (builtins.fetchGit {
-    url = "https://github.com/DavHau/mach-nix/";
-    ref = "refs/tags/2.0.0";
-  });
+  # Temporarily disabled - fetchFromGitHub requires real hash in flake mode
+  mach-nix = throw "remarkable-to-png package disabled due to flake compatibility";
 
   customPython = mach-nix.mkPython {
     python = python38;

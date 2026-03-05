@@ -1,12 +1,9 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   # Let Home Manager install and manage itself.
-  home.stateVersion = "22.11";
-  home.username = "ghedamat";
-  home.homeDirectory = "/Users/ghedamat";
+  home.stateVersion = "25.05";
   programs.home-manager.enable = true;
-  nixpkgs.config.allowUnfree = true;
   imports = [
     ./config/shell.nix
     ./config/programs.nix
@@ -33,7 +30,10 @@
     silver-searcher
     tig
     git-up
+    ripgrep
+    devenv
   ];
+
 
   ghedamat = {
 
@@ -50,9 +50,7 @@
     programs = {
       tmux.enable = true;
     };
-
-    spacevim.enable = true;
   };
 
-  home.file.".mackup.cfg".source = ./config/programs/mackup/mackup.cfg;
+#  home.file.".mackup.cfg".source = ./config/programs/mackup/mackup.cfg;
 }

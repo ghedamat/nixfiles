@@ -1,4 +1,6 @@
-with import <nixpkgs> { };
+{ pkgs }:
+
+with pkgs;
 let
   pname = "exist-to-obisidian";
   version = "0.0.1";

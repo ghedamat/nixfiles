@@ -7,18 +7,11 @@ in {
     ghedamat.programs.vsliveshare.enable = mkEnableOption "enable vsliveshare";
   };
 
-  imports = [
-    "${
-      fetchTarball "https://github.com/msteen/nixos-vsliveshare/tarball/master"
-    }/modules/vsliveshare/home.nix"
-  ];
+  # Temporarily disabled due to flake compatibility issues
+  # imports = [ ];
 
   config = mkIf cfg.enable {
-    services.vsliveshare = {
-      enable = true;
-      extensionsDir = "$HOME/.vscode/extensions";
-      nixpkgs = fetchTarball
-        "https://github.com/NixOS/nixpkgs/tarball/61cc1f0dc07c2f786e0acfd07444548486f4153b";
-    };
+    # VSLiveShare disabled - requires proper hashes for flake compatibility
+    warnings = [ "VSLiveShare is temporarily disabled due to flake compatibility issues" ];
   };
 }

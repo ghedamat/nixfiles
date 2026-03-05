@@ -17,7 +17,7 @@ in {
       };
       shellAliases = {
         vi = "vim";
-        nvim = "nvim -u ~/.config/nvim/init.vim";
+        #nvim = "nvim -u ~/.config/nvim/init.vim";
         #ssh = "color-ssh";
       };
       profileExtra = ''
@@ -25,13 +25,13 @@ in {
       '';
       initExtraBeforeCompInit = ''
       '';
-      initExtra = ''
-          export EDITOR=vim
+      initContent = ''
+          export EDITOR=nvim
           stty stop undef
           stty start undef
           setopt noflowcontrol
 
-          eval `keychain --eval --agents ssh id_rsa 2018_id_rsa`
+          eval `keychain --eval --agents ssh id_rsa 2018_id_rsa id_ed25519`
           export TERM=xterm-256color
           [ -n "$TMUX" ] && export TERM=screen-256color
           source "$(fzf-share)/key-bindings.zsh"
@@ -70,6 +70,8 @@ in {
           PATH=$PATH:$HOME/bin
 
           export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
+          eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+          alias hms='sudo -H nix run --extra-experimental-features "nix-command flakes" nix-darwin -- switch --flake flake.nix#thaair'
       '' + optionalString config.ghedamat.shell.starship.enable ''
         eval "$(starship init zsh)"
       '' + optionalString cfg.direnv ''

@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
-let unstable = (import <nixpkgs> { });
-in {
+{
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -18,7 +17,7 @@ in {
   home.packages = with pkgs; [
     #zoom-us
     remmina
-    unstable.google-chrome-beta
+    pkgs-unstable.google-chrome-beta
     obsidian
   ];
 

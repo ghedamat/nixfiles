@@ -1,23 +1,17 @@
-let
+# Simple flake-compatible shell.nix
+{ pkgs ? import <nixpkgs> {} }:
 
-  sources = import ./nix/sources.nix;
-
-  nixpkgs = sources."nixpkgs";
-
-  pkgs = import nixpkgs {};
-
-in pkgs.mkShell rec {
-
+pkgs.mkShell {
   name = "home-manager-shell";
 
   buildInputs = with pkgs; [
-    niv
-    (import sources.home-manager {inherit pkgs;}).home-manager
+    # Basic tools for managing the configuration
+    git
+    vim
   ];
 
   shellHook = ''
-    export NIX_PATH="nixpkgs=${nixpkgs}:home-manager=${sources."home-manager"}"
+    echo "Home Manager development shell"
     export HOME_MANAGER_CONFIG="./home.nix"
   '';
-
 }

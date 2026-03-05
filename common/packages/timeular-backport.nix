@@ -1,5 +1,6 @@
-with import <nixpkgs> { };
+{ pkgs }:
 
+with pkgs;
 let
   version = "3.6.0";
   pname = "timeular";

@@ -1,4 +1,6 @@
-with import <nixpkgs> { };
+{ pkgs }:
+
+with pkgs;
 let
   version = "0.12.19";
   pname = "obsidian-appimage";

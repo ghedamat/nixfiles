@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/ghedamat/.config/nixfiles/common/packages/**)",
+      "Read(//Users/ghedamat/.config/nixfiles/**)",
+      "Bash(nix flake update:*)",
+      "Bash(git add:*)",
+      "Read(//etc/nix-darwin/**)",
+      "Read(//private/etc/nix-darwin/**)",
+      "Bash(sudo darwin-rebuild switch:*)",
+      "Bash(darwin-rebuild:*)",
+      "Bash(sudo darwin-rebuild build:*)",
+      "Read(//Users/ghedamat/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

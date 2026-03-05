@@ -1,6 +1,7 @@
 # taken from https://github.com/NixOS/nixpkgs/pull/91203/files
-with import <nixpkgs> { };
+{ pkgs }:
 
+with pkgs;
 stdenv.mkDerivation {
   pname = "zsa-udev-rules";
   version = "unstable-2020-06-20";

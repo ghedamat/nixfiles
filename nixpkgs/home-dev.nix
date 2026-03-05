@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -14,8 +14,9 @@
   ];
 
   home.packages = with pkgs; [
-    (import ../common/packages/remarkable-to-png.nix)
-    (import ../common/packages/exist-to-obsidian.nix)
+    # Temporarily disabled due to flake compatibility issues
+    # (callPackage ../common/packages/remarkable-to-png.nix {})
+    # (callPackage ../common/packages/exist-to-obsidian.nix {})
   ];
 
   ghedamat = {

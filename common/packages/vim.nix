@@ -1,6 +1,6 @@
-with import <nixpkgs> { };
+{ pkgs }:
 
-vim_configurable.customize {
+pkgs.vim_configurable.customize {
   name = "vim";
   vimrcConfig.customRC = ''
     syntax on
