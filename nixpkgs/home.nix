@@ -3,6 +3,10 @@
 {
   # Let Home Manager install and manage itself.
   home.stateVersion = "25.05";
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/.npm-global/bin"
+  ];
   programs.home-manager.enable = true;
   imports = [
     ./config/shell.nix

@@ -13,7 +13,13 @@
     homeConfigurations = {
       "ghedamat" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        modules = [ ./justin.nix ];
+        modules = [
+          {
+            home.username = "ghedamat";
+            home.homeDirectory = "/Users/ghedamat";
+          }
+          ./home.nix
+        ];
       };
     };
   };
