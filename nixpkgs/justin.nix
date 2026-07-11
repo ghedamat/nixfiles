@@ -5,8 +5,12 @@
 #    ./config/git.nix
   ];
   home.username = "ghedamat";
-  home.homeDirectory = "/Users/ghedamat/";
+  # Keep this normalized: a trailing slash makes Home Manager's Zsh module
+  # generate ~/.zshenv as a redirect to itself.
+  home.homeDirectory = "/Users/ghedamat";
   home.stateVersion = "24.05";
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
   home.packages = with pkgs; [
     git
@@ -30,6 +34,13 @@
     # Install/update Claude Code
     ${pkgs.nodejs}/bin/npm install -g @anthropic-ai/claude-code@latest
   '';
+
+  programs.keychain = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    keys = [ "id_rsa" "2018_id_rsa" "id_ed25519" ];
+  };
 
   programs.zsh = {
     enable = true;

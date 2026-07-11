@@ -68,6 +68,9 @@ in {
 
           PATH=$PATH:$HOME/npm-prefix/bin
           PATH=$PATH:$HOME/bin
+          PATH=$PATH:$HOME/.local/bin
+          #PATH=$PATH:$HOME/.npm-global/bin
+
 
           export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
           eval "$(/opt/homebrew/bin/brew shellenv zsh)"
